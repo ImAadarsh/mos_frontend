@@ -125,362 +125,6 @@
                             <div class="courses-button-next"><i class="flaticon-arrow-right"></i></div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="business-tab-pane" role="tabpanel" aria-labelledby="business-tab" tabindex="0">
-                        <div class="swiper courses-swiper-active">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb02.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Design</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.5 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">The Complete Graphic Design for Beginners</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$19.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb03.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Marketing</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.3 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Learning Digital Marketing on Facebook</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$24.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb04.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Business</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.8 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Financial Analyst Training & Investing Course</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$12.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb05.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Data Science</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.5 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Data Analysis & Visualization Masterclass</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$27.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb01.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Development</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.8 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Learning JavaScript With Imagination</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$15.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb06.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Mathematic</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.7 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Master the Fundamentals of Math</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$10.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="courses__nav">
-                            <div class="courses-button-prev"><i class="flaticon-arrow-right"></i></div>
-                            <div class="courses-button-next"><i class="flaticon-arrow-right"></i></div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="development-tab-pane" role="tabpanel" aria-labelledby="development-tab" tabindex="0">
-                        <div class="swiper courses-swiper-active">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb04.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Business</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.8 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Financial Analyst Training & Investing Course</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$12.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb05.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Data Science</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.5 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Data Analysis & Visualization Masterclass</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$27.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb06.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Mathematic</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.7 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Master the Fundamentals of Math</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$10.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb01.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Development</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.8 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Learning JavaScript With Imagination</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$15.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb02.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Design</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.5 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">The Complete Graphic Design for Beginners</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$19.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="courses__item shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb03.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Marketing</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.3 Reviews)</li>
-                                            </ul>
-                                            <h5 class="title"><a href="course-details.html">Learning Digital Marketing on Facebook</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="course-details.html">
-                                                        <span class="text">Enroll Now</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <h5 class="price">$24.00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="courses__nav">
-                            <div class="courses-button-prev"><i class="flaticon-arrow-right"></i></div>
-                            <div class="courses-button-next"><i class="flaticon-arrow-right"></i></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -492,10 +136,10 @@
                     <div class="col-lg-6 col-md-8">
                         <div class="about__images-five">
                             <div class="about__mask-img-one">
-                                <img src="assets/img/others/h5_about_img01.jpg" alt="img">
+                                <img src="assets/img/Untitled design (3).png" alt="img">
                             </div>
                             <div class="about__mask-img-two" data-aos="fade-right" data-aos-delay="200">
-                                <img src="assets/img/others/h5_about_img02.jpg" alt="img">
+                                <img src="assets/img/b5.png" alt="img">
                             </div>
                             <div class="shape">
                                 <img src="assets/img/others/h5_about_img_shape01.svg" alt="shape" data-aos="fade-down-left" data-aos-delay="400">
@@ -526,7 +170,7 @@
                                 </li>
                             </ul>
                             <div class="about__content-bottom">
-                                <a href="contact.php" class="btn arrow-btn">Start Free Trial <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
+                                <a href="login.php" class="btn arrow-btn">Start for Free <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
                                 <div class="about__contact">
                                     <div class="icon">
                                         <i class="skillgro-phone-call"></i>
@@ -535,8 +179,8 @@
                                         </svg>
                                     </div>
                                     <div class="content">
-                                        <a href="tel:0123456789">+985 0059 500</a>
-                                        <span>Call to Questions</span>
+                                        <a href="tel:+917697001231">+91 7697001231</a>
+                                        <span>Call for any Question</span>
                                     </div>
                                 </div>
                             </div>
@@ -689,7 +333,7 @@
                     <div class="col-lg-6 col-md-8 order-0 order-lg-2">
                         <div class="faq__img-three">
                             <div class="faq__mask-img">
-                                <img src="assets/img/others/h5_faq_img.jpg" alt="img">
+                                <img src="assets/img/a2.png" alt="img">
                             </div>
                             <div class="faq__img-shape">
                                 <img src="assets/img/others/h5_faq_img_shape.svg" alt="" class="injectable">
