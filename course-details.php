@@ -19,6 +19,13 @@ use Monolog\Level;?>
     $tsql = "SELECT * FROM trainers where id='$tid'";
     $tresults = $connect->query($tsql);
     $tfinal = $tresults->fetch_assoc();
+
+    if($_SESSION['token']){
+        $uid = $_SESSION['userid'];
+        $transactionsql = "SELECT * FROM payments where workshop_id='$id' AND user_id=$uid AND payment_status=1";
+        $transactionres = $connect->query($transactionsql);
+        $transaction = $transactionres->fetch_assoc();
+    }
     ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -190,7 +197,7 @@ use Monolog\Level;?>
                                     echo $formatted_date;
                                     ?>
                                     </li>
-                                    <li><i class="flaticon-mortarboard"></i>2,250 Students</li>
+                                    <!-- <li><i class="flaticon-mortarboard"></i>2,250 Students</li> -->
                                 </ul>
                             </div>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -284,7 +291,7 @@ use Monolog\Level;?>
                         <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
                             <div class="courses__rating-wrap">
                                 <h2 class="title">Reviews</h2>
-                                <?php if($_SESSION['token']){?>
+                                <?php if(isset($_SESSION['token']) && isset($transaction['payment_id'])){?>
                             <div class="comment-respond">
                                 <h4 class="comment-reply-title">Post a review</h4>
                                 <form action="#" class="comment-form">
@@ -501,8 +508,11 @@ $course_name = $final['name'];
 
 
                             <div class="courses__details-enroll">
-                            <div class="tg-button-wrap mb-20">
                             <?php 
+                        if(!isset($transaction['payment_id'])){
+                                        ?>  
+                            <div class="tg-button-wrap mb-20">
+                                <?php 
                                     if(isset($_SESSION['token'])){
                                         ?>      
                                    
@@ -525,7 +535,7 @@ $course_name = $final['name'];
                                 ?>
                             </div>
                             
-                                <div class="tg-button-wrap">
+                            <div class="tg-button-wrap">
                                     
                                     <?php if($final['is_completed'] == 1) {
                                         ?>
@@ -559,7 +569,17 @@ $course_name = $final['name'];
                                         <?php
                                     }
                                     ?>
-                                </div>
+                            </div>
+                            <?php }else{
+                                ?>
+<div class="tg-button-wrap">
+<a href="#" class="btn btn-two arrow-btn">
+                                       You Have Already Purchased this workshop.
+                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                    </a>
+</div>
+                                <?php
+                            } ?>
                                 
                             </div>
                         </div>

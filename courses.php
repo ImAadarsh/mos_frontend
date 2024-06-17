@@ -232,6 +232,20 @@
                                                     $filters['price'] = "(" . implode(' OR ', $price_filters) . ")";
                                                 }
                                             }
+                                              // Filter by WS Typw
+                                              if (!empty($_GET['is_completed'])) {
+                                                $price_filters = [];
+                                                foreach ($_GET['is_completed'] as $price) {
+                                                    if ($price == 0) {
+                                                        $price_filters[] = "workshops.is_completed = 0";
+                                                    } elseif ($price == 1) {
+                                                        $price_filters[] = "workshops.is_completed = 1";
+                                                    }
+                                                }
+                                                if ($price_filters) {
+                                                    $filters['is_completed'] = "(" . implode(' OR ', $price_filters) . ")";
+                                                }
+                                            }
                                     
                                             // Filter by skill level
                                             if (!empty($_GET['skill'])) {
@@ -254,6 +268,14 @@
                                             if (!empty($_GET['instructor'])) {
                                                 $instructor_ids = array_map('intval', $_GET['instructor']);
                                                 $filters['instructor'] = "workshops.trainer_id IN (" . implode(',', $instructor_ids) . ")";
+                                            }
+
+                                            if (!empty($_GET['workshop_name'])) {
+                                                foreach ($_GET['workshop_name'] as $workshop_name) {
+                                                    $filters['workshop_name'] = "workshops.name LIKE '%$workshop_name%'";
+                                                }
+                                                // $workshop_name = $_GET['workshop_name'];
+                                                
                                             }
                                     
                                             // Combine all filters into the WHERE clause
@@ -279,6 +301,7 @@
                                                     JOIN trainers ON workshops.trainer_id = trainers.id 
                                                     $where_sql
                                                     LIMIT $workshops_per_page OFFSET $offset";
+                                                    // echo $sql;
                                             $results = $connect->query($sql);
 
                                     while ($final = $results->fetch_assoc()) {

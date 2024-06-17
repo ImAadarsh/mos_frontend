@@ -147,21 +147,21 @@
                         <div class="about__content-five">
                             <div class="section__title mb-15">
                                 <span class="sub-title">Get More About Us</span>
-                                <h2 class="title bold">Our passion is childhood, and we’re in kindergarten</h2>
+                                <h2 class="title bold">Reasons to get started with Magic of Skills:</h2>
                             </div>
-                            <p>Groove’s intuitive shared inbox makes it easy for team members to organize, prioritize and.In this episode of the Smashing Pod we’re talking about Web Platform Baseline.</p>
+                            <p>Magic of Skills is a dynamic platform designed to help students discover their talents and interests. Whether you're looking to develop in STEM, explore your creative side, or improve your personal development, Magic of Skills offers a variety of engaging courses and a supportive community.</p>
                             <ul class="about__info-list list-wrap">
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Quality School Schedule</p>
+                                    <p class="content">Learn in-demand skills</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Indoor/Outdoor Games for Little Kids</p>
+                                    <p class="content">Flexible learning</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Supporting the Child’s Personality</p>
+                                    <p class="content">Supportive community</p>
                                 </li>
                             </ul>
                             <div class="about__content-bottom">

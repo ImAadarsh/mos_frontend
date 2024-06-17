@@ -1,10 +1,8 @@
 <?php include "include/connect.php"; ?>
 <meta name="description" content="Magic Of Skills | Designed To Learn More">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
-
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
@@ -21,3 +19,6 @@
     <link rel="stylesheet" href="assets/css/spacing.css">
     <link rel="stylesheet" href="assets/css/tg-cursor.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Pixel Code for https://app.notifyverse.in/ -->
+    <script defer src="https://app.notifyverse.in/pixel/Qq08Gzmla8LDG7QYafAukIbTvBsFoBQu"></script>
+    <!-- END Pixel Code -->

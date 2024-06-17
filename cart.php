@@ -127,7 +127,10 @@
                                 <?php } ?>
                                 <li>Total <span class="amount">₹<?php echo $final['price'] ?></span></li>
                             </ul>
-                            <a href="check-out.html" class="btn">Proceed to checkout</a>
+                            <form action="controller/cartpayment.php" method="post" enctype="multipart/form-data" class="cart__actions-form">
+                                            <input hidden name="cart_id" type="text" value="<?php echo $cart_id; ?>" placeholder="Coupon code">
+                                            <button type="submit" class="btn">Pay Now</button>
+                                        </form>
                         </div>
                     </div>
                 </div>
