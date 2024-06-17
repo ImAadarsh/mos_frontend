@@ -4,16 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>SkillGro - Online Courses & Education Template</title>
+    <title>Magic Of Skills | Designed To Learn More</title>
 <?php include "include/session.php" ;  include "include/meta.php" ?>
 </head>
-
 <body>
-
 <?php include "include/header.php" ?>
-
-
-
     <!-- main-area -->
     <main class="main-area fix">
 
