@@ -11,7 +11,7 @@ function callAPI($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'http://127.0.0.1:8000/api/'.$urlpoint.'';
+    $url = 'https://api.magicofskills.com/public/api/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":
@@ -55,7 +55,7 @@ function callAPI1($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'http://127.0.0.1:8000/api/'.$urlpoint.'';
+    $url = 'https://api.magicofskills.com/public/api/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":
