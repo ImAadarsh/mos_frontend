@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "first_name": "Magic Of Skills",
+      "last_name": "efefew",
+      "email": "admin@magicofskills.com",
+      "mobile": "9617091766",
+      "user_type": "admin",
+      "school": "fe",
+      "city": "null",
+      "grade": "null"
+    },
+    {
+      "id": "41",
+      "first_name": "Magic Of Skills",
+      "last_name": "efefew",
+      "email": "admin@magicofskills.com",
+      "mobile": "9617091766",
+      "user_type": "admin",
+      "school": "fe",
+      "city": "null",
+      "grade": "null"
+    },
+    {
+      "id": "441",
+      "first_name": "Magic Of Skills",
+      "last_name": "efefew",
+      "email": "admin@magicofskills.com",
+      "mobile": "9617091766",
+      "user_type": "admin",
+      "school": "fe",
+      "city": "null",
+      "grade": "null"
+    },
+    {
+      "id": "132",
+      "first_name": "Magic Of Skills",
+      "last_name": "efefew",
+      "email": "admin@magicofskills.com",
+      "mobile": "9617091766",
+      "user_type": "admin",
+      "school": "fe",
+      "city": "null",
+      "grade": "null"
+    }
+  ]
+}
