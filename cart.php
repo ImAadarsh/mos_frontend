@@ -103,7 +103,10 @@
                                             <button type="submit" class="btn">Apply coupon</button>
                                         </form>
                                         <div class="update__cart-btn text-end f-right">
-                                            <button type="submit" class="btn">Add more workshops</button>
+                                            <form action="courses.php" method="get">
+                                            <button type="submit" name="is_completed%5B%5D" value="0" class="btn">Add more workshops</button>
+                                            </form>
+                                           
                                         </div>
                                     </td>
                                 </tr>
@@ -120,7 +123,7 @@
                                 $results = $connect->query($sql);
                                 $final = $results->fetch_assoc();
                                     ?>
-                                <li>Subtotal <span>₹<?php echo $t_price; ?></span></li>
+                                <li>Subtotal <span>₹<?php echo $final['discount'] + $final['price']; ?></span></li>
                                 <li>Discount <span>₹<?php echo $final['discount'] ?></span></li>
                                 <?php if ($final['coupon_code']!=NULL){ ?>
                                     <li>Coupon Code <span><b><?php  echo $final['coupon_code'] ?></b></span></li>

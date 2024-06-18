@@ -22,3 +22,4 @@
     <script>
         SVGInject(document.querySelectorAll("img.injectable"));
     </script>
+    

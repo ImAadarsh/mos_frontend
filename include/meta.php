@@ -22,3 +22,12 @@
     <!-- Pixel Code for https://app.notifyverse.in/ -->
     <script defer src="https://app.notifyverse.in/pixel/Qq08Gzmla8LDG7QYafAukIbTvBsFoBQu"></script>
     <!-- END Pixel Code -->
+     <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QS071R2WWY"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QS071R2WWY');
+    </script>
