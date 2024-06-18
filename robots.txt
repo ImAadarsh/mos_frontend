@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /history.php
+Disallow: /review.php
+Disallow: /attempts.php
+Disallow: /wishlist.php
+Disallow: /enrolled-courses.php
+Disallow: /profile.php
+Disallow: /dashboard.php
+Disallow: /player.php
+Disallow: /calendar.php
+Disallow: /404.php
+Disallow: /logout.php
+Disallow: /registration.php

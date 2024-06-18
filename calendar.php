@@ -51,6 +51,7 @@ while ($row = $resultWorkshops->fetch_assoc()) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="robots" content="noindex">
     <title>Magic Of Skills | Calendar Page</title>
     <?php 
     include "include/private_page.php";

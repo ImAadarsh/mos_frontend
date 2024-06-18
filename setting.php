@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Magic Of Skills | Designed To Learn More</title>
+    <title>Magic Of Skills | Profile Settings</title>
     <?php include "include/private_page.php" ;  include "include/meta.php" ?>
+    <meta name="robots" content="noindex">
 </head>
 
 <body>

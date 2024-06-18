@@ -13,6 +13,7 @@
         header('location: ../dashboard.php');
     }
     include "include/meta.php" ?>
+    <meta name="robots" content="noindex">
 </head>
 
 <body>
