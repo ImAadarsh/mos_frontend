@@ -85,14 +85,14 @@
                                 <div class="swiper-slide">
                                     <div class="courses__item shine__animate-item">
                                         <div class="courses__item-thumb">
-                                            <a href="course-details.php?category_id=<?php echo $final['category_id']; ?>" class="shine__animate-link">
+                                            <a href="course-details.php?id=<?php echo $final['id']; ?>" class="shine__animate-link">
                                                 <img src="<?php echo $uri . $final['icon'] ?>" alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content">
                                             <ul class="courses__item-meta list-wrap">
                                                 <li class="courses__item-tag">
-                                                    <a href="course-details.php?category_id=<?php echo $final['category_id']; ?>"><?php echo $final['category_name']; ?></a>
+                                                    <a href="course-details.php?id=<?php echo $final['id']; ?>"><?php echo $final['category_name']; ?></a>
                                                 </li>
                                           <li><a href="controller/wishlist.php?workshop_id=<?php echo $final['id']; ?>" class="courses__wishlist-one"><img src="assets/img/icons/heart02.svg" alt="" class="injectable"></a></li>
                                             </ul>

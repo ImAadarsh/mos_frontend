@@ -74,7 +74,7 @@
                        $mobile = $row['mobile'];
                        $about = $row['about'];
                        $created_at = $row['created_at'];
-                       if($row['email_verified']==0){$text = "<b style='color: Red'>Not Verified</b>";}else{$text = "<b style='color: Red'> Verified</b>";}
+                       if($row['email_verified']==0){$text = "<b style='color: Red'>Not Verified</b>";}else{$text = "<b style='color: GREEN'> Verified</b>";}
                    
                        // Format the registration date
                        $registration_date = date("F j, Y g:i a", strtotime($created_at));

@@ -1,7 +1,11 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 include "include/session.php";
 include "include/connect.php"; 
 use Monolog\Level;?>
+
 <?php
 // Set the timezone to IST
 
@@ -273,7 +277,6 @@ use Monolog\Level;?>
                             // echo $rsql;
                             $rresults = $connect->query($rsql);
 
-
                             $reviews = [];
                             $total_rating = 0;
                             $rating_counts = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0];
@@ -284,8 +287,13 @@ use Monolog\Level;?>
                                 $rating_counts[$review['rating']]++;
                             }
 
-                            $average_rating = $total_rating / count($reviews);
                             $total_reviews = count($reviews);
+
+                            if ($total_reviews > 0) {
+                                $average_rating = $total_rating / $total_reviews;
+                            } else {
+                                $average_rating = 0; // No reviews, so average rating is 0
+                            }
                             ?>
 
                         <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
@@ -574,8 +582,8 @@ $course_name = $final['name'];
                                 ?>
 <div class="tg-button-wrap">
 <a href="#" class="btn btn-two arrow-btn">
-                                       You Have Already Purchased this workshop.
-                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                       Already Purchased.
+                                        
                                     </a>
 </div>
                                 <?php
