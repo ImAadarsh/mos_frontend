@@ -31,7 +31,7 @@ $currentUrl = getCurrentUrl();
             <li class="<?php echo ($currentUrl == 'enrolled-courses.php') ? 'active' : ''; ?>">
                 <a href="enrolled-courses.php">
                     <i class="skillgro-book"></i>
-                    Enrolled Courses
+                    Enrolled Workshops
                 </a>
             </li>
             <li class="<?php echo ($currentUrl == 'wishlist.php') ? 'active' : ''; ?>">
@@ -46,16 +46,16 @@ $currentUrl = getCurrentUrl();
                     Reviews
                 </a>
             </li>
-            <li class="<?php echo ($currentUrl == 'attempts.php') ? 'active' : ''; ?>">
+            <!-- <li class="<?php echo ($currentUrl == 'attempts.php') ? 'active' : ''; ?>">
                 <a href="attempts.php">
                     <i class="skillgro-question"></i>
                     My Quiz Attempts
                 </a>
-            </li>
+            </li> -->
             <li class="<?php echo ($currentUrl == 'history.php') ? 'active' : ''; ?>">
                 <a href="history.php">
                     <i class="skillgro-satchel"></i>
-                    Order History
+                    Transaction Details
                 </a>
             </li>
         </ul>

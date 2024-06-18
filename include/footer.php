@@ -39,10 +39,10 @@
                             <div class="footer__link">
                                 <ul class="list-wrap">
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="instructor-details.php">Become Teacher</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="instructor-details.php">Instructor</a></li>
-                                    <li><a href="events-details.php">Events</a></li>
+                                    <li><a href="https://ipnacademy.in/become-trainer.php">Become Teacher</a></li>
+                                    <li><a href="https://ipnacademy.in">IPN Academy</a></li>
+                                    <li><a href="https://eduacequest.in">Eduace Quest</a></li>
+                                    <li><a href="https://ipnacademy.in/Conclave">IPN Conclave</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                         <div class="footer__widget">
                             <h4 class="footer__widget-title">Get In Touch</h4>
                             <div class="footer__contact-content">
-                                <p>when an unknown printer took <br> galley type and scrambled</p>
+                                <p>For latest news and recent update please <br> follow us on social media accounts.</p>
                                 <ul class="list-wrap footer__social">
                                     <li>
                                         <a href="https://www.facebook.com/" target="_blank">

@@ -10,11 +10,11 @@
                                 <ul class="list-wrap">
                                     <li>
                                         <img src="assets/img/icons/course_icon03.svg" alt="img" class="injectable">
-                                        5 Courses Enrolled
+                                        <?php echo $_SESSION['email'] ?>
                                     </li>
                                     <li>
                                         <img src="assets/img/icons/course_icon05.svg" alt="img" class="injectable">
-                                        4 Certificate
+                                        <?php echo $_SESSION['mobile'] ?>
                                     </li>
                                 </ul>
                             </div>

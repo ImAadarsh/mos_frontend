@@ -18,7 +18,7 @@ if($_POST['cart_id']==$_SESSION['cart_id']){
     if($cart['payment_status']==1){
         // Already Bought Workshop Condition
         echo "<script>alert('Payment for this cart workshops already completed.')
-            window.location.href='../user/workshops.php';
+            window.location.href='../enrolled-courses.php';
                 </script>
                 ";
     }else if($cart['price']<9){
@@ -48,7 +48,7 @@ if($_POST['cart_id']==$_SESSION['cart_id']){
             session_start();
             $_SESSION['cart_id'] = $response['cart'];
             echo "<script>alert('".$response['message']."');
-            window.location.href='/user/workshops.php';
+            window.location.href='../enrolled-courses.php';
             </script>";
         }else{
             echo "<script>alert('".$response['message']."');
@@ -67,7 +67,7 @@ if($_POST['cart_id']==$_SESSION['cart_id']){
                 array("X-Api-Key: 0c7802aae2cb271a656b36e0071d85d0",
                       "X-Auth-Token: 4d8d5cbfc51796caa87dc1b6ededfa9a"));
     $token = rand(1000000000000,9999999999999999);
-    $redirect = 'https://ipnacademy.in/controllers/validatecart.php?token='.$token;
+    $redirect = 'https://magicofskills.com/controller/validatecart.php?token='.$token;
     $payload = Array(
         'purpose' => 'Magic Of Skills | Workshop Payment',
         'amount' => $price,
@@ -75,7 +75,7 @@ if($_POST['cart_id']==$_SESSION['cart_id']){
         'buyer_name' => $_SESSION['name'],
         'redirect_url' => $redirect,
         'send_email' => true,
-        'webhook' => 'https://ipnacademy.in/controllers/validatewebhook.php',
+        'webhook' => 'https://magicofskills.com/controller/validatewebhook.php',
         'send_sms' => true,
         'email' => $_SESSION['email'],
         'allow_repeated_payments' => false

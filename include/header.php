@@ -10,13 +10,13 @@
 </script>
 
     <!--Preloader-->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div id="loader" class="loader">
             <div class="loader-container">
                 <div class="loader-icon"><img src="assets/img/logo/preloader.svg" alt="Preloader"></div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Preloader-end -->
 
     <!-- Scroll-top -->
@@ -145,7 +145,11 @@
                                         <li class=""><a href="contact.php">Contact</a>
                                         
                                         </li>
-                                        
+                                                                                    <?php 
+                                           
+                                            if (isset($_SESSION['token'])) { 
+                                            ?> 
+
                                         <li class="menu-item-has-children"><a href="#">Dashboard</a>
                                             <ul class="sub-menu">
                                                
@@ -153,16 +157,19 @@
                                                   
                                                         <li><a href="dashboard.php">Dashboard</a></li>
                                                         <li><a href="profile.php">Profile</a></li>
-                                                        <li><a href="student-enrolled-courses.php">Enrolled Courses</a></li>
-                                                        <li><a href="student-wishlist.html">Wishlist</a></li>
-                                                        <li><a href="student-review.html">Reviews</a></li>
-                                                        <li><a href="attempts.php">My Quiz Attempts</a></li>
-                                                        <li><a href="history.php">Order History</a></li>
-                                                        <li><a href="student-setting.html">Settings</a></li>
+                                                        <li><a href="enrolled-courses.php">Enrolled Workshops</a></li>
+                                                        <li><a href="wishlist.php">Wishlist</a></li>
+                                                        <li><a href="review.php">Reviews</a></li>
+                                                        <li><a href="history.php">Transactions Details</a></li>
+                                                        <li><a href="setting.php">Settings</a></li>
+                                                        <li><a href="logout.php">Logout</a></li>
                                                   
                                                
                                             </ul>
                                         </li>
+                                        <?php 
+                                            } 
+                                            ?>
                                     </ul>
                                 </div>
                                 <div class="tgmenu__search d-none d-md-block">

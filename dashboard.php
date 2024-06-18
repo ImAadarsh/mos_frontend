@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Magic Of Skills | Designed To Learn More</title>
     <?php 
-    include "include/session.php" ; 
+    include "include/private_page.php" ; 
     include "include/meta.php" ?>
 </head>
 
@@ -41,6 +41,25 @@
                     <div class="col-lg-3">
                         <?php include "user_dash/nav.php"; ?>
                     </div>
+                    <?php
+                        $uid = $_SESSION['userid'];
+
+                        // Enrolled workshops
+                        $sql = "SELECT * FROM payments WHERE user_id=$uid AND payment_status=1";
+                        $results = $connect->query($sql);
+                        $enrolled = mysqli_num_rows($results);
+
+                        // Upcoming workshops
+                        $sql_upcoming = "SELECT * FROM workshops w JOIN payments p ON w.id = p.workshop_id WHERE p.user_id=$uid AND w.is_completed=0";
+                        $results_upcoming = $connect->query($sql_upcoming);
+                        $upcoming = mysqli_num_rows($results_upcoming);
+
+                        // Completed workshops
+                        $sql_completed = "SELECT * FROM workshops w JOIN payments p ON w.id = p.workshop_id WHERE p.user_id=$uid AND w.is_completed=1";
+                        $results_completed = $connect->query($sql_completed);
+                        $completed = mysqli_num_rows($results_completed);
+                    ?>
+
                     <div class="col-lg-9">
                         <div class="dashboard__content-wrap dashboard__content-wrap-two">
                             <div class="dashboard__content-title">
@@ -53,8 +72,8 @@
                                             <i class="skillgro-book"></i>
                                         </div>
                                         <div class="content">
-                                            <span class="count odometer" data-count="30"></span>
-                                            <p>ENROLLED COURSES</p>
+                                        <span class="count odometer" data-count="<?php echo $enrolled; ?>"></span>
+                                            <p>ENROLLED Workshops </p>
                                         </div>
                                     </div>
                                 </div>
@@ -64,8 +83,8 @@
                                             <i class="skillgro-tutorial"></i>
                                         </div>
                                         <div class="content">
-                                            <span class="count odometer" data-count="10"></span>
-                                            <p>ACTIVE COURSES</p>
+                                        <span class="count odometer" data-count="<?php echo $upcoming; ?>"></span>
+                                        <p>UPCOMING WORKSHOPS</p>
                                         </div>
                                     </div>
                                 </div>
@@ -75,8 +94,8 @@
                                             <i class="skillgro-diploma-1"></i>
                                         </div>
                                         <div class="content">
-                                            <span class="count odometer" data-count="7"></span>
-                                            <p>COMPLETED COURSES</p>
+                                        <span class="count odometer" data-count="<?php echo $completed; ?>"></span>
+                                        <p>COMPLETED WORKSHOPS</p>
                                         </div>
                                     </div>
                                 </div>

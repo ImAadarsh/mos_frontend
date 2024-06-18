@@ -5,7 +5,7 @@ $user = "u954141192_mos";
 $password = "Mos@2024";
 $dbname = "u954141192_mos";
 $connect = mysqli_connect($host,$user,$password,$dbname);
-$uri = 'https://api.magicofskills.com/storage/app/';
+$uri = 'http://127.0.0.1/mos/backend/storage/app/';
 date_default_timezone_set('Asia/Kolkata');
 $current_time = time();
 function callAPI($method, $urlpoint, $data, $token){
@@ -13,7 +13,7 @@ function callAPI($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'https://api.magicofskills.com/public/api/'.$urlpoint.'';
+    $url = 'http://127.0.0.1:8000/api/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":
@@ -57,7 +57,7 @@ function callAPI1($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'https://api.magicofskills.com/public/api/'.$urlpoint.'';
+    $url = 'http://127.0.0.1:8000/api/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Magic Of Skills | Designed To Learn More</title>
-    <?php  include "include/session.php" ; include "include/meta.php" ?>
+    <?php  include "include/private_page.php" ; include "include/meta.php" ?>
 </head>
 
 <body>
@@ -47,209 +47,55 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="dashboard__review-table">
-                                        <table class="table table-borderless">
-                                            <thead>
-                                                <tr>
-                                                    <th>Course</th>
-                                                    <th>Feedback</th>
-                                                    <th>&nbsp;</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <a href="course-details.php">The Complete Graphic Design for Beginners</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="review__wrap">
-                                                            <div class="rating">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span>(3 Reviews)</span>
-                                                        </div>
-                                                        <p>Good</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="course-details.php">The Complete Graphic Design for Beginners</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="review__wrap">
-                                                            <div class="rating">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span>(3 Reviews)</span>
-                                                        </div>
-                                                        <p>Good</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="course-details.php">The Complete Graphic Design for Beginners</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="review__wrap">
-                                                            <div class="rating">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span>(3 Reviews)</span>
-                                                        </div>
-                                                        <p>Good</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="course-details.php">The Complete Graphic Design for Beginners</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="review__wrap">
-                                                            <div class="rating">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span>(3 Reviews)</span>
-                                                        </div>
-                                                        <p>Good</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="course-details.php">The Complete Graphic Design for Beginners</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="review__wrap">
-                                                            <div class="rating">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span>(3 Reviews)</span>
-                                                        </div>
-                                                        <p>Good</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="course-details.php">The Complete Graphic Design for Beginners</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="review__wrap">
-                                                            <div class="rating">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span>(3 Reviews)</span>
-                                                        </div>
-                                                        <p>Good</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="course-details.php">The Complete Graphic Design for Beginners</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="review__wrap">
-                                                            <div class="rating">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span>(3 Reviews)</span>
-                                                        </div>
-                                                        <p>Good</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="course-details.php">The Complete Graphic Design for Beginners</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="review__wrap">
-                                                            <div class="rating">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span>(3 Reviews)</span>
-                                                        </div>
-                                                        <p>Good</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <?php
+                                    $userId = $_SESSION['userid'];
+    // Fetch reviews data
+    $reviewsQuery = "SELECT reviews.*, workshops.name AS workshop_name FROM reviews 
+                     LEFT JOIN workshops ON reviews.workshop_id = workshops.id 
+                     WHERE reviews.user_id = ?";
+    $stmt = $connect->prepare($reviewsQuery);
+    $stmt->bind_param('i', $userId);
+    $stmt->execute();
+    $reviewsResult = $stmt->get_result();
+    $reviews = $reviewsResult->fetch_all(MYSQLI_ASSOC);
+?>
+
+<table class="table table-borderless">
+    <thead>
+        <tr>
+            <th>Workshops</th>
+            <th>Feedback</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($reviews as $review) { ?>
+            <tr>
+                <td>
+                    <a href="course-details.php?id=<?php echo $review['workshop_id']; ?>"><?php echo $review['workshop_name']; ?></a>
+                </td>
+                <td>
+                    <div class="review__wrap">
+                        <div class="rating">
+                            <?php for ($i = 0; $i < $review['rating']; $i++) { ?>
+                                <i class="fas fa-star"></i>
+                            <?php } ?>
+                        </div>
+                        <span>(<?php echo $review['rating']; ?> Star)</span>
+                    </div>
+                    <p><?php echo $review['comment']; ?></p>
+                </td>
+                <td>
+                    <div class="dashboard__review-action">
+                        <a href="http://127.0.0.1/mos/course-details.php?id=<?php echo $review['workshop_id']; ?>#reviews" title="Edit"><i class="skillgro-edit"></i></a>
+                        <a href="remove/review.php?id=<?php echo $review['id']; ?>" title="Delete"><i class="skillgro-bin"></i></a>
+                    </div>
+                </td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+
                                     </div>
                                 </div>
                             </div>

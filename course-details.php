@@ -292,9 +292,9 @@ use Monolog\Level;?>
                             <div class="courses__rating-wrap">
                                 <h2 class="title">Reviews</h2>
                                 <?php if(isset($_SESSION['token']) && isset($transaction['payment_id'])){?>
-                            <div class="comment-respond">
-                                <h4 class="comment-reply-title">Post a review</h4>
-                                <form action="#" class="comment-form">
+                            <div id="#reviews"  class="comment-respond">
+                                <h4  class="comment-reply-title">Post a review</h4>
+                                <form  action="#" class="comment-form">
                                     <p class="comment-notes">
                                         <span>Post a review sharing your experience of workshop *</span>
                                     </p>
@@ -599,6 +599,13 @@ $course_name = $final['name'];
 
 
     <?php include "include/script.php" ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.location.hash === '#reviews') {
+                document.getElementById('reviews-tab').click();
+            }
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.comment-form');

@@ -1,3 +1,22 @@
+<?php
+include "../include/connect.php";
+$order_id = $_GET['order_id'];
+$sql = "SELECT * FROM carts where order_id='$order_id'";
+$results = $connect->query($sql);
+$cart = $results->fetch_assoc();
+
+$cid = $cart['user_id'];
+$csql = "SELECT * FROM users where id='$cid'";
+$cresults = $connect->query($csql);
+$user = $cresults->fetch_assoc();
+
+// $tid = $final['trainer_id'];
+// $tsql = "SELECT * FROM trainers where id='$tid'";
+// $tresults = $connect->query($tsql);
+// $tfinal = $tresults->fetch_assoc();
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -75,10 +94,10 @@ Invoice Area
                                 <div class="invoice-left">
                                     <b>Invoiced To:</b>
                                     <address>
-                                        Jhon Deo <br>
-                                        450 E 96th St, Indianapolis, WRHX+8Q <br>
-                                        IN 46240, United States <br>
-                                        info@jhondeo.com
+                                        <?php echo $user['first_name']." ".$user['last_name']; ?> <br>
+                                        <?php echo $user['city']; ?> <br>
+                                        <?php echo $user['mobile']; ?> <br>
+                                        <?php echo $user['email']; ?>
                                     </address>
                                 </div>
                             </div>
@@ -97,39 +116,55 @@ Invoice Area
                             <div class="col-auto">
                                 <div class="invoice-right">
                                     
-                                    <p class="invoice-number"><b>Invoice No: </b>#935648</p>
-                                    <p class="invoice-date"><b>Date: </b>22/03/2023</p>
+                                    <p class="invoice-number"><b>Invoice No:</b> MOS_0<?php echo $cart['id']; ?></p>
+                                    <p class="invoice-date"><b>Date: </b><?php
+                                            $date = $cart['updated_at']; // Assume this is in 'Y-m-d H:i:s' format (e.g., '2024-04-13 17:00:00')
+                                            $formattedDate = DateTime::createFromFormat('Y-m-d H:i:s', $date)->format('F j, Y');
+                                            echo $formattedDate;
+                                            ?></p>
                                 </div>
                             </div>
                         </div>
-                        <table class="invoice-table style2">
-                            <thead>
-                                <tr>
-                                    <th>SNo.</th>
-                                    <th>Workshop Name</th>
-                                    <th>Price</th>
-                                    <th>Discount</th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Family Photo Session</td>
-                                    <td>799.00</td>
-                                    <td>100</td>
-                                    <td>₹699.00</td>
-                                </tr>
-                                
-                                
-                            </tbody>
-                        </table>
+                        <?php
+    // Fetch payment details
+    $p_id = $cart['payment_id'];
+    $paymentDetailsQuery = "SELECT payments.*, workshops.name AS workshop_name  FROM payments 
+                            LEFT JOIN workshops ON payments.workshop_id = workshops.id 
+                            WHERE payments.payment_id = '$p_id' ";
+                            // echo $paymentDetailsQuery;
+    $stmt = $connect->prepare($paymentDetailsQuery);
+    $stmt->execute();
+    $paymentDetailsResult = $stmt->get_result();
+    $paymentDetails = $paymentDetailsResult->fetch_all(MYSQLI_ASSOC);
+?>
+
+<table class="invoice-table style2">
+    <thead>
+        <tr>
+            <th>SNo.</th>
+            <th>Workshop Name</th>
+            <th>Amount Paid</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($paymentDetails as $index => $payment) { ?>
+            <tr>
+                <td><?php echo $index + 1; ?></td>
+                <td><?php echo $payment['workshop_name']; ?></td>
+               
+                <td>₹<?php echo number_format($payment['amount'], 2); ?></td> <!-- Replace with actual total if discount is applicable -->
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+
                         <div class="row justify-content-between">
                             <div class="col-auto">
                                 <div class="invoice-left mb-40">
                                     <b>Payment Info:</b>
-                                    <p class="mb-0">Method : Phonpe Gateway<br>
-                                        Transaction ID : T2046e34328908jj43278<br>
+                                    <p class="mb-0">Method : Online Gateway<br>
+                                        Order ID : <?php echo $cart['order_id']; ?><br>
+                                        Transaction ID : <?php echo $cart['payment_id']; ?><br>
                                 </div>
                                 <div class="invoice-left">
                                     <b>Importants</b>
@@ -140,15 +175,15 @@ Invoice Area
                                 <table class="total-table">
                                     <tr>
                                         <th>Sub Total:</th>
-                                        <td>₹460.00</td>
+                                        <td>₹<?php echo $cart['price'] + $cart['discount']; ?></td>
                                     </tr>
                                     <tr>
-                                        <th>Tax:</th>
-                                        <td>₹0.00</td>
+                                        <th>Discount:</th>
+                                        <td>₹<?php echo $cart['discount']; ?></td>
                                     </tr>
                                     <tr>
-                                        <th>Total:</th>
-                                        <td>₹460.00</td>
+                                        <th>Amount Paid:</th>
+                                        <td>₹<?php echo $cart['price']; ?></td>
                                     </tr>
                                 </table>
                                 <div class="invoice-note2 mt-25">

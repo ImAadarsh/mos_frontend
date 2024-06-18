@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Magic Of Skills | Designed To Learn More</title>
-    <?php  include "include/session.php" ;  include "include/meta.php" ?>
+    <?php  include "include/private_page.php" ;  include "include/meta.php" ?>
 </head>
 
 <body>
@@ -46,291 +46,53 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="dashboard__review-table">
-                                        <table class="table table-borderless">
-                                            <thead>
-                                                <tr>
-                                                    <th>Order ID</th>
-                                                    <th>Course Name</th>
-                                                    <th>Date</th>
-                                                    <th>Price</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <p>#5478</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>App Development</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>January 31, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$99.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result">Success</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#4585</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>Graphic</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>February 03, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$199.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result processing">Processing</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#7869</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>Digital Marketing</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>March 25, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$49.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result hold">On Hold</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#4586</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>JavaScript</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>May 15, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$129.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result fail">Canceled</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#5478</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>App Development</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>January 31, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$99.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result">Success</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#4585</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>Graphic</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>February 03, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$199.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result processing">Processing</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#7869</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>Digital Marketing</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>March 25, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$49.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result hold">On Hold</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#4586</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>JavaScript</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>May 15, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$129.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result fail">Canceled</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#5478</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>App Development</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>January 31, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$99.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result">Success</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#4585</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>Graphic</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>February 03, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$199.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result processing">Processing</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#7869</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>Digital Marketing</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>March 25, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$49.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result hold">On Hold</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#4586</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>JavaScript</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>May 15, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$129.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result fail">Canceled</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#5478</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>App Development</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>January 31, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$99.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result">Success</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#4585</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>Graphic</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>February 03, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$199.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result processing">Processing</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#7869</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>Digital Marketing</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>March 25, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$49.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result hold">On Hold</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#4586</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>JavaScript</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>May 15, 2024</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$129.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result fail">Canceled</span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <?php
+    // Fetch payments data
+    $userId = $_SESSION['userid'];
+    $paymentsQuery = "SELECT payments.*, workshops.name AS workshop_name FROM payments 
+                      LEFT JOIN workshops ON payments.workshop_id = workshops.id 
+                      WHERE payments.user_id = ?";
+    $stmt = $connect->prepare($paymentsQuery);
+    $stmt->bind_param('i', $userId);
+    $stmt->execute();
+    $paymentsResult = $stmt->get_result();
+    $payments = $paymentsResult->fetch_all(MYSQLI_ASSOC);
+?>
+
+<table class="table table-borderless">
+    <thead>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Workshop Name</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($payments as $payment) { ?>
+            <tr>
+                <td>
+                    <p>#<?php echo $payment['payment_id']; ?></p>
+                </td>
+                <td>
+                    <p><?php echo $payment['workshop_name']; ?></p>
+                </td>
+                <td>
+                    <p><?php echo date('F d, Y', strtotime($payment['created_at'])); ?></p>
+                </td>
+                <td>
+                    <p>₹<?php echo number_format($payment['amount'], 2); ?></p>
+                </td>
+                <td>
+                    <span class="dashboard__quiz-result"><?php  if($payment['payment_status']==1){echo "Success";} else{echo "Failed";} ?></span>
+
+                </td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+
                                     </div>
                                 </div>
                             </div>
