@@ -162,7 +162,7 @@ use Monolog\Level;?>
                         <div class="courses__details-content">
                             <ul class="courses__item-meta list-wrap">
                                 <li class="courses__item-tag">
-                                    <a href="course.html"><?php echo $cfinal['name'] ?></a>
+                                    <a href="courses.php"><?php echo $cfinal['name'] ?></a>
                                 </li>
                                 <!-- <li class="avg-rating"><i class="fas fa-star"></i>  -->
                                 <?php

@@ -83,7 +83,7 @@ Invoice Area
                             <div class="row align-items-center justify-content-end">
                                 <div class="col-auto">
                                     <div class="header-logo">
-                                        <a href="index.html"><img src="../assets/img/logo/secondary_logo.svg" alt="Invar"></a>
+                                        <a href="index.php"><img src="../assets/img/logo/secondary_logo.svg" alt="Invar"></a>
                                     </div>
                                 </div>
                             </div>

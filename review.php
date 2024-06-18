@@ -87,7 +87,7 @@
                 </td>
                 <td>
                     <div class="dashboard__review-action">
-                        <a href="http://127.0.0.1/mos/course-details.php?id=<?php echo $review['workshop_id']; ?>#reviews" title="Edit"><i class="skillgro-edit"></i></a>
+                        <a href="https://magicofskills.com/course-details.php?id=<?php echo $review['workshop_id']; ?>#reviews" title="Edit"><i class="skillgro-edit"></i></a>
                         <a href="remove/review.php?id=<?php echo $review['id']; ?>" title="Delete"><i class="skillgro-bin"></i></a>
                     </div>
                 </td>

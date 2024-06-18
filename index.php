@@ -279,7 +279,7 @@
                                 </div>
                                 <p>At Magic of Skills, we believe in the power of community. Our vibrant and supportive community is at the heart of our platform, bringing together students from diverse backgrounds who share a common passion for learning and growth.</p>
                                 <div class="tg-button-wrap">
-                                    <a href="events.html" class="btn arrow-btn">See All Events <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                    <a href="events.php" class="btn arrow-btn">See All Events <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                                 </div>
                             </div>
                         </div>
@@ -504,7 +504,7 @@
                                 <a href="blog-details.php?id=<?php echo $finalr['id'] ?>" class="shine__animate-link"><img src="<?php echo $uri.$finalr['icon'] ?>" alt="img"></a>
                             </div>
                             <div class="blog__post-content-four">
-                                <a href="blog.html" class="post-tag-three"><?php echo $finalr['cat_name'] ?></a>
+                                <a href="blog.php" class="post-tag-three"><?php echo $finalr['cat_name'] ?></a>
                                 <h2 class="title"><a href="blog-details.php?id=<?php echo $finalr['id'] ?>"><?php echo $finalr['title'] ?></a></h2>
                                 <div class="blog__post-meta">
                                     <ul class="list-wrap">
