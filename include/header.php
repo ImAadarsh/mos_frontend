@@ -249,7 +249,14 @@
                                     </ul>
                                 </div>
                                 <div class="mobile-login-btn">
-                                    <a href="login.php"><img src="assets/img/icons/user.svg" alt="" class="injectable"></a>
+                                <?php if($_SESSION['token']){ ?>
+                                    <a href="dashboard.php"><img style="width: 80px;  border: 1px solid black; border-radius: 50%; padding: 1px;" src="<?php if($_SESSION['profile']==null){echo "assets/user_icon.png";}else{echo $uri.$_SESSION['profile']; } ?>" alt="" class="injectable"></a>
+                                    <?php }else{
+                                        ?>
+                                        <a href="login.php"><img src="assets/img/icons/user.svg" alt="" class="injectable"></a>
+                                        <?php
+                                    } ?>
+                                    
                                 </div>
                                 <div class="mobile-nav-toggler"><i class="tg-flaticon-menu-1"></i></div>
                             </nav>

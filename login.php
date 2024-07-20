@@ -20,7 +20,7 @@
         }
         $CLIENT_ID = '13155789032170991970';
         $REDIRECT_URL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-        $AUTH_URL = 'https://auth.phone.email/log-in?client_id='.$CLIENT_ID.'&redirect_url=http://magicofskills.com/controller/getstarted.php?ws_id='.$ws_id.'';
+        $AUTH_URL = 'https://auth.phone.email/log-in?client_id='.$CLIENT_ID.'&redirect_url=https://magicofskills.com/controller/getstarted.php?ws_id='.$ws_id.'';
     ?>
 
 

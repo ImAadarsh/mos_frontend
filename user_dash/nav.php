@@ -46,6 +46,18 @@ $currentUrl = getCurrentUrl();
                     Reviews
                 </a>
             </li>
+            <li class="<?php echo ($currentUrl == 'quiz.php') ? 'active' : ''; ?>">
+                <a href="quiz.php">
+                    <i class="skillgro-book-2"></i>
+                    Give Quiz
+                </a>
+            </li>
+            <li class="<?php echo ($currentUrl == 'result.php') ? 'active' : ''; ?>">
+                <a href="result.php ">
+                    <i class="skillgro-book-2"></i>
+                    Quiz Results
+                </a>
+            </li>
             <!-- <li class="<?php echo ($currentUrl == 'attempts.php') ? 'active' : ''; ?>">
                 <a href="attempts.php">
                     <i class="skillgro-question"></i>
