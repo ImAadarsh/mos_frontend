@@ -69,6 +69,9 @@
                                         <li class="active "><a href="index.php">Home</a>
                                             
                                         </li>
+                                        <li class=""><a href="login.php">QLAB</a>
+                                        
+                                        </li>
                                         <li class="menu-item-has-children"><a href="#">Workshops</a>
                                             
                                             <ul class="sub-menu mega-menu">
@@ -139,12 +142,12 @@
                                             <li class=""><a href="events.php">Events</a>
                                             <li class=""><a href="instructors.php">Instructor</a>
                                             <li class=""><a href="blog.php">Blogs</a>
+                                            <li class=""><a href="contact.php">Contact</a>
+                                    
                                             </ul>
                                         </li>
                                         
-                                        <li class=""><a href="contact.php">Contact</a>
-                                        
-                                        </li>
+                                       
                                                                                     <?php 
                                            
                                             if (isset($_SESSION['token'])) { 
@@ -156,6 +159,7 @@
                                                 
                                                   
                                                         <li><a href="dashboard.php">Dashboard</a></li>
+                                                        <li><a href="quiz.php">Daily Quiz</a></li>
                                                         <li><a href="profile.php">Profile</a></li>
                                                         <li><a href="enrolled-courses.php">Enrolled Workshops</a></li>
                                                         <li><a href="wishlist.php">Wishlist</a></li>

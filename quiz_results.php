@@ -1,10 +1,4 @@
-<?php
 
-
-
-
-
-?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -13,6 +7,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Magic Of Skills | Quiz Results</title>
     <?php 
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     include "include/private_page.php";
     include "include/meta.php";
     if (!$connect) {
@@ -84,104 +80,143 @@
                     </div>
                     
                     <div class="col-lg-9">
-                        <div class="dashboard__content-wrap dashboard__content-wrap-two">
-                            <div class="dashboard__content-title">
-                                <h4 class="title">Quiz Results</h4>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="result__content-wrap">
-                                        <?php
-                                        $attemptId = $_GET['attempt_id'] ?? 0;
-                                        // echo "Debug: Attempt ID = $attemptId<br>";
+    <div class="dashboard__content-wrap dashboard__content-wrap-two">
+        <div class="dashboard__content-title">
+            <h4 class="title">Quiz Results</h4>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="result__content-wrap">
+                    <?php
+                    $attemptId = $_GET['attempt_id'] ?? 0;
+                    // echo "Debug: Attempt ID = $attemptId<br>";
 
-                                        if ($attemptId) {
-                                            // Fetch attempt details
-                                            $stmt = $connect->prepare("
-                                                SELECT uqa.*, q.quiz_name, q.duration_minutes
-                                                FROM user_quiz_attempts uqa
-                                                JOIN quizzes q ON uqa.quiz_id = q.quiz_id
-                                                WHERE uqa.attempt_id = ?
-                                            ");
-                                            $stmt->bind_param("i", $attemptId);
-                                            $stmt->execute();
-                                            $attemptResult = $stmt->get_result()->fetch_assoc();
+                    function getFillBlankAnswers($questionId) {
+                        global $connect;
+                        $stmt = $connect->prepare("SELECT correct_answer FROM fill_blank_answers WHERE question_id = ?");
+                        $stmt->bind_param("i", $questionId);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        return $result->fetch_all(MYSQLI_ASSOC);
+                    }
 
-                                            if ($attemptResult) {
-                                                // echo "Debug: Attempt found.<br>";
-                                                $totalQuestions = 0;
-                                                $correctAnswers = 0;
-                                                $totalMarks = 0;
-                                                $earnedMarks = 0;
+                    if ($attemptId) {
+                        // Fetch attempt details
+                        $stmt = $connect->prepare("
+                            SELECT uqa.*, q.quiz_name, q.duration_minutes
+                            FROM user_quiz_attempts uqa
+                            JOIN quizzes q ON uqa.quiz_id = q.quiz_id
+                            WHERE uqa.attempt_id = ?
+                        ");
+                        $stmt->bind_param("i", $attemptId);
+                        $stmt->execute();
+                        $attemptResult = $stmt->get_result()->fetch_assoc();
 
-                                                // Fetch questions and answers
-                                                $stmt = $connect->prepare("
-                                                    SELECT q.*, ua.user_answer
-                                                    FROM questions q
-                                                    LEFT JOIN user_answers ua ON q.question_id = ua.question_id AND ua.attempt_id = ?
-                                                    WHERE q.quiz_id = ?
-                                                ");
-                                                $stmt->bind_param("ii", $attemptId, $attemptResult['quiz_id']);
-                                                $stmt->execute();
-                                                $questions = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+                        if ($attemptResult) {
+                            // echo "Debug: Attempt found. Quiz name: {$attemptResult['quiz_name']}<br>";
+                            $totalQuestions = 0;
+                            $correctAnswers = 0;
+                            $totalMarks = 0;
+                            $earnedMarks = 0;
 
-                                                // echo "Debug: " . count($questions) . " questions fetched.<br>";
+                            // Fetch questions and answers
+                            $stmt = $connect->prepare("
+                                SELECT q.*, ua.user_answer, ua.text_answer
+                                FROM questions q
+                                LEFT JOIN user_answers ua ON q.question_id = ua.question_id AND ua.attempt_id = ?
+                                WHERE q.quiz_id = ?
+                            ");
+                            $stmt->bind_param("ii", $attemptId, $attemptResult['quiz_id']);
+                            $stmt->execute();
+                            $questions = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-                                                // Calculate statistics
-                                                foreach ($questions as $question) {
-                                                    $totalQuestions++;
-                                                    $totalMarks += $question['marks'];
-                                                    if ($question['user_answer'] == $question['correct_option']) {
-                                                        $correctAnswers++;
-                                                        $earnedMarks += $question['marks'];
-                                                    }
-                                                }
+                            // echo "Debug: " . count($questions) . " questions fetched.<br>";
 
-                                                $accuracy = ($correctAnswers / $totalQuestions) * 100;
-                                                $timeTaken = strtotime($attemptResult['end_time']) - strtotime($attemptResult['start_time']);
-                                                
-                                                // Display summary
-                                                echo "<div class='result__summary'>";
-                                                echo "<h5>{$attemptResult['quiz_name']}</h5>";
-                                                echo "<p>Score: {$attemptResult['score']} / {$totalMarks}</p>";
-                                                echo "<p>Accuracy: " . number_format($accuracy, 2) . "%</p>";
-                                                echo "<p>Correct Answers: {$correctAnswers} / {$totalQuestions}</p>";
-                                                echo "<p>Time Taken: " . gmdate("H:i:s", $timeTaken) . " / {$attemptResult['duration_minutes']} minutes</p>";
-                                                echo "</div>";
-
-                                                // Display questions and answers
-                                                foreach ($questions as $index => $question) {
-                                                    echo "<div class='result__question'>";
-                                                    echo "<p class='result__question-text'>" . ($index + 1) . ". {$question['question_text']}</p>";
-                                                    echo "<div class='result__options'>";
-                                                    for ($i = 1; $i <= 4; $i++) {
-                                                        $optionClass = '';
-                                                        if ($i == $question['correct_option']) {
-                                                            $optionClass = 'result__correct';
-                                                        } elseif ($i == $question['user_answer'] && $question['user_answer'] != $question['correct_option']) {
-                                                            $optionClass = 'result__incorrect';
-                                                        }
-                                                        echo "<label class='{$optionClass}'>";
-                                                        echo "<input type='radio' disabled " . ($question['user_answer'] == $i ? 'checked' : '') . ">";
-                                                        echo $question["option{$i}"];
-                                                        echo "</label>";
-                                                    }
-                                                    echo "</div>";
-                                                    echo "<p>Marks: " . ($question['user_answer'] == $question['correct_option'] ? $question['marks'] : 0) . " / {$question['marks']}</p>";
-                                                    echo "</div>";
-                                                }
-                                            } else {
-                                                echo "<p>Debug: No attempt found for ID: $attemptId</p>";
-                                            }
-                                        } else {
-                                            echo "<p>Debug: No attempt ID provided.</p>";
+                            // Calculate statistics
+                            foreach ($questions as $question) {
+                                $totalQuestions++;
+                                $totalMarks += $question['marks'];
+                                if ($question['question_type'] === 'multiple_choice') {
+                                    if ($question['user_answer'] == $question['correct_option']) {
+                                        $correctAnswers++;
+                                        $earnedMarks += $question['marks'];
+                                    }
+                                } elseif ($question['question_type'] === 'fill_blank') {
+                                    $fillBlankAnswers = getFillBlankAnswers($question['question_id']);
+                                    foreach ($fillBlankAnswers as $answer) {
+                                        if (strtolower(trim($question['text_answer'])) === strtolower(trim($answer['correct_answer']))) {
+                                            $correctAnswers++;
+                                            $earnedMarks += $question['marks'];
+                                            break;
                                         }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    }
+                                }
+                            }
+                            
+
+                            $accuracy = ($correctAnswers / $totalQuestions) * 100;
+                            $timeTaken = strtotime($attemptResult['end_time']) - strtotime($attemptResult['start_time']);
+                            
+                            // Display summary
+                            echo "<div class='result__summary'>";
+                            echo "<h5>{$attemptResult['quiz_name']}</h5>";
+                            echo "<p>Score: {$attemptResult['score']} / {$totalMarks}</p>";
+                            echo "<p>Accuracy: " . number_format($accuracy, 2) . "%</p>";
+                            echo "<p>Correct Answers: {$correctAnswers} / {$totalQuestions}</p>";
+                            echo "<p>Time Taken: " . gmdate("H:i:s", $timeTaken) . " / {$attemptResult['duration_minutes']} minutes</p>";
+                            echo "</div>";
+
+                            // Display questions and answers
+                            foreach ($questions as $index => $question) {
+                                echo "<div class='result__question'>";
+                                echo "<p class='result__question-text'>" . ($index + 1) . ". {$question['question_text']}</p>";
+                                
+                                if ($question['question_type'] === 'multiple_choice') {
+                                    echo "<div class='result__options'>";
+                                    for ($i = 1; $i <= 4; $i++) {
+                                        $optionClass = '';
+                                        if ($i == $question['correct_option']) {
+                                            $optionClass = 'result__correct';
+                                        } elseif ($i == $question['user_answer'] && $question['user_answer'] != $question['correct_option']) {
+                                            $optionClass = 'result__incorrect';
+                                        }
+                                        echo "<label class='{$optionClass}'>";
+                                        echo "<input type='radio' disabled " . ($question['user_answer'] == $i ? 'checked' : '') . ">";
+                                        echo $question["option{$i}"];
+                                        echo "</label>";
+                                    }
+                                    echo "</div>";
+                                    $isCorrect = $question['user_answer'] == $question['correct_option'];
+                                } elseif ($question['question_type'] === 'fill_blank') {
+                                    echo "<div class='result__fill-blank'>";
+                                    echo "<input type='text' value='{$question['text_answer']}' disabled>";
+                                    $fillBlankAnswers = getFillBlankAnswers($question['question_id']);
+                                    echo "<span class='result__fill-blank-correct'>Correct Answer(s): " . implode(', ', array_column($fillBlankAnswers, 'correct_answer')) . "</span>";
+                                    echo "</div>";
+                                    $isCorrect = false;
+                                    foreach ($fillBlankAnswers as $answer) {
+                                        if (strtolower(trim($question['text_answer'])) === strtolower(trim($answer['correct_answer']))) {
+                                            $isCorrect = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                echo "<p>Marks: " . ($isCorrect ? $question['marks'] : 0) . " / {$question['marks']}</p>";
+                                echo "</div>";
+                            }
+                        } else {
+                            echo "<p>Debug: No attempt found for ID: $attemptId</p>";
+                        }
+                    } else {
+                        echo "<p>Debug: No attempt ID provided.</p>";
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                 </div>
             </div>
         </section>

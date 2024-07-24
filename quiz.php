@@ -1,3 +1,4 @@
+
 <?php session_start(); ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -140,6 +141,7 @@
 
                                 <div class="col-lg-9">
                                     <div class="quiz__content-wrap">
+                                        <div id="quiz-message" style="display: none;"></div>
                                         <div id="quiz-info">
                                             <h2 id="quiz-name"></h2>
                                             <p id="quiz-duration"></p>
@@ -178,7 +180,7 @@
     <script>
     let attemptId;
     let quizId;
-    let userId = <?php echo $_SESSION['userid']; ?>; // Get user ID from PHP session
+    let userId = <?php echo $_SESSION['userid']; ?>;
     let quizTimer;
     let quizQuestions = [];
     let quizSubmitted = false;
@@ -190,43 +192,56 @@
     }
 
     function startQuiz() {
-    document.getElementById('quiz-info').style.display = 'none';
-    document.getElementById('quiz-content').style.display = 'block';
-    
-    fetch('controller/quiz.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `action=start_quiz&quiz_id=${quizId}&user_id=${userId}`
-    })
-    .then(response => response.json())
-    .then(data => {
-        attemptId = data.attempt_id;
-        fetchQuestions();
-        if (data.duration_minutes) {
-            startTimer(data.duration_minutes * 60); // Convert minutes to seconds
-        } else {
-            console.error('Duration not provided by the server');
-            document.getElementById('timer').textContent = 'Duration error';
-        }
-    })
-    .catch(error => {
-        console.error('Error starting quiz:', error);
-        document.getElementById('timer').textContent = 'Start error';
-    });
-}
+        console.log("Starting quiz...");
+        fetch('controller/quiz.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `action=start_quiz&quiz_id=${quizId}&user_id=${userId}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Start quiz response:", data);
+            if (data.error) {
+                throw new Error(data.error);
+            }
+            attemptId = data.attempt_id;
+            document.getElementById('quiz-info').style.display = 'none';
+            document.getElementById('quiz-content').style.display = 'block';
+            fetchQuestions();
+            if (data.duration_minutes) {
+                startTimer(data.duration_minutes * 60);
+            } else {
+                throw new Error('Duration not provided by the server');
+            }
+        })
+        .catch(error => {
+            console.error('Error starting quiz:', error);
+            displayMessage('Error starting quiz: ' + error.message);
+        });
+    }
 
     function checkQuizStatus() {
+        console.log("Checking quiz status...");
         fetch('controller/quiz.php?action=get_quiz_status')
         .then(response => response.json())
         .then(data => {
+            console.log("Quiz status response:", data);
             if (data.status === 'available') {
                 quizId = data.quiz_id;
                 displayQuizInfo(data);
+            } else if (data.status === 'in_progress') {
+                attemptId = data.attempt_id;
+                quizId = data.quiz_id;
+                resumeQuiz(data.attempt_id, data.remaining_time);
             } else {
                 displayMessage(data.message);
             }
+        })
+        .catch(error => {
+            console.error('Error checking quiz status:', error);
+            displayMessage('Error checking quiz status. Please try again later.');
         });
     }
 
@@ -237,8 +252,12 @@
     }
 
     function displayMessage(message) {
-        const quizContainer = document.querySelector('.quiz__content-wrap');
-        quizContainer.innerHTML = `<p class="quiz-message">${message}</p>`;
+        const messageEl = document.getElementById('quiz-message');
+        messageEl.textContent = message;
+        messageEl.style.display = 'block';
+        setTimeout(() => {
+            messageEl.style.display = 'none';
+        }, 5000);
     }
 
     function fetchQuestions() {
@@ -247,7 +266,7 @@
         .then(data => {
             quizQuestions = data;
             renderQuestions();
-            updateProgress(); // Initial progress update
+            updateProgress();
         });
     }
 
@@ -260,17 +279,26 @@
         quizQuestions.forEach((q, index) => {
             const questionEl = document.createElement('div');
             questionEl.classList.add('quiz__question');
-            questionEl.innerHTML = `
-                <p class="quiz__question-text">${index + 1}. ${q.question_text}</p>
-                <div class="quiz__options">
-                    ${['option1', 'option2', 'option3', 'option4'].map((option, i) => `
-                        <label>
-                            <input type="radio" name="q${q.question_id}" value="${i+1}">
-                            ${q[option]}
-                        </label>
-                    `).join('')}
-                </div>
-            `;
+            
+            if (q.question_type === 'multiple_choice') {
+                questionEl.innerHTML = `
+                    <p class="quiz__question-text">${index + 1}. ${q.question_text}</p>
+                    <div class="quiz__options">
+                        ${['option1', 'option2', 'option3', 'option4'].map((option, i) => `
+                            <label>
+                                <input type="radio" name="q${q.question_id}" value="${i+1}">
+                                ${q[option]}
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (q.question_type === 'fill_blank') {
+                questionEl.innerHTML = `
+                    <p class="quiz__question-text">${index + 1}. ${q.question_text}</p>
+                    <input type="text" name="q${q.question_id}" placeholder="Your answer">
+                `;
+            }
+            
             questionsContainer.appendChild(questionEl);
 
             const buttonEl = document.createElement('button');
@@ -287,27 +315,27 @@
     }
 
     function startTimer(duration) {
-    let timer = duration;
-    updateTimerDisplay(timer); // Display initial time immediately
-    quizTimer = setInterval(() => {
-        timer--;
+        let timer = duration;
         updateTimerDisplay(timer);
-        if (timer < 0) {
-            clearInterval(quizTimer);
-            submitQuiz();
-        }
-    }, 1000);
-}
+        quizTimer = setInterval(() => {
+            timer--;
+            updateTimerDisplay(timer);
+            if (timer <= 0) {
+                clearInterval(quizTimer);
+                submitQuiz();
+            }
+        }, 1000);
+    }
 
-function updateTimerDisplay(timeLeft) {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-    document.getElementById('timer').textContent = 
-        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-}
+    function updateTimerDisplay(timeLeft) {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        document.getElementById('timer').textContent = 
+            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
 
     function updateProgress() {
-        const answered = document.querySelectorAll('input[type="radio"]:checked').length;
+        const answered = document.querySelectorAll('input[type="radio"]:checked, input[type="text"]:not(:placeholder-shown)').length;
         const total = quizQuestions.length;
         document.getElementById('answered-count').textContent = answered;
         document.getElementById('remaining-count').textContent = total - answered;
@@ -315,7 +343,10 @@ function updateTimerDisplay(timeLeft) {
 
         const buttons = document.querySelectorAll('.quiz__question-btn');
         buttons.forEach((btn, index) => {
-            if (document.querySelector(`input[name="q${quizQuestions[index].question_id}"]:checked`)) {
+            const question = quizQuestions[index];
+            const input = document.querySelector(`input[name="q${question.question_id}"]`);
+            if ((question.question_type === 'multiple_choice' && input.checked) || 
+                (question.question_type === 'fill_blank' && input.value.trim() !== '')) {
                 btn.classList.add('answered');
             } else {
                 btn.classList.remove('answered');
@@ -329,8 +360,13 @@ function updateTimerDisplay(timeLeft) {
         clearInterval(quizTimer);
         const answers = {};
         quizQuestions.forEach(q => {
-            const selectedAnswer = document.querySelector(`input[name="q${q.question_id}"]:checked`);
-            answers[q.question_id] = selectedAnswer ? selectedAnswer.value : null;
+            if (q.question_type === 'multiple_choice') {
+                const selectedAnswer = document.querySelector(`input[name="q${q.question_id}"]:checked`);
+                answers[q.question_id] = selectedAnswer ? selectedAnswer.value : null;
+            } else if (q.question_type === 'fill_blank') {
+                const textAnswer = document.querySelector(`input[name="q${q.question_id}"]`).value;
+                answers[q.question_id] = { text: textAnswer };
+            }
         });
 
         fetch('controller/quiz.php', {
@@ -343,13 +379,21 @@ function updateTimerDisplay(timeLeft) {
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                alert('Quiz submitted successfully!');
-                // Redirect to results page or show results
-                window.location.href = 'quiz_results.php?attempt_id=' + attemptId;
+                displayMessage('Quiz submitted successfully!');
+                setTimeout(() => {
+                    window.location.href = 'quiz_results.php?attempt_id=' + attemptId;
+                }, 2000);
             } else {
-                alert('Failed to submit quiz. Please try again.');
+                displayMessage('Failed to submit quiz. Please try again.');
             }
         });
+    }
+
+    function resumeQuiz(attemptId, remainingTime) {
+        document.getElementById('quiz-info').style.display = 'none';
+        document.getElementById('quiz-content').style.display = 'block';
+        fetchQuestions();
+        startTimer(remainingTime);
     }
 
     // Event listeners
@@ -357,14 +401,6 @@ function updateTimerDisplay(timeLeft) {
 
     // Call checkQuizStatus when the page loads
     window.onload = checkQuizStatus;
-
-    // Add event listener for beforeunload
-    window.addEventListener('beforeunload', function (e) {
-        if (attemptId && !quizSubmitted) {
-            submitQuiz();
-            e.returnValue = 'Are you sure you want to leave? Your quiz progress will be submitted.';
-        }
-    });
     </script>
 </body>
 </html>

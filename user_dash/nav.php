@@ -12,7 +12,7 @@ $currentUrl = getCurrentUrl();
 
 <div class="dashboard__sidebar-wrap">
     <div class="dashboard__sidebar-title mb-20">
-        <h6 class="title">Welcome, Emily Hannah</h6>
+        <h6 class="title"> <?php echo $_SESSION['name'] ?></h6>
     </div>
     <nav class="dashboard__sidebar-menu">
         <ul class="list-wrap">
@@ -49,7 +49,7 @@ $currentUrl = getCurrentUrl();
             <li class="<?php echo ($currentUrl == 'quiz.php') ? 'active' : ''; ?>">
                 <a href="quiz.php">
                     <i class="skillgro-book-2"></i>
-                    Give Quiz
+                    Daily Quiz
                 </a>
             </li>
             <li class="<?php echo ($currentUrl == 'result.php') ? 'active' : ''; ?>">
