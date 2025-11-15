@@ -14,7 +14,12 @@
 
         <!-- banner-area -->
         <section class="banner-area banner-bg-five banner-align-centered tg-motion-effects" data-background="assets/img/banner-hh.png">
-            <div class="banner-bg-five-shape" data-background="assets/img/banner/h5_hero_bg_shape.svg"></div>
+            <div class="banner-clouds-wrapper">
+                <div class="banner-cloud-layer cloud-layer-1" data-background="assets/img/banner/h5_hero_bg_shape.svg"></div>
+                <div class="banner-cloud-layer cloud-layer-2" data-background="assets/img/banner/h5_hero_bg_shape.svg"></div>
+                <div class="banner-cloud-layer cloud-layer-3" data-background="assets/img/banner/h5_hero_bg_shape.svg"></div>
+                <div class="banner-cloud-layer cloud-layer-4" data-background="assets/img/banner/h5_hero_bg_shape.svg"></div>
+            </div>
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-xl-5 col-lg-5">
@@ -125,6 +130,7 @@
         </section>
         <!-- course-area-end -->
           <!-- about-area -->
+           <br>
         <section class="about-area-five section-pb-140">
             <div class="container">
                 <div class="row align-items-center justify-content-center">

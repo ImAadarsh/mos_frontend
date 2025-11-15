@@ -62,7 +62,7 @@
 
 </head>
 
-<body>
+<body class="events-details-page">
 <?php include "include/header.php" ?>
 
 

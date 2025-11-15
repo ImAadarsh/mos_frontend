@@ -8,7 +8,7 @@
     <?php include "include/session.php";  include "include/meta.php" ;?>
 </head>
 
-<body>
+<body class="about-page">
 
 <?php include "include/header.php" ?>
 
@@ -44,7 +44,7 @@
             </div>
         </section>
         <!-- breadcrumb-area-end -->
-
+<br> <br>
         <!-- about-area -->
         <section class="about-area-three section-py-90">
             <div class="container">
@@ -152,7 +152,7 @@
             </div>
         </div> -->
         <!-- brand-area-end -->
-
+<br>
          <!-- features-area -->
         <section class="features__area-three section-pt-120 section-pb-90">
             <div class="container">
