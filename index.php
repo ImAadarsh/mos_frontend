@@ -219,7 +219,8 @@
                     </div>
                     <div class="col-xl-8">
                         <div class="instructor__item-wrap">
-                            <div class="row g-4">
+                            <!-- Desktop Grid View -->
+                            <div class="row g-4 d-none d-md-flex">
                             <?php 
                             $sql = "SELECT * FROM trainers LIMIT 4";
                             $results = $connect->query($sql);
@@ -275,6 +276,70 @@
                                     </div>
                                 </div>
                                 <?php } ?>
+                            </div>
+                            <!-- Mobile Swiper View -->
+                            <div class="swiper instructor-swiper-active d-md-none">
+                                <div class="swiper-wrapper">
+                                <?php 
+                                $sql2 = "SELECT * FROM trainers LIMIT 4";
+                                $results2 = $connect->query($sql2);
+                                while ($final2 = $results2->fetch_assoc()) {
+                                ?>
+                                <?php
+                                    $trainer_id2 = $final2['id'];
+                                $feedsql2 = "SELECT AVG(rating) as average_rating, COUNT(*) as review_count FROM reviews WHERE trainer_id = $trainer_id2";
+                                $feedback2 = $connect->query($feedsql2);
+                                $feedback_data2 = $feedback2->fetch_assoc();
+                                ?>
+                                    <div class="swiper-slide">
+                                        <div class="instructor__item instructor__item-modern">
+                                            <div class="instructor__thumb-modern">
+                                                <a href="instructor-details.php?id=<?php echo $final2['id'] ?>" class="instructor__thumb-link">
+                                                    <div class="instructor__thumb-wrapper">
+                                                        <img src="<?php echo $uri.$final2['image'] ?>" alt="<?php echo $final2['name'] ?>">
+                                                        <div class="instructor__thumb-overlay">
+                                                            <i class="fas fa-arrow-right"></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="instructor__content-modern">
+                                                <h3 class="instructor__name"><a href="instructor-details.php?id=<?php echo $final2['id'] ?>"><?php echo $final2['name'] ?></a></h3>
+                                                <p class="instructor__role"><?php echo $final2['designation'] ?></p>
+                                                <?php if($feedback_data2['review_count'] > 0){?>
+                                                <div class="instructor__rating-modern">
+                                                    <div class="stars">
+                                                        <?php
+                                                        $average_rating2 = round($feedback_data2['average_rating'], 1);
+                                                        $full_stars2 = floor($average_rating2);
+                                                        $has_half2 = ($average_rating2 - $full_stars2) >= 0.5;
+                                                        for ($i = 1; $i <= 5; $i++) {
+                                                            if ($i <= $full_stars2) {
+                                                                echo '<i class="fas fa-star"></i>';
+                                                            } elseif ($i == $full_stars2 + 1 && $has_half2) {
+                                                                echo '<i class="fas fa-star-half-alt"></i>';
+                                                            } else {
+                                                                echo '<i class="far fa-star"></i>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <span class="rating-value"><?php echo $average_rating2; ?></span>
+                                                    <span class="review-count">(<?php echo $feedback_data2['review_count']; ?> reviews)</span>
+                                                </div>
+                                                <?php } ?>
+                                                <a href="instructor-details.php?id=<?php echo $final2['id'] ?>" class="instructor__view-link">
+                                                    View Profile <i class="fas fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>
+                                </div>
+                                <div class="instructor__nav">
+                                    <div class="instructor-button-prev"><i class="flaticon-arrow-right"></i></div>
+                                    <div class="instructor-button-next"><i class="flaticon-arrow-right"></i></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -454,8 +519,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-
+                <!-- Desktop Grid View -->
+                <div class="row justify-content-center d-none d-md-flex">
                     <?php
                       $side = "SELECT blogs.* , blog_categories.name as cat_name FROM blogs, blog_categories where blogs.category_id = blog_categories.id  ORDER BY blogs.id DESC LIMIT 3";
                       $sider = $connect->query($side);
@@ -482,8 +547,41 @@
                         </div>
                     </div>
                     <?php } ?>
-
-                    
+                </div>
+                <!-- Mobile Swiper View -->
+                <div class="swiper blog-swiper-active d-md-none">
+                    <div class="swiper-wrapper">
+                        <?php
+                          $side2 = "SELECT blogs.* , blog_categories.name as cat_name FROM blogs, blog_categories where blogs.category_id = blog_categories.id  ORDER BY blogs.id DESC LIMIT 3";
+                          $sider2 = $connect->query($side2);
+                          while($finalr2=$sider2->fetch_assoc()){?>
+                        <div class="swiper-slide">
+                            <div class="blog__post-item-four shine__animate-item">
+                                <div class="blog__post-thumb-four">
+                                    <a href="blog-details.php?id=<?php echo $finalr2['id'] ?>" class="shine__animate-link"><img src="<?php echo $uri.$finalr2['icon'] ?>" alt="img"></a>
+                                </div>
+                                <div class="blog__post-content-four">
+                                    <a href="blog.php" class="post-tag-three"><?php echo $finalr2['cat_name'] ?></a>
+                                    <h2 class="title"><a href="blog-details.php?id=<?php echo $finalr2['id'] ?>"><?php echo $finalr2['title'] ?></a></h2>
+                                    <div class="blog__post-meta">
+                                        <ul class="list-wrap">
+                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.php?id=<?php echo $finalr2['id'] ?>"><?php echo $finalr2['author_name'] ?></a></li>
+                                            <li><i class="flaticon-calendar"></i><?php
+                                                $date2 = $finalr2['created_at'];
+                                                $formattedDate2 = DateTime::createFromFormat('Y-m-d H:i:s', $date2)->format('F j, Y');
+                                                echo $formattedDate2;
+                                                ?></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                    <div class="blog__nav">
+                        <div class="blog-button-prev"><i class="flaticon-arrow-right"></i></div>
+                        <div class="blog-button-next"><i class="flaticon-arrow-right"></i></div>
+                    </div>
                 </div>
             </div>
             <div class="blog__shape-wrap-two">

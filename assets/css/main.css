@@ -13440,6 +13440,50 @@ body.login-page .account__social .btn.btn-two.arrow-btn:hover {
     justify-content: center;
   }
 }
+/* Instructor Mobile Swiper Navigation */
+.instructor__item-wrap .instructor__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  position: relative;
+}
+.instructor__item-wrap .instructor-button-prev,
+.instructor__item-wrap .instructor-button-next {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tg-theme-primary);
+  border-radius: 50%;
+  color: var(--tg-common-color-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+}
+.instructor__item-wrap .instructor-button-prev:hover,
+.instructor__item-wrap .instructor-button-next:hover {
+  background: var(--tg-theme-secondary);
+  transform: scale(1.1);
+}
+.instructor__item-wrap .instructor-button-prev i,
+.instructor__item-wrap .instructor-button-next i {
+  font-size: 16px;
+}
+.instructor__item-wrap .instructor-button-prev i {
+  transform: rotate(180deg);
+}
+.instructor__item-wrap .instructor-swiper-active {
+  padding-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .instructor__item-wrap .instructor__nav {
+    display: none;
+  }
+}
 .instructor__thumb {
   position: relative;
   width: 186px;
@@ -17979,6 +18023,50 @@ body.login-page .account__social .btn.btn-two.arrow-btn:hover {
 .blog__post-area-five {
   position: relative;
   z-index: 1;
+}
+/* Blog Mobile Swiper Navigation */
+.blog__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  position: relative;
+}
+.blog-button-prev,
+.blog-button-next {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tg-theme-primary);
+  border-radius: 50%;
+  color: var(--tg-common-color-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+}
+.blog-button-prev:hover,
+.blog-button-next:hover {
+  background: var(--tg-theme-secondary);
+  transform: scale(1.1);
+}
+.blog-button-prev i,
+.blog-button-next i {
+  font-size: 16px;
+}
+.blog-button-prev i {
+  transform: rotate(180deg);
+}
+.blog-swiper-active {
+  padding-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .blog__nav {
+    display: none;
+  }
 }
 .blog__post-area-six {
   background: var(--tg-common-color-gray-10);

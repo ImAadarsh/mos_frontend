@@ -514,6 +514,56 @@ var instructor2 = new Swiper(".instructor-active", {
     },
 });
 
+/*=============================================
+	=        Instructor Mobile Swiper		      =
+=============================================*/
+var instructorSwiper = new Swiper('.instructor-swiper-active', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    observer: true,
+    observeParents: true,
+    loop: true,
+    navigation: {
+        nextEl: '.instructor-button-next',
+        prevEl: '.instructor-button-prev',
+    },
+    breakpoints: {
+        '576': {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        '768': {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        }
+    }
+});
+
+/*=============================================
+	=        Blog Mobile Swiper		      =
+=============================================*/
+var blogSwiper = new Swiper('.blog-swiper-active', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    observer: true,
+    observeParents: true,
+    loop: true,
+    navigation: {
+        nextEl: '.blog-button-next',
+        prevEl: '.blog-button-prev',
+    },
+    breakpoints: {
+        '576': {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        '768': {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        }
+    }
+});
+
 
 /*=============================================
 	=        testimonial Active		      =
