@@ -8,7 +8,7 @@
     <?php include "include/session.php" ;  include "include/meta.php" ?>
 </head>
 
-<body>
+<body class="contact-page">
 
     <?php include "include/header.php" ?>
 

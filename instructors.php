@@ -8,7 +8,7 @@
     <?php include "include/session.php" ;  include "include/meta.php" ?>
 </head>
 
-<body>
+<body class="instructors-page">
 
     <?php include "include/header.php" ?>
 
@@ -48,41 +48,59 @@
         <!-- breadcrumb-area-end -->
 
         <!-- instructor-area -->
-        <section class="instructor__area">
+        <section class="instructor__area section-py-120">
             <div class="container">
+                <div class="section__title-wrap">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="section__title text-center">
+                                <span class="sub-title">Our Team</span>
+                                <h2 class="title">Meet Our Expert Instructors</h2>
+                                <p class="desc">Learn from industry professionals and experienced educators</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                 <?php 
                 $sql = "SELECT * FROM trainers";
                 $results = $connect->query($sql);
                 while ($final = $results->fetch_assoc()) {
+                    $trainer_id = $final['id'];
+                    $feedsql = "SELECT AVG(rating) as average_rating, COUNT(*) as review_count FROM reviews WHERE trainer_id = $trainer_id";
+                    $feedback = $connect->query($feedsql);
+                    $feedback_data = $feedback->fetch_assoc();
                 ?>
 
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="instructor__item">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div class="instructor__item instructor__item-card">
                             <div class="instructor__thumb">
-                                <a href="instructor-details.php?id=<?php echo $final['id'] ?>"><img style="border-radius: 50%;" src="<?php echo $uri.$final['image'] ?>" alt="img"></a>
+                                <a href="instructor-details.php?id=<?php echo $final['id'] ?>">
+                                    <img src="<?php echo $uri.$final['image'] ?>" alt="img">
+                                </a>
                             </div>
                             <div class="instructor__content">
                                 <h2 class="title"><a href="instructor-details.php?id=<?php echo $final['id'] ?>"><?php echo $final['name'] ?></a></h2>
                                 <span class="designation"><?php echo $final['designation'] ?></span>
+                                <?php if($feedback_data['review_count'] > 0){ ?>
                                 <p class="avg-rating">
-                                    <i class="fas fa-star"></i>
-                                    (4.8 Ratings)
+                                    <?php
+                                    $average_rating = round($feedback_data['average_rating'], 1);
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        if ($i <= round($feedback_data['average_rating'])) {
+                                            echo '<i class="fas fa-star"></i>';
+                                        } else {
+                                            echo '<i class="far fa-star"></i>';
+                                        }
+                                    }
+                                    ?>
+                                    <span><?php echo $average_rating; ?> (<?php echo $feedback_data['review_count']; ?> reviews)</span>
                                 </p>
-                                <div class="instructor__social">
-                                    <ul class="list-wrap">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
                     <?php } ?>
-                    
-               
                 </div>
             </div>
         </section>

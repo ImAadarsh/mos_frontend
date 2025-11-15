@@ -72,7 +72,7 @@
 
 </head>
 
-<body>
+<body class="blog-page">
 
 <?php include "include/header.php" ?>
 
@@ -225,30 +225,6 @@
                                         <?php } ?>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="blog-widget">
-                                <h4 class="widget-title">Latest Post</h4>
-                                <?php
-                      $side = "SELECT * FROM blogs ORDER BY created_at ASC LIMIT 5";
-                      $sider = $connect->query($side);
-                      while($finalr=$sider->fetch_assoc()){?>
-                                <div class="rc-post-item">
-                                    <div class="rc-post-thumb">
-                                        <a href="blog-details.php?id=<?php echo $finalr['id'] ?>">
-                                            <img src="<?php echo $uri.$finalr['icon'] ?>" alt="img">
-                                        </a>
-                                    </div>
-                                    <div class="rc-post-content">
-                                        <span class="date"><i class="flaticon-calendar"></i> <?php
-                                            $date = $finalr['created_at']; // Assume this is in 'Y-m-d H:i:s' format (e.g., '2024-04-13 17:00:00')
-                                            $formattedDate = DateTime::createFromFormat('Y-m-d H:i:s', $date)->format('F j, Y');
-                                            echo $formattedDate;
-                                            ?>
-                                            </span>
-                                        <h4 class="title"><a href="blog-details.php?id=<?php echo $finalr['id'] ?>"><?php echo $finalr['title'] ?></a></h4>
-                                    </div>
-                                </div>
-                                <?php } ?>
                             </div>
                             <div class="blog-widget">
                                 <h4 class="widget-title">Tags</h4>

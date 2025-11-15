@@ -21,7 +21,7 @@
                         <div class="banner__content-five">
                             <span class="sub-title" data-aos="fade-right" data-aos-delay="200">Unlock Your Potential with the Magic of Skills!</span>
                             <h2 class="title" data-aos="fade-right" data-aos-delay="400">World-Class <span> Workshops for </span>Future Leaders.</h2>
-                            <p data-aos="fade-right" data-aos-delay="600">Transform your passions into skills that shape your future. Explore, learn, and grow with Magic of Skills!</p>
+                            <p data-aos="fade-right" data-aos-delay="600">A fun and interactive space to transform your interests into powerful life skills! Discover, Learn & Grow with the Magic of Skills!</p>
                             <div class="banner__btn" data-aos="fade-right" data-aos-delay="800">
                                 <a href="login.php" class="btn arrow-btn">Start Your Journey Now <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                             </div>
@@ -63,8 +63,8 @@
                         <div class="col-lg-6">
                             <div class="section__title text-center ">
                                 <span class="sub-title">Top Class Workshops</span>
-                                <h2 class="title">Explore Our World's Best Workshops</h2>
-                                <p class="desc">Unlock your potential with unparalleled learning experiences.</p>
+                                <h2 class="title">Discover Workshops That Inspire You to Do More</h2>
+                                <p class="desc">Step into a world of ideas, challenges, and hands-on activities. Each workshop is designed to spark curiosity, build new abilities, and help you explore what you’re truly capable of.</p>
                             </div>
                         </div>
                     </div>
@@ -146,22 +146,23 @@
                     <div class="col-lg-6">
                         <div class="about__content-five">
                             <div class="section__title mb-15">
-                                <span class="sub-title">Get More About Us</span>
-                                <h2 class="title bold">Reasons to get started with Magic of Skills:</h2>
+                                <span class="sub-title">Get to Know Us</span>
+                                <h2 class="title bold">Why Magic of Skills is the Right Place for You</h2>
                             </div>
-                            <p>Magic of Skills is a dynamic platform designed to help students discover their talents and interests. Whether you're looking to develop in STEM, explore your creative side, or improve your personal development, Magic of Skills offers a variety of engaging courses and a supportive community.</p>
+                            <p>Magic of Skills is a creative learning space where students discover what they’re good at and what they love doing. We turn everyday curiosity into practical skills through fun activities, challenges, and interactive workshops. <br>From communication to creativity and confidence to content creation, this is where you learn things that actually matter in real life. </p>
+                            <h5 class="title bold">What Makes Us Different?</h5>
                             <ul class="about__info-list list-wrap">
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Learn in-demand skills</p>
+                                    <p class="content">⭐ Skill-Based Learning That Matters</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Flexible learning</p>
+                                    <p class="content">⭐ Learn Your Way</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Supportive community</p>
+                                    <p class="content">⭐ A Space That Supports You</p>
                                 </li>
                             </ul>
                             <div class="about__content-bottom">
@@ -201,10 +202,10 @@
                     <div class="col-xl-4">
                         <div class="instructor__content-wrap">
                             <div class="section__title mb-15">
-                                <span class="sub-title">Skilled Introduce</span>
-                                <h2 class="title">Our Top Class & Expert Instructors in One Place</h2>
+                                <span class="sub-title">Meet Your Mentors</span>
+                                <h2 class="title">Learn From the Best — All in One Place</h2>
                             </div>
-                            <p>Our instructors are not only highly knowledgeable in their fields but also passionate about teaching and mentoring students.</p>
+                            <p>At Magic of Skills, you’re guided by experts who don’t just teach, they inspire. Our mentors bring real experience, fresh ideas, and a love for helping students grow. They make every session exciting, meaningful, and easy to understand.</p>
                             <div class="tg-button-wrap">
                                 <a href="instructors.php" class="btn arrow-btn">See All Instructors <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                             </div>
@@ -212,9 +213,9 @@
                     </div>
                     <div class="col-xl-8">
                         <div class="instructor__item-wrap">
-                            <div class="row">
+                            <div class="row g-4">
                             <?php 
-                            $sql = "SELECT * FROM trainers";
+                            $sql = "SELECT * FROM trainers LIMIT 4";
                             $results = $connect->query($sql);
                             while ($final = $results->fetch_assoc()) {
                             ?>
@@ -224,40 +225,50 @@
                             $feedback = $connect->query($feedsql);
                             $feedback_data = $feedback->fetch_assoc();
                             ?>
-                                <div class="col-sm-6">
-                                    <div class="instructor__item">
-                                        <div class="instructor__thumb">
-                                            <a href="instructor-details.php?id=<?php echo $final['id'] ?>"><img style=" border-radius: 50%; border: 2px solid gold; padding: 3px;" src="<?php echo $uri.$final['image'] ?>" alt="img"></a>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="instructor__item instructor__item-modern">
+                                        <div class="instructor__thumb-modern">
+                                            <a href="instructor-details.php?id=<?php echo $final['id'] ?>" class="instructor__thumb-link">
+                                                <div class="instructor__thumb-wrapper">
+                                                    <img src="<?php echo $uri.$final['image'] ?>" alt="<?php echo $final['name'] ?>">
+                                                    <div class="instructor__thumb-overlay">
+                                                        <i class="fas fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                        <div class="instructor__content">
-                                            <h2 class="title"><a href="instructor-details.php?id=<?php echo $final['id'] ?>"><?php echo $final['name'] ?></a></h2>
-                                            <span class="designation"><?php echo $final['designation'] ?></span>
-                                            <?php if($feedback_data['review_count']>5){?>
-                                            <p class="avg-rating">
-                                                
-                                                <?php
-                                                $average_rating = round($feedback_data['average_rating']);
-                                                for ($i = 1; $i <= $average_rating; $i++) {
-                                                    echo '<i class="fas fa-star"></i>';
-                                                    
-                                                }echo round($feedback_data['average_rating'],2).''; 
-                                                ?>
- Stars
-                                            </p>
-                                            <?php } ?>
-                                            <div class="instructor__social">
-                                                <ul class="list-wrap">
-                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                                </ul>
+                                        <div class="instructor__content-modern">
+                                            <h3 class="instructor__name"><a href="instructor-details.php?id=<?php echo $final['id'] ?>"><?php echo $final['name'] ?></a></h3>
+                                            <p class="instructor__role"><?php echo $final['designation'] ?></p>
+                                            <?php if($feedback_data['review_count'] > 0){?>
+                                            <div class="instructor__rating-modern">
+                                                <div class="stars">
+                                                    <?php
+                                                    $average_rating = round($feedback_data['average_rating'], 1);
+                                                    $full_stars = floor($average_rating);
+                                                    $has_half = ($average_rating - $full_stars) >= 0.5;
+                                                    for ($i = 1; $i <= 5; $i++) {
+                                                        if ($i <= $full_stars) {
+                                                            echo '<i class="fas fa-star"></i>';
+                                                        } elseif ($i == $full_stars + 1 && $has_half) {
+                                                            echo '<i class="fas fa-star-half-alt"></i>';
+                                                        } else {
+                                                            echo '<i class="far fa-star"></i>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </div>
+                                                <span class="rating-value"><?php echo $average_rating; ?></span>
+                                                <span class="review-count">(<?php echo $feedback_data['review_count']; ?> reviews)</span>
                                             </div>
+                                            <?php } ?>
+                                            <a href="instructor-details.php?id=<?php echo $final['id'] ?>" class="instructor__view-link">
+                                                View Profile <i class="fas fa-arrow-right"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                                 <?php } ?>
-                                
                             </div>
                         </div>
                     </div>

@@ -79,27 +79,23 @@
                             <ul class="about__info-list list-wrap">
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">STEM Skills</p>
+                                    <p class="content">Communication & Public Speaking</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Arts and Creativity</p>
+                                    <p class="content">Creativity & Content Creation</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Personal Development</p>
+                                    <p class="content">Personality & Leadership Development</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Language and Culture</p>
+                                    <p class="content">Critical Thinking & Problem Solving</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">Community and Support</p>
-                                </li>
-                                <li class="about__info-list-item">
-                                    <i class="flaticon-angle-right"></i>
-                                    <p class="content">Flexible Learning</p>
+                                    <p class="content">English Language & Expression</p>
                                 </li>
                             </ul>
                             <div class="tg-button-wrap">
@@ -270,50 +266,40 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="assets/img/icons/features_icon01.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
                                 <h4 class="title">Learn with Experts</h4>
-                                <p>Curate anding area share Pluralsight content to reach your</p>
+                                <p> Join sessions led by industry professionals and gain practical knowledge from experienced mentors.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="assets/img/icons/features_icon02.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
                                 <h4 class="title">Learn Anything</h4>
-                                <p>Curate anding area share Pluralsight content to reach your</p>
+                                <p>Access a wide range of topics and upskill at your own pace with curated courses and tutorials.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="assets/img/icons/features_icon03.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
                                 <h4 class="title">Get Online Certificate</h4>
-                                <p>Curate anding area share Pluralsight content to reach your</p>
+                                <p>Earn verified certificates for completed courses to showcase your skills and boost your career.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="features__item">
-                            <div class="features__icon">
-                                <img src="assets/img/icons/features_icon04.svg" class="injectable" alt="img">
-                            </div>
-                            <div class="features__content">
-                                <h4 class="title">E-mail Marketing</h4>
-                                <p>Curate anding area share Pluralsight content to reach your</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>

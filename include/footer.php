@@ -91,7 +91,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-7">
                         <div class="copy-right-text">
-                            <p>© <?php echo date('Y'); ?> magicofskills.com</p>
+                            <p>© Magicofskills.com <?php echo date('Y'); ?></p>
                         </div>
                     </div>
                     <div class="col-md-5">

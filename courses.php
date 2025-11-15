@@ -8,7 +8,7 @@
     <?php include "include/session.php" ;  include "include/meta.php" ?>
 </head>
 
-<body>
+<body class="courses-page">
 
 <?php include "include/header.php" ?>
 
@@ -52,8 +52,25 @@
                     <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
                     <aside class="courses__sidebar">
     <form id="filterForm" method="GET" action="courses.php">
-        <div class="courses-widget">
-            <h4 class="widget-title">Categories</h4>
+        <!-- Apply Filters Button at Top -->
+        <div class="filter-action-top">
+            <button type="submit" class="btn btn-filter-apply">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 4H16M5 9H13M7 14H11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Apply Filters
+            </button>
+            <a href="courses.php" class="btn btn-filter-reset">Reset</a>
+        </div>
+
+        <!-- Categories Filter -->
+        <div class="courses-widget filter-card">
+            <div class="filter-header">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 10H17M3 5H17M3 15H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <h4 class="widget-title">Categories</h4>
+            </div>
             <div class="courses-cat-list">
                 <ul class="list-wrap">
                     <?php
@@ -62,9 +79,12 @@
                     while ($final = $results->fetch_assoc()) {
                     ?>
                     <li>
-                        <div class="form-check">
+                        <div class="form-check custom-checkbox">
                             <input class="form-check-input" type="checkbox" name="category[]" value="<?php echo $final['id']; ?>" id="cat_<?php echo $final['id']; ?>">
-                            <label class="form-check-label" for="cat_<?php echo $final['id']; ?>"><?php echo $final['name']; ?></label>
+                            <label class="form-check-label" for="cat_<?php echo $final['id']; ?>">
+                                <span class="checkmark"></span>
+                                <span class="label-text"><?php echo $final['name']; ?></span>
+                            </label>
                         </div>
                     </li>
                     <?php } ?>
@@ -72,88 +92,145 @@
             </div>
         </div>
         
-        <div class="courses-widget">
-            <h4 class="widget-title">Price</h4>
+        <!-- Price Filter -->
+        <div class="courses-widget filter-card">
+            <div class="filter-header">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2L12.09 7.26L17 8.27L13 12.14L13.82 17.02L10 14.77L6.18 17.02L7 12.14L3 8.27L7.91 7.26L10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h4 class="widget-title">Price</h4>
+            </div>
             <div class="courses-cat-list">
                 <ul class="list-wrap">
                     <li>
-                        <div class="form-check">
+                        <div class="form-check custom-checkbox">
                             <input class="form-check-input" type="checkbox" name="price[]" value="all" id="price_all">
-                            <label class="form-check-label" for="price_all">All Price</label>
+                            <label class="form-check-label" for="price_all">
+                                <span class="checkmark"></span>
+                                <span class="label-text">All Price</span>
+                            </label>
                         </div>
                     </li>
                     <li>
-                        <div class="form-check">
+                        <div class="form-check custom-checkbox">
                             <input class="form-check-input" type="checkbox" name="price[]" value="free" id="price_free">
-                            <label class="form-check-label" for="price_free">Free</label>
+                            <label class="form-check-label" for="price_free">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Free</span>
+                            </label>
                         </div>
                     </li>
                     <li>
-                        <div class="form-check">
+                        <div class="form-check custom-checkbox">
                             <input class="form-check-input" type="checkbox" name="price[]" value="paid" id="price_paid">
-                            <label class="form-check-label" for="price_paid">Paid</label>
+                            <label class="form-check-label" for="price_paid">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Paid</span>
+                            </label>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="courses-widget">
-            <h4 class="widget-title">Skill level</h4>
+        <!-- Skill Level Filter -->
+        <div class="courses-widget filter-card">
+            <div class="filter-header">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M10 6.5V10L12.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <h4 class="widget-title">Skill Level</h4>
+            </div>
             <div class="courses-cat-list">
                 <ul class="list-wrap">
                     <li>
-                        <div class="form-check">
+                        <div class="form-check custom-checkbox">
                             <input class="form-check-input" type="checkbox" name="skill[]" value="all" id="skill_all">
-                            <label class="form-check-label" for="skill_all">All Skills</label>
+                            <label class="form-check-label" for="skill_all">
+                                <span class="checkmark"></span>
+                                <span class="label-text">All Skills</span>
+                            </label>
                         </div>
                     </li>
                     <li>
-                        <div class="form-check">
+                        <div class="form-check custom-checkbox">
                             <input class="form-check-input" type="checkbox" name="skill[]" value="beginner" id="skill_beginner">
-                            <label class="form-check-label" for="skill_beginner">Beginner</label>
+                            <label class="form-check-label" for="skill_beginner">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Beginner</span>
+                            </label>
                         </div>
                     </li>
                     <li>
-                        <div class="form-check">
+                        <div class="form-check custom-checkbox">
                             <input class="form-check-input" type="checkbox" name="skill[]" value="intermediate" id="skill_intermediate">
-                            <label class="form-check-label" for="skill_intermediate">Intermediate</label>
+                            <label class="form-check-label" for="skill_intermediate">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Intermediate</span>
+                            </label>
                         </div>
                     </li>
                     <li>
-                        <div class="form-check">
+                        <div class="form-check custom-checkbox">
                             <input class="form-check-input" type="checkbox" name="skill[]" value="advance" id="skill_advance">
-                            <label class="form-check-label" for="skill_advance">Advance</label>
+                            <label class="form-check-label" for="skill_advance">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Advance</span>
+                            </label>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="courses-widget">
-            <h4 class="widget-title">Instructors</h4>
-            <div class="courses-cat-list">
+        <!-- Instructors Filter -->
+        <div class="courses-widget filter-card">
+            <div class="filter-header">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M2.42188 18C2.42188 14.6863 5.10813 12 8.42188 12H11.5781C14.8919 12 17.5781 14.6863 17.5781 18V20H2.42188V18Z" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+                <h4 class="widget-title">Instructors</h4>
+            </div>
+            <div class="courses-cat-list instructor-list">
                 <ul class="list-wrap">
                     <?php
-                    $sql = "SELECT * FROM trainers ORDER BY id DESC";
+                    $sql = "SELECT * FROM trainers ORDER BY id DESC LIMIT 10";
                     $results = $connect->query($sql);
                     while ($final = $results->fetch_assoc()) {
                     ?>
                     <li>
-                        <div class="form-check">
+                        <div class="form-check custom-checkbox instructor-item">
                             <input class="form-check-input" type="checkbox" name="instructor[]" value="<?php echo $final['id']; ?>" id="ins_<?php echo $final['id']; ?>">
-                            <label class="form-check-label" for="ins_<?php echo $final['id']; ?>"><?php echo $final['name']; ?></label>
+                            <label class="form-check-label" for="ins_<?php echo $final['id']; ?>">
+                                <span class="checkmark"></span>
+                                <?php if (!empty($final['photo'])): ?>
+                                <img src="<?php echo $uri . $final['photo']; ?>" alt="<?php echo htmlspecialchars($final['name']); ?>" class="instructor-avatar">
+                                <?php else: ?>
+                                <div class="instructor-avatar-placeholder">
+                                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor"/>
+                                        <path d="M2.42188 18C2.42188 14.6863 5.10813 12 8.42188 12H11.5781C14.8919 12 17.5781 14.6863 17.5781 18V20H2.42188V18Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <?php endif; ?>
+                                <span class="label-text"><?php echo $final['name']; ?></span>
+                            </label>
                         </div>
                     </li>
                     <?php } ?>
                 </ul>
             </div>
             <div class="show-more">
-                <a href="instructors.php">Show All Trainers +</a>
+                <a href="instructors.php" class="show-all-trainers">
+                    <span>Show All Trainers</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
         </div>
-        
-        <button type="submit" class="btn btn-primary">Apply Filters</button>
     </form>
 </aside>
 
