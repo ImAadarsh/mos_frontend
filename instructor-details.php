@@ -41,7 +41,7 @@
                                 </span>
                                 <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
                                 <span property="itemListElement" typeof="ListItem">
-                                    <a href="instructors.php">Instructors</a>
+                                    <a href="instructors.php">Mentors</a>
                                 </span>
                                 <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
                                 <span property="itemListElement" typeof="ListItem"><?php echo $final['name'] ?></php></span>

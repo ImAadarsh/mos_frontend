@@ -191,7 +191,7 @@
                     <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" stroke="currentColor" stroke-width="1.5"/>
                     <path d="M2.42188 18C2.42188 14.6863 5.10813 12 8.42188 12H11.5781C14.8919 12 17.5781 14.6863 17.5781 18V20H2.42188V18Z" stroke="currentColor" stroke-width="1.5"/>
                 </svg>
-                <h4 class="widget-title">Instructors</h4>
+                <h4 class="widget-title">Mentors</h4>
             </div>
             <div class="courses-cat-list instructor-list">
                 <ul class="list-wrap">

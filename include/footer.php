@@ -24,7 +24,7 @@
                             <div class="footer__link">
                                 <ul class="list-wrap">
                                     <li><a href="about-us.php">About us</a></li>
-                                    <li><a href="instructors.php">Instructors</a></li>
+                                    <li><a href="instructors.php">Mentors</a></li>
                                     <li><a href="events.php">Events</a></li>
                                     <li><a href="blog.php">Blogs</a></li>
                                     <li><a href="contact.php">Contact</a></li>

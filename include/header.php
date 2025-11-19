@@ -92,7 +92,7 @@
                                         <li class="menu-item-has-children"><a href="#">Resources</a>
                                             <ul class="sub-menu">
                                             <li class=""><a href="events.php">Events</a>
-                                            <li class=""><a href="instructors.php">Instructor</a>
+                                            <li class=""><a href="instructors.php">Mentors</a>
                                             <li class=""><a href="blog.php">Blogs</a>
                                             <li class=""><a href="contact.php">Contact</a>
                                             </ul>

@@ -37,6 +37,7 @@ use Monolog\Level;?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magic Of Skills | Designed To Learn More</title>
 
     <meta name="description" content="<?php echo $final['short_description'] ?>">
@@ -105,6 +106,354 @@ use Monolog\Level;?>
     content: '\2605'; /* Filled star symbol */
 }
 
+/* Mobile Optimization Styles */
+@media (max-width: 991.98px) {
+    .courses__details-sidebar {
+        margin-bottom: 30px;
+    }
+    
+    .courses__cost-wrap {
+        margin-bottom: 20px;
+    }
+    
+    .courses__cost-wrap span {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    .courses__cost-wrap .title {
+        font-size: 28px;
+    }
+    
+    .courses__cost-wrap .title del {
+        font-size: 20px;
+    }
+    
+    .courses__information-wrap {
+        margin-bottom: 20px;
+    }
+    
+    .courses__information-wrap .title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .courses__information-wrap ul li {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+    
+    .courses__details-social {
+        margin-bottom: 20px;
+    }
+    
+    .courses__details-social .title {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .courses__details-enroll .tg-button-wrap {
+        margin-bottom: 15px;
+    }
+    
+    .courses__details-enroll .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .courses__details-thumb {
+        margin-bottom: 20px;
+    }
+    
+    .courses__details-thumb img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    
+    .courses__details-content .title {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+    
+    .courses__item-meta {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .courses__item-meta li {
+        font-size: 13px;
+    }
+    
+    .courses__details-meta ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .courses__details-meta li {
+        font-size: 13px;
+    }
+    
+    .nav-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .nav-tabs .nav-link {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    
+    .courses__overview-wrap .title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .courses__overview-wrap p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .about__info-list-item {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .courses__instructors-wrap {
+        flex-direction: column;
+    }
+    
+    .courses__instructors-thumb {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .courses__instructors-content .title {
+        font-size: 22px;
+    }
+    
+    .course-rate {
+        margin-bottom: 30px;
+    }
+    
+    .course-review-head {
+        flex-direction: column;
+        margin-bottom: 25px;
+        padding: 15px;
+        border-radius: 8px;
+        background: #f8f9fa;
+    }
+    
+    .review-author-thumb {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .review-author-content {
+        text-align: center;
+    }
+    
+    .comment-respond {
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+    
+    .comment-form textarea {
+        width: 100%;
+        min-height: 120px;
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .courses__cost-wrap .title {
+        font-size: 22px;
+    }
+    
+    .courses__cost-wrap .title del {
+        font-size: 16px;
+    }
+    
+    .courses__details-content .title {
+        font-size: 19px;
+    }
+    
+    .courses__item-meta li {
+        font-size: 11px;
+    }
+    
+    .courses__details-meta li {
+        font-size: 11px;
+    }
+    
+    .nav-tabs .nav-link {
+        font-size: 12px;
+        padding: 7px 12px;
+    }
+    
+    .courses__overview-wrap .title {
+        font-size: 17px;
+    }
+    
+    .courses__instructors-content .title {
+        font-size: 19px;
+    }
+    
+    .section-py-120 {
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+    
+    .breadcrumb__area {
+        padding: 28px 0;
+    }
+    
+    .breadcrumb {
+        font-size: 11px;
+    }
+}
+
+.courses__details-area {
+    background: #f5f8ff;
+    border-radius: 24px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.course-meta-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.04);
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(15, 16, 40, 0.04);
+}
+
+.course-meta-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.course-category-tag a {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(255, 193, 36, 0.15);
+    color: var(--tg-heading-color);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.course-rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-weight: 500;
+    color: var(--tg-heading-color);
+}
+
+.course-rating-summary .far.fa-star,
+.course-rating-summary .fas.fa-star {
+    color: #FFC124;
+    font-size: 13px;
+}
+
+.course-rating-value {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.course-rating-count {
+    font-weight: 500;
+    color: #6F6C90;
+    font-size: 13px;
+}
+
+.course-rating-summary small {
+    font-size: 12px;
+}
+
+.course-meta-bottom {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.course-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 200px;
+}
+
+.course-meta-item .label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6F6C90;
+    font-weight: 600;
+}
+
+.course-meta-item .value {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--tg-heading-color);
+}
+
+.course-meta-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 193, 36, 0.45);
+}
+
+.course-meta-item.schedule i {
+    font-size: 20px;
+    color: var(--tg-theme-primary);
+}
+
+@media (max-width: 767.98px) {
+    .course-meta-card {
+        padding: 14px 16px;
+    }
+    
+    .course-meta-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .course-meta-bottom {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .course-meta-item {
+        min-width: 100%;
+    }
+    
+    .courses__details-area {
+        padding-top: 36px;
+        padding-bottom: 36px;
+        border-radius: 16px;
+    }
+}
+
     </style>
 </head>
 
@@ -149,61 +498,243 @@ use Monolog\Level;?>
         <!-- breadcrumb-area-end -->
 
         <!-- courses-details-area -->
-        <section class="courses__details-area section-py-120">
+        <section class="courses__details-area ">
             <div class="container">
 
                 <div class="row">
+                    <!-- Sidebar - appears after main content on mobile, right on desktop -->
+                    <div class="col-xl-3 col-lg-4 order-2 order-lg-2 sidebar-column">
+                        <div class="courses__details-sidebar">
+                            <!-- <div class="courses__details-video">
+                                <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                                <a href="https://www.youtube.com/watch?v=YwrHGratByU" class="popup-video"><i class="fas fa-play"></i></a>
+                            </div> -->
+                            <div class="courses__cost-wrap">
+                                <span>This Workshop Fee:</span>
+                                    <?php if($final['is_completed'] == 1) {
+                                        ?>
+                                        <h2 class="title">₹<?php echo $final['record_price']; ?> <del><?php echo $final['cut_price']; ?></del></h2>
+                                        <?php 
+                                    } else {
+                                        if($final['start_time'] > $current_time) {
+                                            ?>
+                                            <h2 class="title">₹<?php echo $final['price']; ?> <del><?php echo $final['cut_price']; ?></del></h2>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <h2 class="title">Closed</h2>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                            </div>
+                            <div class="courses__information-wrap">
+                                <h5 class="title">Course includes:</h5>
+                                <ul class="list-wrap">
+                                    <li>
+                                        <img src="assets/img/icons/course_icon01.svg" alt="img" class="injectable">
+                                        Level
+                                        <span><?php  if($final['level']==1){echo "Basic";}else if($final['Level']){echo "Intermediate";}else{echo "Advanced";} ?></span>
+                                    </li>
+                                    <li>
+                                        <img src="assets/img/icons/course_icon02.svg" alt="img" class="injectable">
+                                        Duration
+                                        <span><?php echo $final['duration'] ?> Mins</span>
+                                    </li>
+                                    <li>
+                                        <img src="assets/img/icons/course_icon03.svg" alt="img" class="injectable">
+                                        category
+                                        <span><?php echo $cfinal['name'] ?></span>
+                                    </li>
+                                    <!-- <li>
+                                        <img src="assets/img/icons/course_icon04.svg" alt="img" class="injectable">
+                                        Quizzes
+                                        <span>145</span>
+                                    </li> -->
+                                    <li>
+                                        <img src="assets/img/icons/course_icon05.svg" alt="img" class="injectable">
+                                        Certifications
+                                        <span>Yes</span>
+                                    </li>
+                                    <li>
+                                        <img src="assets/img/icons/course_icon06.svg" alt="img" class="injectable">
+                                        Recording
+                                        <span>Yes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <div class="courses__payment">
+                                <h5 class="title">Secure Payment:</h5>
+                                <img src="assets/img/others/payment.png" alt="img">
+                            </div> -->
+                            <?php 
+// Assuming you already have the $final array from your previous database query
+$course_url = 'https://magicofskills.com/course-details.php?id=' . $final['id'];
+$course_name = $final['name'];
+?>
+
+<div class="courses__details-social">
+    <h5 class="title">Share this course:</h5>
+    <ul class="list-wrap">
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($course_url); ?>" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($course_url); ?>&text=<?php echo urlencode('Check out this course: ' . $course_name); ?>" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Check out this course: ' . $course_url); ?>" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode($course_url); ?>" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                            <div class="courses__details-enroll">
+                            <?php 
+                        if(!isset($transaction['payment_id'])){
+                                        ?>  
+                            <div class="tg-button-wrap mb-20">
+                                <?php 
+                                    if(isset($_SESSION['token'])){
+                                        ?>      
+                                   
+                                    <?php 
+                                    if($final['start_time'] > $current_time || $final['is_completed']==1 ) {
+                                        ?>
+                                        <a href="controller/cart.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn">
+                                        Add To Cart
+                                        <img style="width: 400px important;" src="assets/img/icons/cart.svg" alt="img" class="injectable">
+                                        </a>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <a href="#" class="btn btn-two arrow-btn">
+                                    Closed!!
+                                    
+                                </a>
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                            
+                            <div class="tg-button-wrap">
+                                    
+                                    <?php if($final['is_completed'] == 1) {
+                                        ?>
+                                        <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn">
+                                        Buy Recording
+                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                    </a>
+                                        <?php 
+                                    } else {
+                                        if($final['start_time'] > $current_time) {
+                                            ?>
+                                            <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn">
+                                        Enroll Now
+                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                    </a>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <a href="#" class="btn btn-two arrow-btn">
+                                        Closed
+                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                    </a>
+                                            <?php
+                                        }
+                                    }}else{
+                                        ?>
+                                        <a href="login.php" class="btn btn-two arrow-btn">
+                                        Login to Enroll
+                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                    </a>
+                                        <?php
+                                    }
+                                    ?>
+                            </div>
+                            <?php }else{
+                                ?>
+<div class="tg-button-wrap">
+<a href="#" class="btn btn-two arrow-btn">
+                                       Already Purchased.
+                                        
+                                    </a>
+</div>
+                                <?php
+                            } ?>
+                                
+                            </div>
+                        </div>
+                    </div>
                     
-                    <div class="col-xl-9 col-lg-8">
+                    <!-- Main Content - appears first on all devices -->
+                    <div class="col-xl-9 col-lg-8 order-1 order-lg-1">
                         
                         <div class="courses__details-thumb">
                             <img src="<?php echo $uri.$final['banner_image'] ?>" alt="img">
                         </div>
                         <div class="courses__details-content">
-                            <ul class="courses__item-meta list-wrap">
-                                <li class="courses__item-tag">
-                                    <a href="courses.php"><?php echo $cfinal['name'] ?></a>
-                                </li>
-                                <!-- <li class="avg-rating"><i class="fas fa-star"></i>  -->
-                                <?php
+                            <?php
                                 $trainer_id = $final['trainer_id'];
-                            $feedsql = "SELECT AVG(rating) as average_rating, COUNT(*) as review_count FROM reviews WHERE trainer_id = $trainer_id";
-                            $feedback = $connect->query($feedsql);
-                            $feedback_data = $feedback->fetch_assoc();
+                                $feedsql = "SELECT AVG(rating) as average_rating, COUNT(*) as review_count FROM reviews WHERE trainer_id = $trainer_id";
+                                $feedback = $connect->query($feedsql);
+                                $feedback_data = $feedback->fetch_assoc();
+                                $average_rating_value = isset($feedback_data['average_rating']) ? (float)$feedback_data['average_rating'] : 0;
+                                $average_rating_display = number_format($average_rating_value, 1);
+                                $review_count = isset($feedback_data['review_count']) ? (int)$feedback_data['review_count'] : 0;
+                                $start_time = $final['start_time'];
+                                $date = new DateTime($start_time);
+                                $formatted_date = $date->format('d/m/Y h:i A');
                             ?>
-
-                            <li class="rating">
-                                <?php
-                                $average_rating = round($feedback_data['average_rating']);
-                                for ($i = 1; $i <= $average_rating; $i++) {
-                                    echo '<i style="color: #FFC124;" class=" avg-rating fas fa-star"></i>';
-                                    
-                                }echo round($feedback_data['average_rating'],2).' Stars'; 
-                                ?>
-                                <li class="avg-rating" >(<?php echo $feedback_data['review_count']; ?> reviews)</li>
-                            </li>
-                        <?php
-                        
-                        ?>
-                            </ul>
-                            <h2 class="title"><?php echo $final['name'] ?></h2>
-                            <div class="courses__details-meta">
-                                <ul class="list-wrap">
-                                    <li class="author-two">
-                                        <img width="50px" src="<?php echo $uri.$tfinal['image'] ?>" alt="img">
-                                        By
-                                        <a href="#"><?php echo $tfinal['name'] ?></a>
-                                    </li>
-                                    <li class="date"><i class="flaticon-calendar"></i><?php
-                                    $start_time = $final['start_time']; // e.g., '2024-07-05 17:00:00'
-                                    $date = new DateTime($start_time);
-                                    $formatted_date = $date->format('d/m/Y h:i A'); // Format to '07/05/2024 05:00 PM'
-                                    echo $formatted_date;
-                                    ?>
-                                    </li>
-                                    <!-- <li><i class="flaticon-mortarboard"></i>2,250 Students</li> -->
-                                </ul>
+                            <div class="course-meta-card">
+                                <div class="course-meta-top">
+                                    <span class="course-category-tag">
+                                        <a href="courses.php"><?php echo $cfinal['name'] ?></a>
+                                    </span>
+                                    <div class="course-rating-summary">
+                                        <div class="course-rating-stars">
+                                            <?php
+                                                for ($i = 1; $i <= 5; $i++) {
+                                                    $filled = $i <= round($average_rating_value);
+                                                    echo $filled
+                                                        ? '<i class="fas fa-star"></i>'
+                                                        : '<i class="far fa-star"></i>';
+                                                }
+                                            ?>
+                                        </div>
+                                        <span class="course-rating-value"><?php echo $average_rating_display; ?>/5</span>
+                                        <span class="course-rating-count">(<?php echo $review_count; ?> reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="course-meta-bottom">
+                                    <div class="course-meta-item instructor">
+                                        <img src="<?php echo $uri.$tfinal['image'] ?>" alt="Instructor" class="course-meta-avatar">
+                                        <div>
+                                            <span class="label">Instructor</span>
+                                            <span class="value"><?php echo $tfinal['name'] ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="course-meta-item schedule">
+                                        <i class="flaticon-calendar"></i>
+                                        <div>
+                                            <span class="label">Schedule</span>
+                                            <span class="value"><?php echo $formatted_date; ?></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <h2 class="title"><?php echo $final['name'] ?></h2>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane" type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
@@ -418,180 +949,6 @@ function time_elapsed_string($datetime, $full = false) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4">
-                        <div class="courses__details-sidebar">
-                            <!-- <div class="courses__details-video">
-                                <img src="assets/img/courses/course_thumb02.jpg" alt="img">
-                                <a href="https://www.youtube.com/watch?v=YwrHGratByU" class="popup-video"><i class="fas fa-play"></i></a>
-                            </div> -->
-                            <div class="courses__cost-wrap">
-                                <span>This Workshop Fee:</span>
-                                    <?php if($final['is_completed'] == 1) {
-                                        ?>
-                                        <h2 class="title">₹<?php echo $final['record_price']; ?> <del><?php echo $final['cut_price']; ?></del></h2>
-                                        <?php 
-                                    } else {
-                                        if($final['start_time'] > $current_time) {
-                                            ?>
-                                            <h2 class="title">₹<?php echo $final['price']; ?> <del><?php echo $final['cut_price']; ?></del></h2>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <h2 class="title">Closed</h2>
-                                            <?php
-                                        }
-                                    }
-                                    ?>
-                            </div>
-                            <div class="courses__information-wrap">
-                                <h5 class="title">Course includes:</h5>
-                                <ul class="list-wrap">
-                                    <li>
-                                        <img src="assets/img/icons/course_icon01.svg" alt="img" class="injectable">
-                                        Level
-                                        <span><?php  if($final['level']==1){echo "Basic";}else if($final['Level']){echo "Intermediate";}else{echo "Advanced";} ?></span>
-                                    </li>
-                                    <li>
-                                        <img src="assets/img/icons/course_icon02.svg" alt="img" class="injectable">
-                                        Duration
-                                        <span><?php echo $final['duration'] ?> Mins</span>
-                                    </li>
-                                    <li>
-                                        <img src="assets/img/icons/course_icon03.svg" alt="img" class="injectable">
-                                        category
-                                        <span><?php echo $cfinal['name'] ?></span>
-                                    </li>
-                                    <!-- <li>
-                                        <img src="assets/img/icons/course_icon04.svg" alt="img" class="injectable">
-                                        Quizzes
-                                        <span>145</span>
-                                    </li> -->
-                                    <li>
-                                        <img src="assets/img/icons/course_icon05.svg" alt="img" class="injectable">
-                                        Certifications
-                                        <span>Yes</span>
-                                    </li>
-                                    <li>
-                                        <img src="assets/img/icons/course_icon06.svg" alt="img" class="injectable">
-                                        Recording
-                                        <span>Yes</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- <div class="courses__payment">
-                                <h5 class="title">Secure Payment:</h5>
-                                <img src="assets/img/others/payment.png" alt="img">
-                            </div> -->
-                            <?php 
-// Assuming you already have the $final array from your previous database query
-$course_url = 'https://magicofskills.com/course-details.php?id=' . $final['id'];
-$course_name = $final['name'];
-?>
-
-<div class="courses__details-social">
-    <h5 class="title">Share this course:</h5>
-    <ul class="list-wrap">
-        <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($course_url); ?>" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($course_url); ?>&text=<?php echo urlencode('Check out this course: ' . $course_name); ?>" target="_blank">
-                <i class="fab fa-twitter"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Check out this course: ' . $course_url); ?>" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode($course_url); ?>" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                            <div class="courses__details-enroll">
-                            <?php 
-                        if(!isset($transaction['payment_id'])){
-                                        ?>  
-                            <div class="tg-button-wrap mb-20">
-                                <?php 
-                                    if(isset($_SESSION['token'])){
-                                        ?>      
-                                   
-                                    <?php 
-                                    if($final['start_time'] > $current_time || $final['is_completed']==1 ) {
-                                        ?>
-                                        <a href="controller/cart.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn">
-                                        Add To Cart
-                                        <img style="width: 400px important;" src="assets/img/icons/cart.svg" alt="img" class="injectable">
-                                        </a>
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <a href="#" class="btn btn-two arrow-btn">
-                                    Closed!!
-                                    
-                                </a>
-                                        <?php
-                                    }
-                                ?>
-                            </div>
-                            
-                            <div class="tg-button-wrap">
-                                    
-                                    <?php if($final['is_completed'] == 1) {
-                                        ?>
-                                        <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn">
-                                        Buy Recording
-                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
-                                    </a>
-                                        <?php 
-                                    } else {
-                                        if($final['start_time'] > $current_time) {
-                                            ?>
-                                            <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn">
-                                        Enroll Now
-                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
-                                    </a>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <a href="#" class="btn btn-two arrow-btn">
-                                        Closed
-                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
-                                    </a>
-                                            <?php
-                                        }
-                                    }}else{
-                                        ?>
-                                        <a href="login.php" class="btn btn-two arrow-btn">
-                                        Login to Enroll
-                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
-                                    </a>
-                                        <?php
-                                    }
-                                    ?>
-                            </div>
-                            <?php }else{
-                                ?>
-<div class="tg-button-wrap">
-<a href="#" class="btn btn-two arrow-btn">
-                                       Already Purchased.
-                                        
-                                    </a>
-</div>
-                                <?php
-                            } ?>
-                                
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -677,6 +1034,32 @@ $course_name = $final['name'];
     });
 });
 
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebar = document.querySelector('.courses__details-sidebar');
+            const thumb = document.querySelector('.courses__details-thumb');
+            const content = document.querySelector('.courses__details-content');
+            const originalParent = sidebar?.parentNode || null;
+            const originalNextSibling = sidebar?.nextElementSibling || null;
+
+            if (!sidebar || !thumb || !content || !originalParent) {
+                return;
+            }
+
+            const moveSidebarForMobile = () => {
+                if (window.innerWidth < 992) {
+                    if (sidebar.parentNode !== thumb.parentNode) {
+                        thumb.parentNode.insertBefore(sidebar, content);
+                    }
+                } else if (sidebar.parentNode !== originalParent) {
+                    originalParent.insertBefore(sidebar, originalNextSibling);
+                }
+            };
+
+            moveSidebarForMobile();
+            window.addEventListener('resize', moveSidebarForMobile);
+        });
     </script>
 </body>
 
