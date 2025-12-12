@@ -391,6 +391,7 @@
                                             FROM workshops 
                                             JOIN categories ON workshops.category_id = categories.id 
                                             JOIN trainers ON workshops.trainer_id = trainers.id 
+                                            WHERE workshops.is_visible=1 AND workshops.is_deleted=0
                                             LIMIT 6";
                                             $results = $connect->query($sql);
                     while ($final = $results->fetch_assoc()) { 
@@ -640,7 +641,7 @@
                                         </svg>
                                     </div>
                                     <div class="content">
-                                        <a href="tel:+917697001231">+91 7697001231</a>
+                                        <a href="tel:+917489905132">+91 7489905132</a>
                                         <span>Call for any Question</span>
                                     </div>
                                 </div>

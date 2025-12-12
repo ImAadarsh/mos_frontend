@@ -10,7 +10,7 @@ use Monolog\Level;?>
 // Set the timezone to IST
 
     $id = $_GET['id'];
-    $sql = "SELECT * FROM workshops where id='$id'";
+    $sql = "SELECT * FROM workshops WHERE id='$id' AND is_visible=1 AND is_deleted=0";
     $results = $connect->query($sql);
     $final = $results->fetch_assoc();
 

@@ -13,7 +13,8 @@
                                 <ul class="list-wrap">
                                     <li>
                                     Raj Palace, Navi Mumbai- 400709 </li>
-                                    <li>+91 7697001231</li>
+                                    <li>+91 7489905132</li>
+                                    <li>+91 8400700199</li>
                                 </ul>
                             </div>
                         </div>
@@ -54,27 +55,27 @@
                                 <p>For latest news and recent update please <br> follow us on social media accounts.</p>
                                 <ul class="list-wrap footer__social">
                                     <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
+                                        <a href="https://www.facebook.com/share/1DPPds7df3/" target="_blank">
                                             <img src="assets/img/icons/facebook.svg" alt="img" class="injectable">
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <img src="assets/img/icons/twitter.svg" alt="img" class="injectable">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <img src="assets/img/icons/whatsapp.svg" alt="img" class="injectable">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
+                                        <a href="https://www.instagram.com/magicofskills?igsh=YmVtMDA5YjllY3Fp" target="_blank">
                                             <img src="assets/img/icons/instagram.svg" alt="img" class="injectable">
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
+                                        <a href="https://wa.me/917489905132" target="_blank">
+                                            <img src="assets/img/icons/whatsapp.svg" alt="img" class="injectable">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/company/ipn-leadership-academy/" target="_blank">
+                                            <img src="assets/img/icons/linkedin.svg" alt="img" class="injectable">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/@IPNAcademy/videos?app=desktop" target="_blank">
                                             <img src="assets/img/icons/youtube.svg" alt="img" class="injectable">
                                         </a>
                                     </li>

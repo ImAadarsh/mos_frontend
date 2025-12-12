@@ -125,7 +125,7 @@
                                         $sql = "SELECT workshops.*, categories.name as cat_name 
                                                 FROM workshops 
                                                 JOIN categories ON workshops.category_id = categories.id 
-                                                WHERE trainer_id = $id AND workshops.is_deleted=0 AND workshops.is_completed = 0
+                                                WHERE trainer_id = $id AND workshops.is_visible=1 AND workshops.is_deleted=0 AND workshops.is_completed = 0
                                                 ORDER BY workshops.start_time ASC";
 
                                         $results = $connect->query($sql);

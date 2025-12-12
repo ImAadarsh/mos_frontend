@@ -360,6 +360,10 @@
                                                 $where_clauses[] = implode(' AND ', $filters);
                                             }
                                     
+                                            // Always include visibility and deletion filters
+                                            $where_clauses[] = "workshops.is_visible=1";
+                                            $where_clauses[] = "workshops.is_deleted=0";
+                                    
                                             $where_sql = '';
                                             if ($where_clauses) {
                                                 $where_sql = 'WHERE ' . implode(' AND ', $where_clauses);
@@ -485,6 +489,10 @@
             $where_clauses[] = implode(' AND ', $filters);
         }
 
+        // Always include visibility and deletion filters
+        $where_clauses[] = "workshops.is_visible=1";
+        $where_clauses[] = "workshops.is_deleted=0";
+        
         $where_sql = '';
         if ($where_clauses) {
             $where_sql = 'WHERE ' . implode(' AND ', $where_clauses);

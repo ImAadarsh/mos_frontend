@@ -68,7 +68,7 @@
         $workshopsQuery = "SELECT workshops.*, trainers.name AS trainer_name, trainers.image AS trainer_image 
                            FROM workshops 
                            LEFT JOIN trainers ON workshops.trainer_id = trainers.id 
-                           WHERE workshops.id IN ($workshopIdsString)";
+                           WHERE workshops.id IN ($workshopIdsString) AND workshops.is_visible=1 AND workshops.is_deleted=0";
         $workshopsResult = $connect->query($workshopsQuery);
         $workshops = $workshopsResult->fetch_all(MYSQLI_ASSOC);
     } else {

@@ -16,7 +16,7 @@ $sql = "SELECT * FROM users WHERE id = $uid";
 $results = $connect->query($sql);
 $final = $results->fetch_assoc();
 
-$queryWorkshops = "SELECT * FROM workshops";
+$queryWorkshops = "SELECT * FROM workshops WHERE is_visible=1 AND is_deleted=0";
 $resultWorkshops = $connect->query($queryWorkshops);
 $events = array();
 

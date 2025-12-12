@@ -39,12 +39,12 @@
                     <div class="col-lg-6">
                         <div class="tg-header__top-right">
                             <div class="tg-header__phone">
-                                <img src="assets/img/icons/phone.svg" alt="Icon">Call us: <a href="tel:+917697001231">+91 7697001231</a>
+                                <img src="assets/img/icons/phone.svg" alt="Icon">Call us: <a href="tel:+917489905132">+91 7489905132</a>
                             </div>
                             <ul class="tg-header__top-social list-wrap">
                                 <li>Follow Us On :</li>
-                                <li><a href="https://www.facebook.com/IPNAcademy/"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://instagram.com/ipnacademy?igshid=NDk5N2NlZjQ%3D"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/share/1DPPds7df3/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/magicofskills?igsh=YmVtMDA5YjllY3Fp" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="https://wa.me/917697001231"><i class="fab fa-whatsapp"></i></a></li>
                                 <li><a href="https://www.linkedin.com/company/ipn-leadership-academy/"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="https://www.youtube.com/@IPNAcademy/videos?app=desktop"><i class="fab fa-youtube"></i></a></li>
@@ -72,6 +72,19 @@
                                         <li class=""><a href="about-us.php">About Us</a>
                                         
                                         </li>
+                                        <li class="menu-item-has-children"><a href="courses.php">Categories</a>
+                                            <ul class="sub-menu">
+                                            <?php
+                                            if(isset($connect)) {
+                                                $catsql = "SELECT * FROM categories ORDER BY sequence DESC LIMIT 10";
+                                                $catresults = $connect->query($catsql);
+                                                while ($cat = $catresults->fetch_assoc()) {
+                                            ?>
+                                            <li><a href="courses.php?category_id=<?php echo $cat['id']; ?>"><?php echo $cat['name']; ?></a></li>
+                                            <?php } } ?>
+                                            </ul>
+                                        </li>
+                                        
                                         <li class="menu-item-has-children"><a href="#">Workshops</a>
                                             <ul class="sub-menu">
                                                 <li class="active">
@@ -225,8 +238,8 @@
                                 </div>
                                 <div class="social-links">
                                     <ul class="list-wrap">
-                                     <li><a href="https://www.facebook.com/IPNAcademy/"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://instagram.com/ipnacademy?igshid=NDk5N2NlZjQ%3D"><i class="fab fa-instagram"></i></a></li>
+                                     <li><a href="https://www.facebook.com/share/1DPPds7df3/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/magicofskills?igsh=YmVtMDA5YjllY3Fp" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="https://wa.me/917697001231"><i class="fab fa-whatsapp"></i></a></li>
                                 <li><a href="https://www.linkedin.com/company/ipn-leadership-academy/"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="https://www.youtube.com/@IPNAcademy/videos?app=desktop"><i class="fab fa-youtube"></i></a></li>
