@@ -10,6 +10,15 @@ SERVER_USER="u954141192"
 SERVER_PATH="/home/u954141192/domains/magicofskills.com/public_html"
 LOCAL_PATH="./"
 
+# SSH Key Configuration (optional - will use default if not set)
+SSH_KEY="${SSH_KEY:-$HOME/.ssh/id_ed25519_github_deploy}"
+SSH_OPTS="-p $SERVER_PORT -o StrictHostKeyChecking=no -o ConnectTimeout=10"
+
+# Check if SSH key exists and use it
+if [ -f "$SSH_KEY" ]; then
+    SSH_OPTS="$SSH_OPTS -i $SSH_KEY"
+fi
+
 # Colors for output
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -35,7 +44,7 @@ deploy_files() {
     
     # Use rsync to sync files (excludes .git, node_modules, etc.)
     rsync -avz --progress \
-        -e "ssh -p $SERVER_PORT" \
+        -e "ssh $SSH_OPTS" \
         --exclude='.git' \
         --exclude='.gitignore' \
         --exclude='.DS_Store' \
@@ -75,7 +84,12 @@ deploy_specific() {
     for file in $files; do
         if [ -e "$file" ]; then
             echo -e "${YELLOW}Deploying: $file${NC}"
-            scp -P $SERVER_PORT -r "$file" "$SERVER_USER@$SERVER_HOST:$SERVER_PATH/$file"
+            # Build scp command with proper SSH options
+            if [ -f "$SSH_KEY" ]; then
+                scp -P $SERVER_PORT -i "$SSH_KEY" -r "$file" "$SERVER_USER@$SERVER_HOST:$SERVER_PATH/$file"
+            else
+                scp -P $SERVER_PORT -r "$file" "$SERVER_USER@$SERVER_HOST:$SERVER_PATH/$file"
+            fi
             if [ $? -eq 0 ]; then
                 echo -e "${GREEN}✓ $file deployed successfully${NC}"
             else

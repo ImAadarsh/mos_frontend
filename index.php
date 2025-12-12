@@ -25,7 +25,7 @@
                     <div class="col-xl-5 col-lg-5">
                         <div class="banner__content-five">
                             <span class="sub-title" data-aos="fade-right" data-aos-delay="200">Unlock Your Potential with the Magic of Skills!</span>
-                            <h2 class="title" data-aos="fade-right" data-aos-delay="400">World-Class <span> Workshops for </span>Future Leaders.</h2>
+                            <h2 class="title" data-aos="fade-right" data-aos-delay="400">World-Class <span> Workshops for </span>&nbsp;Future Leaders.</h2>
                             <p data-aos="fade-right" data-aos-delay="600">A fun and interactive space to transform your interests into powerful life skills! Discover, Learn & Grow with the Magic of Skills!</p>
                             <div class="banner__btn" data-aos="fade-right" data-aos-delay="800">
                                 <a href="login.php" class="btn arrow-btn">Start Your Journey Now <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>

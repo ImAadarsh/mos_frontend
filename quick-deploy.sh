@@ -5,6 +5,9 @@
 
 HOURS=${1:-1}
 
+# SSH Key Configuration (optional - will use default if not set)
+SSH_KEY="${SSH_KEY:-$HOME/.ssh/id_ed25519_github_deploy}"
+
 echo "Finding files modified in the last $HOURS hour(s)..."
 
 # Find and deploy recent files
