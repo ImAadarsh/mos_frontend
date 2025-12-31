@@ -70,8 +70,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.linkedin.com/company/ipn-leadership-academy/" target="_blank">
-                                            <img src="assets/img/icons/linkedin.svg" alt="img" class="injectable">
+                                        <a href="https://www.facebook.com/share/1DeV6QVnVh/" target="_blank">
+                                            <img src="assets/img/icons/facebook.svg" alt="img" class="injectable">
                                         </a>
                                     </li>
                                     <li>

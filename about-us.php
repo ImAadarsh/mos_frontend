@@ -261,7 +261,6 @@
                         <div class="section__title white-title text-center mb-50">
                             <span class="sub-title">How We Start Journey</span>
                             <h2 class="title">Start your Learning Journey Today!</h2>
-                            <p>Groove’s intuitive shared inbox makesteam members together <br> organize, prioritize and.In this episode.</p>
                         </div>
                     </div>
                 </div>
