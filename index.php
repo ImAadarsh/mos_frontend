@@ -641,7 +641,7 @@
                                         </svg>
                                     </div>
                                     <div class="content">
-                                        <a href="tel:+917489905132">+91 7489905132</a>
+                                        <a href="tel:+91 9026803330">+91 9026803330</a>
                                         <span>Call for any Question</span>
                                     </div>
                                 </div>

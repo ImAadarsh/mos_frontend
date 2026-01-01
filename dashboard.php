@@ -101,6 +101,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Upcoming Workshops Section -->
+                             <div class="dashboard__content-title mt-30">
+                                <h4 class="title">Explore the Upcoming Workshops</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                     <a href="courses.php?is_completed[]=0" class="btn arrow-btn">View Upcoming Workshops <i class="flaticon-arrow-right"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

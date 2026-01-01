@@ -13,6 +13,7 @@
                                 <ul class="list-wrap">
                                     <li>
                                     Raj Palace, Navi Mumbai- 400709 </li>
+                                     <li>+91 9026803330</li>
                                     <li>+91 7489905132</li>
                                     <li>+91 8400700199</li>
                                 </ul>
@@ -25,7 +26,7 @@
                             <div class="footer__link">
                                 <ul class="list-wrap">
                                     <li><a href="about-us.php">About us</a></li>
-                                    <li><a href="instructors.php">Mentors</a></li>
+                                    <li><a href="instructors.php">Trainers</a></li>
                                     <li><a href="events.php">Events</a></li>
                                     <li><a href="blog.php">Blogs</a></li>
                                     <li><a href="contact.php">Contact</a></li>
@@ -54,11 +55,6 @@
                             <div class="footer__contact-content">
                                 <p>For latest news and recent update please <br> follow us on social media accounts.</p>
                                 <ul class="list-wrap footer__social">
-                                    <li>
-                                        <a href="https://www.facebook.com/share/1DPPds7df3/" target="_blank">
-                                            <img src="assets/img/icons/facebook.svg" alt="img" class="injectable">
-                                        </a>
-                                    </li>
                                     <li>
                                         <a href="https://www.instagram.com/magicofskills?igsh=YmVtMDA5YjllY3Fp" target="_blank">
                                             <img src="assets/img/icons/instagram.svg" alt="img" class="injectable">

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Magic Of Skills | Our Mentors</title>
+    <title>Magic Of Skills | Our Trainers</title>
     <?php include "include/session.php" ;  include "include/meta.php" ?>
 </head>
 
@@ -25,13 +25,13 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb__content">
-                            <h3 class="title">All Mentors</h3>
+                            <h3 class="title">All Trainers</h3>
                             <nav class="breadcrumb">
                                 <span property="itemListElement" typeof="ListItem">
                                     <a href="index.php">Home</a>
                                 </span>
                                 <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
-                                <span property="itemListElement" typeof="ListItem">Mentors</span>
+                                <span property="itemListElement" typeof="ListItem">Trainers</span>
                             </nav>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <div class="col-lg-6">
                             <div class="section__title text-center">
                                 <span class="sub-title">Our Team</span>
-                                <h2 class="title">Meet Our Expert Mentors</h2>
+                                <h2 class="title">Meet Our Expert Trainers</h2>
                                 <p class="desc">Learn from industry professionals and experienced educators</p>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="row">
                 <?php 
-                $sql = "SELECT * FROM trainers";
+                $sql = "SELECT * FROM trainers WHERE is_deleted = 0";
                 $results = $connect->query($sql);
                 while ($final = $results->fetch_assoc()) {
                     $trainer_id = $final['id'];

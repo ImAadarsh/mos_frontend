@@ -39,11 +39,11 @@
                     <div class="col-lg-6">
                         <div class="tg-header__top-right">
                             <div class="tg-header__phone">
-                                <img src="assets/img/icons/phone.svg" alt="Icon">Call us: <a href="tel:+917489905132">+91 7489905132</a>
+                                <img src="assets/img/icons/phone.svg" alt="Icon">Call us: <a href="tel:+919026803330">+91 9026803330</a>
                             </div>
                             <ul class="tg-header__top-social list-wrap">
                                 <li>Follow Us On :</li>
-                                <li><a href="https://www.facebook.com/share/1DPPds7df3/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.facebook.com/share/1DeV6QVnVh/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="https://www.instagram.com/magicofskills?igsh=YmVtMDA5YjllY3Fp" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="https://wa.me/917697001231"><i class="fab fa-whatsapp"></i></a></li>
                                 <li><a href="https://www.linkedin.com/company/ipn-leadership-academy/"><i class="fab fa-linkedin-in"></i></a></li>
@@ -105,7 +105,7 @@
                                         <li class="menu-item-has-children"><a href="#">Resources</a>
                                             <ul class="sub-menu">
                                             <li class=""><a href="events.php">Events</a>
-                                            <li class=""><a href="instructors.php">Mentors</a>
+                                            <li class=""><a href="instructors.php">Trainers</a>
                                             <li class=""><a href="blog.php">Blogs</a>
                                             <li class=""><a href="contact.php">Contact</a>
                                             </ul>
@@ -238,7 +238,7 @@
                                 </div>
                                 <div class="social-links">
                                     <ul class="list-wrap">
-                                     <li><a href="https://www.facebook.com/share/1DPPds7df3/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                     <li><a href="https://www.facebook.com/share/1DeV6QVnVh/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="https://www.instagram.com/magicofskills?igsh=YmVtMDA5YjllY3Fp" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="https://wa.me/917697001231"><i class="fab fa-whatsapp"></i></a></li>
                                 <li><a href="https://www.linkedin.com/company/ipn-leadership-academy/"><i class="fab fa-linkedin-in"></i></a></li>

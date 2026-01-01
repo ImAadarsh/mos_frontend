@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Magic Of Skills | Instructor Details</title>
+    <title>Magic Of Skills | Trainer Details</title>
     <?php include "include/session.php" ; include "include/meta.php" ?>
 </head>
 
@@ -41,7 +41,7 @@
                                 </span>
                                 <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
                                 <span property="itemListElement" typeof="ListItem">
-                                    <a href="instructors.php">Mentors</a>
+                                    <a href="instructors.php">Trainers</a>
                                 </span>
                                 <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
                                 <span property="itemListElement" typeof="ListItem"><?php echo $final['name'] ?></php></span>

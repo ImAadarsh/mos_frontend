@@ -23,13 +23,13 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb__content">
-                            <h3 class="title">All Courses</h3>
+                            <h3 class="title"><?php if(isset($_GET['is_completed']) && in_array(0, $_GET['is_completed'])) { echo 'Upcoming Workshops'; } else { echo 'All Workshops'; } ?></h3>
                             <nav class="breadcrumb">
                                 <span property="itemListElement" typeof="ListItem">
                                     <a href="index.php">Home</a>
                                 </span>
                                 <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
-                                <span property="itemListElement" typeof="ListItem">Courses</span>
+                                <span property="itemListElement" typeof="ListItem"><?php if(isset($_GET['is_completed']) && in_array(0, $_GET['is_completed'])) { echo 'Workshops'; } else { echo 'Workshops'; } ?></span>
                             </nav>
                         </div>
                     </div>
@@ -191,12 +191,12 @@
                     <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" stroke="currentColor" stroke-width="1.5"/>
                     <path d="M2.42188 18C2.42188 14.6863 5.10813 12 8.42188 12H11.5781C14.8919 12 17.5781 14.6863 17.5781 18V20H2.42188V18Z" stroke="currentColor" stroke-width="1.5"/>
                 </svg>
-                <h4 class="widget-title">Mentors</h4>
+                <h4 class="widget-title">Trainers</h4>
             </div>
             <div class="courses-cat-list instructor-list">
                 <ul class="list-wrap">
                     <?php
-                    $sql = "SELECT * FROM trainers ORDER BY id DESC LIMIT 10";
+                    $sql = "SELECT * FROM trainers WHERE is_deleted=0 ORDER BY id DESC LIMIT 10";
                     $results = $connect->query($sql);
                     while ($final = $results->fetch_assoc()) {
                     ?>

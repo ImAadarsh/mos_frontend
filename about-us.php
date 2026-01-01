@@ -272,7 +272,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title">Learn with Experts</h4>
-                                <p> Join sessions led by industry professionals and gain practical knowledge from experienced mentors.</p>
+                                <p> Join sessions led by industry professionals and gain practical knowledge from experienced trainers.</p>
                             </div>
                         </div>
                     </div>

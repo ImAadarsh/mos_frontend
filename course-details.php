@@ -721,7 +721,7 @@ $course_name = $final['name'];
                                     <div class="course-meta-item instructor">
                                         <img src="<?php echo $uri.$tfinal['image'] ?>" alt="Instructor" class="course-meta-avatar">
                                         <div>
-                                            <span class="label">Instructor</span>
+                                            <span class="label">Trainer</span>
                                             <span class="value"><?php echo $tfinal['name'] ?></span>
                                         </div>
                                     </div>
@@ -741,7 +741,7 @@ $course_name = $final['name'];
                                 </li>
 
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="instructors-tab" data-bs-toggle="tab" data-bs-target="#instructors-tab-pane" type="button" role="tab" aria-controls="instructors-tab-pane" aria-selected="false">Instructors</button>
+                                    <button class="nav-link" id="instructors-tab" data-bs-toggle="tab" data-bs-target="#instructors-tab-pane" type="button" role="tab" aria-controls="instructors-tab-pane" aria-selected="false">Trainers</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
@@ -781,7 +781,9 @@ $course_name = $final['name'];
                                         <div class="courses__instructors-content">
                                             <h2 class="title"><?php echo $tfinal['name'] ?></h2>
                                             <span class="designation"><?php echo $tfinal['designation'] ?></span>
-                                            <p class="avg-rating"><i class="fas fa-star"></i>(4.8 Ratings)</p>
+                                            <?php if($review_count > 0){ ?>
+                                            <p class="avg-rating"><i class="fas fa-star"></i>(<?php echo $average_rating_display; ?> Ratings)</p>
+                                            <?php } ?>
                                             <p><?php echo $tfinal['about'] ?></p>
                                             <div class="instructor__social">
                                                 <ul class="list-wrap justify-content-start">
