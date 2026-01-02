@@ -216,7 +216,7 @@ Invoice Area
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                                help@magicofskills.com
+                                magicofskills@eduace.in
                             </p>
                         </div>
                     </div>

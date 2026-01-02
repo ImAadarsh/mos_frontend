@@ -560,19 +560,19 @@
                 <div class="features-compact-grid">
                     <div class="features-compact-card">
                         <div class="features-compact-icon">
-                            <img src="assets/img/icons/h2_features_icon01.svg" alt="Expert Tutors" class="injectable">
+                            <img src="assets/img/icons/h2_features_icon01.svg" alt="Expert Trainers" class="injectable">
                         </div>
                         <div>
-                            <h3>Expert Tutors</h3>
+                            <h3>Expert Trainers</h3>
                             <p>Learn directly from practitioners who teach from lived experience.</p>
                         </div>
                     </div>
                     <div class="features-compact-card">
                         <div class="features-compact-icon">
-                            <img src="assets/img/icons/h2_features_icon02.svg" alt="Effective Courses" class="injectable">
+                            <img src="assets/img/icons/h2_features_icon02.svg" alt="Effective Workshops" class="injectable">
                         </div>
                         <div>
-                            <h3>Effective Courses</h3>
+                            <h3>Effective Workshops</h3>
                             <p>Short, outcome-driven formats designed to fit real schedules.</p>
                         </div>
                     </div>
@@ -620,15 +620,23 @@
                             <ul class="about__info-list list-wrap">
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">⭐ Skill-Based Learning That Matters</p>
+                                    <p class="content">24×7 accessible learning platform</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">⭐ Learn Your Way</p>
+                                    <p class="content">Expert-led live workshops</p>
                                 </li>
                                 <li class="about__info-list-item">
                                     <i class="flaticon-angle-right"></i>
-                                    <p class="content">⭐ A Space That Supports You</p>
+                                    <p class="content">New skill-based topics introduced every month</p>
+                                </li>
+                                <li class="about__info-list-item">
+                                    <i class="flaticon-angle-right"></i>
+                                    <p class="content">Personal student dashboard for registrations and progress tracking</p>
+                                </li>
+                                <li class="about__info-list-item">
+                                    <i class="flaticon-angle-right"></i>
+                                    <p class="content">Easy and flexible registration for students anytime</p>
                                 </li>
                             </ul>
                             <div class="about__content-bottom">

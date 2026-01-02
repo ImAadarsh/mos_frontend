@@ -36,9 +36,9 @@ $params = parseQueryString($currentUrl);
 
 // Check if both ws_id and access_token are set in the URL parameters
 if(isset($params['ws_id']) && isset($params['access_token'])){
-    echo $params['ws_id'];
-    echo "<br>dwf";
-    echo $params['access_token'];
+    // echo $params['ws_id'];
+    // echo "<br>dwf";
+    // echo $params['access_token'];
     
     $ws_id = $params['ws_id']; // Get ws_id from the URL parameters
     $access_token = $params['access_token']; // Get access_token from the URL parameters
@@ -80,10 +80,10 @@ if(isset($params['ws_id']) && isset($params['access_token'])){
 
     $make_call = callAPI('POST', 'getstarted', json_encode($data_array), NULL);
     $response = json_decode($make_call, true);
-    print_r($response);
+    // print_r($response);
 
     if($response['data']['id']){
-        echo "<script>alert('".$response['message']."')</script>";
+        // echo "<script>alert('".$response['message']."')</script>";
     }
 
     if($response['status'] == false){
@@ -104,7 +104,7 @@ if(isset($params['ws_id']) && isset($params['access_token'])){
         $_SESSION['type'] = 'user';
         
         if(!empty($ws_id)){
-            header('location: ../../workshop-details.php?id='.$ws_id);
+            header('location: ../course-details.php?id='.$ws_id);
         } else {
             header('location: ../dashboard.php');
         }

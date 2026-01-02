@@ -33,7 +33,7 @@
                     <div class="col-lg-6">
                         <ul class="tg-header__top-info list-wrap">
                             <li><img src="assets/img/icons/map_marker.svg" alt="Icon"> <span>Raj Palace, Navi Mumbai- 400709</span></li>
-                            <li><img src="assets/img/icons/envelope.svg" alt="Icon"> <a href="mailto:help@magicofskills.com">help@magicofskills.com</a></li>
+                            <li><img src="assets/img/icons/envelope.svg" alt="Icon"> <a href="mailto:magicofskills@eduace.in">magicofskills@eduace.in</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">

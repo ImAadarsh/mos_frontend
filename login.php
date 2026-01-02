@@ -19,8 +19,9 @@
             $ws_id = null;
         }
         $CLIENT_ID = '13155789032170991970';
-        $REDIRECT_URL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-        $AUTH_URL = 'https://auth.phone.email/log-in?client_id='.$CLIENT_ID.'&redirect_url=https://magicofskills.com/controller/getstarted.php?ws_id='.$ws_id.'';
+        $http_protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://");
+        $base_url = $http_protocol . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $AUTH_URL = 'https://auth.phone.email/log-in?client_id='.$CLIENT_ID.'&redirect_url='.$base_url.'/controller/getstarted.php?ws_id='.$ws_id.'';
     ?>
 
 

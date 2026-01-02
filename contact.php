@@ -69,6 +69,7 @@
                                     </div>
                                     <div class="content">
                                         <h4 class="title">Phone</h4>
+                                        <a href="tel:+919026803330">+91 9026803330</a>
                                         <a href="tel:+917489905132">+91 7489905132</a>
                                         <a href="tel:+918400700199">+91 8400700199</a>
                                     </div>
@@ -79,8 +80,7 @@
                                     </div>
                                     <div class="content">
                                         <h4 class="title">E-mail Address</h4>
-                                        <a href="mailto:info@magicofskills.com">info@magicofskills.com</a>
-                                        <a href="mailto:help@magicofskills.com">help@magicofskills.com</a>
+                                        <a href="mailto:magicofskills@eduace.in">magicofskills@eduace.in</a>
                                     </div>
                                 </li>
                             </ul>

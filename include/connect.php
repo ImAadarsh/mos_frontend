@@ -47,7 +47,7 @@ function callAPI($method, $urlpoint, $data, $token){
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     // EXECUTE:
     $result = curl_exec($curl);
-     echo $result;
+   //   echo $result;
     if(!$result){echo curl_error($curl);}
     curl_close($curl);
     return $result;
@@ -91,7 +91,7 @@ function callAPI1($method, $urlpoint, $data, $token){
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     // EXECUTE:
     $result = curl_exec($curl);
-     echo $result;
+   //   echo $result;
     if(!$result){echo curl_error($curl);}
     curl_close($curl);
     return $result;

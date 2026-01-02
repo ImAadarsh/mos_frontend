@@ -29,6 +29,10 @@ use Monolog\Level;?>
         $transactionsql = "SELECT * FROM payments where workshop_id='$id' AND user_id=$uid AND payment_status=1";
         $transactionres = $connect->query($transactionsql);
         $transaction = $transactionres->fetch_assoc();
+
+        $wishlistsql = "SELECT * FROM wishlists where workshop_id='$id' AND user_id=$uid";
+        $wishlistres = $connect->query($wishlistsql);
+        $wishlist = $wishlistres->fetch_assoc();
     }
     ?>
 <!doctype html>
@@ -543,7 +547,7 @@ use Monolog\Level;?>
                                     </li>
                                     <li>
                                         <img src="assets/img/icons/course_icon03.svg" alt="img" class="injectable">
-                                        category
+                                        Category
                                         <span><?php echo $cfinal['name'] ?></span>
                                     </li>
                                     <!-- <li>
@@ -612,14 +616,14 @@ $course_name = $final['name'];
                                     <?php 
                                     if($final['start_time'] > $current_time || $final['is_completed']==1 ) {
                                         ?>
-                                        <a href="controller/cart.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn">
+                                        <a href="controller/cart.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn">
                                         Add To Cart
                                         <img style="width: 400px important;" src="assets/img/icons/cart.svg" alt="img" class="injectable">
                                         </a>
                                         <?php
                                     } else {
                                         ?>
-                                        <a href="#" class="btn btn-two arrow-btn">
+                                        <a href="#" class="btn btn-two arrow-btn no-exit-warn">
                                     Closed!!
                                     
                                 </a>
@@ -632,7 +636,7 @@ $course_name = $final['name'];
                                     
                                     <?php if($final['is_completed'] == 1) {
                                         ?>
-                                        <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn">
+                                        <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn">
                                         Buy Recording
                                         <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
                                     </a>
@@ -640,14 +644,14 @@ $course_name = $final['name'];
                                     } else {
                                         if($final['start_time'] > $current_time) {
                                             ?>
-                                            <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn">
+                                            <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn">
                                         Enroll Now
                                         <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
                                     </a>
                                             <?php
                                         } else {
                                             ?>
-                                            <a href="#" class="btn btn-two arrow-btn">
+                                            <a href="#" class="btn btn-two arrow-btn no-exit-warn">
                                         Closed
                                         <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
                                     </a>
@@ -655,7 +659,7 @@ $course_name = $final['name'];
                                         }
                                     }}else{
                                         ?>
-                                        <a href="login.php" class="btn btn-two arrow-btn">
+                                        <a href="login.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn">
                                         Login to Enroll
                                         <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
                                     </a>
@@ -663,11 +667,29 @@ $course_name = $final['name'];
                                     }
                                     ?>
                             </div>
+                            <!-- Wishlist Button -->
+                            <div class="tg-button-wrap mt-20" style="margin-top: 20px;">
+                                <?php if(isset($_SESSION['token'])) { 
+                                    if(isset($wishlist['id'])) { ?>
+                                        <a href="controller/wishlist.php?workshop_id=<?php echo $final['id'] ?>&del=1" class="btn btn-two arrow-btn no-exit-warn" style="background: #efefef; color: #000;">
+                                            Remove from Wishlist <i class="fas fa-heart" style="color: red;"></i>
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="controller/wishlist.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn" style="background: #efefef; color: #000;">
+                                            Add to Wishlist <i class="far fa-heart"></i>
+                                        </a>
+                                    <?php }
+                                } else { ?>
+                                    <a href="login.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn" style="background: #efefef; color: #000;">
+                                        Add to Wishlist <i class="far fa-heart"></i>
+                                    </a>
+                                <?php } ?>
+                            </div>
                             <?php }else{
                                 ?>
 <div class="tg-button-wrap">
-<a href="#" class="btn btn-two arrow-btn">
-                                       Already Purchased.
+<a href="#" class="btn btn-two arrow-btn no-exit-warn">
+                                       Already Purchased
                                         
                                     </a>
 </div>
@@ -858,7 +880,7 @@ $course_name = $final['name'];
                                         </div>
                                     </div>
                                     <p class="form-submit">
-                                        <button type="submit" class="btn btn-two arrow-btn">Post Review <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
+                                        <button type="submit" class="btn btn-two arrow-btn no-exit-warn">Post Review <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
                                     </p>
                                 </form>
                             </div>
@@ -1063,6 +1085,105 @@ function time_elapsed_string($datetime, $full = false) {
             window.addEventListener('resize', moveSidebarForMobile);
         });
     </script>
+    <div id="exitIntentModal" class="exit-modal">
+        <div class="exit-modal-content">
+            <span class="exit-close">&times;</span>
+            <p style="font-weight: bold; font-size: 20px;">Oops! You’re almost there.</p>
+            <p>Limited seats available. You're just one step away from securing your spot!</p>
+            <button id="stayBtn" class="btn btn-two arrow-btn">Stay on Page</button>
+        </div>
+    </div>
+
+    <style>
+        .exit-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 10000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.6); 
+            backdrop-filter: blur(5px);
+        }
+        .exit-modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 30px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation: slideDown 0.4s ease-out;
+        }
+        @keyframes slideDown {
+            from {top: -100px; opacity: 0;}
+            to {top: 0; opacity: 1;}
+        }
+        .exit-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+        }
+        .exit-close:hover,
+        .exit-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .exit-modal p {
+            color: #333;
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var purchased = <?php echo (isset($transaction) && isset($transaction['payment_id'])) ? 'true' : 'false'; ?>;
+            var modal = document.getElementById("exitIntentModal");
+            var span = document.getElementsByClassName("exit-close")[0];
+            var stayBtn = document.getElementById("stayBtn");
+
+            if (!purchased) {
+                document.addEventListener('mouseleave', function(e) {
+                    if (e.clientY < 0) {
+                        if (!sessionStorage.getItem('exitModalShown')) {
+                            modal.style.display = "block";
+                            sessionStorage.setItem('exitModalShown', 'true');
+                        }
+                    }
+                });
+            }
+
+            if(span) {
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+            }
+            if(stayBtn) {
+                stayBtn.onclick = function() {
+                    modal.style.display = "none";
+                }
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>

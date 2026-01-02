@@ -174,7 +174,7 @@
                                         <div class="features__icon-two">
                                             <img src="assets/img/icons/h2_features_icon01.svg" alt="img" class="injectable">
                                         </div>
-                                        <h2 class="title">Expert Tutors</h2>
+                                        <h2 class="title">Expert Trainers</h2>
                                     </div>
                                     <!-- <p>when an unknown printer took a galley offe type and scrambled makes.</p> -->
                                 </div>
@@ -190,7 +190,7 @@
                                         <div class="features__icon-two">
                                             <img src="assets/img/icons/h2_features_icon02.svg" alt="img" class="injectable">
                                         </div>
-                                        <h2 class="title">Effective Courses</h2>
+                                        <h2 class="title">Effective Workshops</h2>
                                     </div>
                                     <!-- <p>when an unknown printer took a galley offe type and scrambled makes.</p> -->
                                 </div>
