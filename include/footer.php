@@ -93,9 +93,9 @@
                     </div>
                     <div class="col-md-5">
                         <div class="footer__bottom-menu">
-                            <ul class="list-wrap">
+                            <!-- <ul class="list-wrap">
                                 <li><a href="https://endeavourdigital.in">Developed By Endeavour Digital</a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>

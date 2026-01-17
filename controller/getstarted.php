@@ -106,7 +106,7 @@ if(isset($params['ws_id']) && isset($params['access_token'])){
         if(!empty($ws_id)){
             header('location: ../course-details.php?id='.$ws_id);
         } else {
-            header('location: ../dashboard.php');
+            header('location: ../courses.php?is_completed%5B%5D=0');
         }
     }
     if ($response['status'] == true && $response['data']['remember_token']&&$response['data']['is_data']==0) {
