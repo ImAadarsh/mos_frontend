@@ -360,8 +360,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <?php endif; ?>
 
                             <div class="section-title">
-                                <h2>IPN Academy Feedback Form</h2>
-                                <p>Thank you for participating in IPN trainings. We hope you are having a great learning
+                                <h2>Magic Of Skills Feedback Form</h2>
+                                <p>Thank you for participating in Magic Of Skills workshops. We hope you are having a great learning
                                     experience with us so far. Your valuable feedback will help us improve our future
                                     workshops.</p>
                             </div>
