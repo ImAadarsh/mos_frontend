@@ -68,6 +68,7 @@
             <th>Date</th>
             <th>Price</th>
             <th>Status</th>
+            <th>Invoice</th>
         </tr>
     </thead>
     <tbody>
@@ -87,7 +88,13 @@
                 </td>
                 <td>
                     <span class="dashboard__quiz-result"><?php  if($payment['payment_status']==1){echo "Success";} else{echo "Failed";} ?></span>
-
+                </td>
+                <td>
+                    <?php if($payment['payment_status']==1 && !empty($payment['order_id'])) { ?>
+                        <a href="invoice/?order_id=<?php echo $payment['order_id']; ?>" class="popup-iframe" style="color: #FDA40D; font-weight: 600;"><i class="fas fa-file-invoice"></i> View Invoice</a>
+                    <?php } else { ?>
+                        <p>-</p>
+                    <?php } ?>
                 </td>
             </tr>
         <?php } ?>

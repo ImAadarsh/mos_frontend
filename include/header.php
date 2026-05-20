@@ -113,9 +113,9 @@
                                         
                                        
                                                                                     <?php 
-                                           
-                                            if (isset($_SESSION['token'])) { 
-                                            ?> 
+                                            
+                                             if (isset($_SESSION['token']) && isset($_SESSION['type']) && $_SESSION['type'] === 'user') { 
+                                             ?> 
 
                                         <li class="menu-item-has-children"><a href="#">Dashboard</a>
                                             <ul class="sub-menu">
@@ -166,26 +166,26 @@
                                 <div class="tgmenu__action">
                                     <ul class="list-wrap">
                                         
-                                        <?php if($_SESSION['token']){
-                                            $uid = $_SESSION['userid'];
-                                            $countwishheader = "select count(*) as count from wishlists where user_id=$uid";
-                                            $countwishheaderRes = $connect->query($countwishheader);
-                                            $countwishheaderFinal = $countwishheaderRes->fetch_assoc()
-                                            ?>
-                                            
-                                        <li class="wishlist-icon">
-                                            <a href="wishlist.php" class="cart-count">
-                                                <img src="assets/img/icons/heart.svg" class="injectable" alt="img">
-                                                <span class="wishlist-count"><?php echo $countwishheaderFinal['count']; ?></span>
-                                            </a>
-                                        </li>
-                                        <?php 
-                                            $uid = $_SESSION['userid'];
-                                            $cart_id = $_SESSION['cart_id'];
-                                            $countwishheader = "select count(*) as count from items where cart_id=$cart_id";
-                                            $countwishheaderRes = $connect->query($countwishheader);
-                                            $countwishheaderFinal = $countwishheaderRes->fetch_assoc()
-                                            ?>
+                                         <?php if(isset($_SESSION['token']) && isset($_SESSION['type']) && $_SESSION['type'] === 'user'){
+                                             $uid = intval($_SESSION['userid'] ?? 0);
+                                             $countwishheader = "select count(*) as count from wishlists where user_id=$uid";
+                                             $countwishheaderRes = $connect->query($countwishheader);
+                                             $countwishheaderFinal = $countwishheaderRes->fetch_assoc()
+                                             ?>
+                                             
+                                         <li class="wishlist-icon">
+                                             <a href="wishlist.php" class="cart-count">
+                                                 <img src="assets/img/icons/heart.svg" class="injectable" alt="img">
+                                                 <span class="wishlist-count"><?php echo $countwishheaderFinal['count']; ?></span>
+                                             </a>
+                                         </li>
+                                         <?php 
+                                             $uid = intval($_SESSION['userid'] ?? 0);
+                                             $cart_id = intval($_SESSION['cart_id'] ?? 0);
+                                             $countwishheader = "select count(*) as count from items where cart_id=$cart_id";
+                                             $countwishheaderRes = $connect->query($countwishheader);
+                                             $countwishheaderFinal = $countwishheaderRes->fetch_assoc()
+                                             ?>
                                         <li class="mini-cart-icon">
                                             <a href="cart.php" class="cart-count">
                                                 <img src="assets/img/icons/cart.svg" class="injectable" alt="img">
@@ -208,13 +208,13 @@
                                     </ul>
                                 </div>
                                 <div class="mobile-login-btn">
-                                <?php if($_SESSION['token']){ ?>
-                                    <a href="dashboard.php"><img style="width: 80px;  border: 1px solid black; border-radius: 50%; padding: 1px;" src="<?php if($_SESSION['profile']==null){echo "assets/user_icon.png";}else{echo $uri.$_SESSION['profile']; } ?>" alt="" class="injectable"></a>
-                                    <?php }else{
-                                        ?>
-                                        <a href="login.php"><img src="assets/img/icons/user.svg" alt="" class="injectable"></a>
-                                        <?php
-                                    } ?>
+                                 <?php if(isset($_SESSION['token']) && isset($_SESSION['type']) && $_SESSION['type'] === 'user'){ ?>
+                                     <a href="dashboard.php"><img style="width: 80px;  border: 1px solid black; border-radius: 50%; padding: 1px;" src="<?php if($_SESSION['profile']==null){echo "assets/user_icon.png";}else{echo $uri.$_SESSION['profile']; } ?>" alt="" class="injectable"></a>
+                                     <?php }else{
+                                         ?>
+                                         <a href="login.php"><img src="assets/img/icons/user.svg" alt="" class="injectable"></a>
+                                         <?php
+                                     } ?>
                                     
                                 </div>
                                 <div class="mobile-nav-toggler"><i class="tg-flaticon-menu-1"></i></div>

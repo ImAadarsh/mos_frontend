@@ -10,7 +10,7 @@
     $mobile = $_SESSION['mobile'];
     $token = $_SESSION['token'];
     if($_SESSION['is_data']==1){
-        header('location: ../dashboard.php');
+        header('location: quiz.php');
     }
     include "include/meta.php" ?>
     <meta name="robots" content="noindex">

@@ -46,7 +46,25 @@
                     </div>
                     <div class="col-xl-7 col-lg-7 col-md-9 col-sm-10">
                         <div class="banner__images-five">
-                            <img src="assets/img/hero-mos.png" alt="img">
+                            <?php
+                            $hero_query = mysqli_query($connect, "SELECT setting_value FROM Quest_settings WHERE setting_key = 'homepage_hero_image'");
+                            $hero_image_src = "assets/img/hero-mos.png";
+                            if ($hero_query && mysqli_num_rows($hero_query) > 0) {
+                                $row = mysqli_fetch_assoc($hero_query);
+                                if (!empty($row['setting_value'])) {
+                                    if (strpos($row['setting_value'], 'public/') === 0) {
+                                        $hero_image_src = $uri . $row['setting_value'];
+                                    } else {
+                                        $hero_image_src = $row['setting_value'];
+                                    }
+                                }
+                            }
+                            // Add cache buster if it's a local file path
+                            if (strpos($hero_image_src, 'data:') !== 0 && strpos($hero_image_src, 'http') !== 0) {
+                                $hero_image_src .= "?v=" . (file_exists($hero_image_src) ? filemtime($hero_image_src) : time());
+                            }
+                            ?>
+                            <img src="<?php echo $hero_image_src; ?>" alt="img">
                             <div class="shape-wrap">
                                 <div class="shape-one" data-aos="fade-up-right" data-aos-delay="800">
                                     <img src="assets/img/banner/h5_hero_shape04.svg" alt="shape"
@@ -672,8 +690,8 @@
         <!-- features-area-end -->
         <!-- about-area -->
         <br>
-        <section class="about-area-five>
-            <div class=" container">
+        <section class="about-area-five">
+            <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-8">
                     <div class="about__images-five">

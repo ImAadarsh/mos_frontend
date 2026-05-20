@@ -22,7 +22,7 @@
     <!-- Pixel Code for https://app.notifyverse.in/ -->
     <script defer src="https://app.notifyverse.in/pixel/Qq08Gzmla8LDG7QYafAukIbTvBsFoBQu"></script>
     <!-- END Pixel Code -->
-     <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QS071R2WWY"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -31,3 +31,18 @@
 
     gtag('config', 'G-QS071R2WWY');
     </script>
+    
+    <!-- Custom styling for document iframe popup -->
+    <style>
+        .mfp-iframe-document {
+            padding-top: 75% !important;
+        }
+        .mfp-iframe-document iframe {
+            background: #fff !important;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .mfp-iframe-holder .mfp-content {
+            max-width: 1000px;
+        }
+    </style>

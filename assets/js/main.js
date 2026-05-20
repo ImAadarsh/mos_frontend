@@ -11,6 +11,17 @@ $(window).on('load', function () {
     aosAnimation();
 });
 
+// Safety fallback to hide preloader if window load hangs or is delayed by external CDNs/pixels
+$(document).ready(function() {
+    setTimeout(function() {
+        if ($('#preloader').is(':visible')) {
+            preloader();
+            wowAnimation();
+            aosAnimation();
+        }
+    }, 1000);
+});
+
 
 /*===========================================
 	=            Preloader          =
@@ -790,6 +801,17 @@ $('.popup-image').magnificPopup({
 /* magnificPopup video view */
 $('.popup-video').magnificPopup({
 	type: 'iframe'
+});
+
+/* magnificPopup iframe view */
+$('.popup-iframe').magnificPopup({
+	type: 'iframe',
+	iframe: {
+		markup: '<div class="mfp-iframe-scaler mfp-iframe-document">'+
+				'<div class="mfp-close"></div>'+
+				'<iframe class="mfp-iframe" src="//about:blank" frameborder="0" allowfullscreen></iframe>'+
+				'</div>'
+	}
 });
 
 

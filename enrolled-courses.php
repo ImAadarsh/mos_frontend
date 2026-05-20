@@ -148,7 +148,7 @@
                                                                             </div>
                                                                             <?php if ($workshop['is_completed']) { ?>
                                                                                 <a
-                                                                                    href="certificate/?certificate=MOS_<?php echo $workshop['order_id'] ?>"><img
+                                                                                    href="certificate/?certificate=MOS_<?php echo $workshop['order_id'] ?>" class="popup-iframe"><img
                                                                                         style="border: 1px solid black; padding:2px; border-radius: 50%;"
                                                                                         src="assets/img/icons/youtube.svgx" alt="">
                                                                                     Download Certificate</a>
@@ -294,7 +294,7 @@
                                                                                             alt="img"><?php echo $workshop['trainer_name']; ?></a>
                                                                                 </div>
                                                                                 <a
-                                                                                    href="certificate/?certificate=MOS_<?php echo $workshop['order_id']; ?>"><img
+                                                                                    href="certificate/?certificate=MOS_<?php echo $workshop['order_id']; ?>" class="popup-iframe"><img
                                                                                         style="border: 1px solid black; padding:2px; border-radius: 50%;"
                                                                                         src="assets/img/icons/youtube.svgx" alt="">
                                                                                     Download Certificate</a>

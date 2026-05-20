@@ -37,7 +37,7 @@ if ($response['status'] == "true" && $response['data']['remember_token'] && $res
     if (!empty($ws_id)) {
         echo "<script>window.location.href = '../course-details.php?id=$ws_id';</script>";
     } else {
-        echo "<script>window.location.href = '../dashboard.php';</script>";
+        echo "<script>window.location.href = '../quiz.php';</script>";
     }
 } else {
     if ($response['status'] == "false" && $response['code'] == "email") {

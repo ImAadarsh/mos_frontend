@@ -1,10 +1,35 @@
 <?php
+$lifetime = 31536000; // 1 year in seconds
+ini_set('session.cookie_lifetime', $lifetime);
+ini_set('session.gc_maxlifetime', $lifetime);
 
-$host = "82.180.142.204";
+$host = "82.25.121.166";
 $user = "u954141192_mos";
 $password = "Mos@2024";
 $dbname = "u954141192_mos";
-$connect = mysqli_connect($host,$user,$password,$dbname);
+
+try {
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $connect = mysqli_connect($host, $user, $password, $dbname);
+} catch (mysqli_sql_exception $e) {
+    header("HTTP/1.1 500 Internal Server Error");
+    $client_ip = $_SERVER['REMOTE_ADDR'] ?? 'your local IP';
+    echo "
+    <div style='font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 50px auto; padding: 30px; border: 1px solid #ffccd5; border-radius: 12px; background-color: #fff5f5; color: #842029;'>
+        <h2 style='margin-top: 0; color: #b7094c;'>Database Connection Error</h2>
+        <p>Could not connect to the remote database at <strong>$host</strong>.</p>
+        <p><strong>Error Details:</strong> " . htmlspecialchars($e->getMessage()) . "</p>
+        <hr style='border: 0; border-top: 1px solid #f5c2c7; margin: 20px 0;'>
+        <h3 style='color: #b7094c; font-size: 16px; margin-bottom: 8px;'>How to fix this:</h3>
+        <ol style='padding-left: 20px; line-height: 1.6;'>
+            <li>Log in to your hosting provider (e.g., Hostinger).</li>
+            <li>Go to the <strong>Databases</strong> or <strong>Remote MySQL</strong> section.</li>
+            <li>Whitelist your current IP address: <strong style='background: #fff; padding: 2px 6px; border: 1px solid #f5c2c7; border-radius: 4px;'>$client_ip</strong></li>
+            <li>If you want to use a local database instead, configure your local MySQL server (XAMPP) and change the database credentials in <code>include/connect.php</code>.</li>
+        </ol>
+    </div>";
+    exit;
+}
 $uri = 'https://api.magicofskills.com/storage/app/';
 date_default_timezone_set('Asia/Kolkata');
 $current_time = time();
