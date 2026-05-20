@@ -3,38 +3,38 @@
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 include "include/session.php";
-include "include/connect.php"; 
-use Monolog\Level;?>
+include "include/connect.php";
+use Monolog\Level; ?>
 
 <?php
 // Set the timezone to IST
 
-    $id = $_GET['id'];
-    $sql = "SELECT * FROM workshops WHERE id='$id' AND is_visible=1 AND is_deleted=0";
-    $results = $connect->query($sql);
-    $final = $results->fetch_assoc();
+$id = $_GET['id'];
+$sql = "SELECT * FROM workshops WHERE id='$id' AND is_visible=1 AND is_deleted=0";
+$results = $connect->query($sql);
+$final = $results->fetch_assoc();
 
-    $cid = $final['category_id'];
-    $csql = "SELECT * FROM categories where id='$cid'";
-    $cresults = $connect->query($csql);
-    $cfinal = $cresults->fetch_assoc();
+$cid = $final['category_id'];
+$csql = "SELECT * FROM categories where id='$cid'";
+$cresults = $connect->query($csql);
+$cfinal = $cresults->fetch_assoc();
 
-    $tid = $final['trainer_id'];
-    $tsql = "SELECT * FROM trainers where id='$tid'";
-    $tresults = $connect->query($tsql);
-    $tfinal = $tresults->fetch_assoc();
+$tid = $final['trainer_id'];
+$tsql = "SELECT * FROM trainers where id='$tid'";
+$tresults = $connect->query($tsql);
+$tfinal = $tresults->fetch_assoc();
 
-    if($_SESSION['token']){
-        $uid = $_SESSION['userid'];
-        $transactionsql = "SELECT * FROM payments where workshop_id='$id' AND user_id=$uid AND payment_status=1";
-        $transactionres = $connect->query($transactionsql);
-        $transaction = $transactionres->fetch_assoc();
+if ($_SESSION['token']) {
+    $uid = $_SESSION['userid'];
+    $transactionsql = "SELECT * FROM payments where workshop_id='$id' AND user_id=$uid AND payment_status=1";
+    $transactionres = $connect->query($transactionsql);
+    $transaction = $transactionres->fetch_assoc();
 
-        $wishlistsql = "SELECT * FROM wishlists where workshop_id='$id' AND user_id=$uid";
-        $wishlistres = $connect->query($wishlistsql);
-        $wishlist = $wishlistres->fetch_assoc();
-    }
-    ?>
+    $wishlistsql = "SELECT * FROM wishlists where workshop_id='$id' AND user_id=$uid";
+    $wishlistres = $connect->query($wishlistsql);
+    $wishlist = $wishlistres->fetch_assoc();
+}
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -50,13 +50,13 @@ use Monolog\Level;?>
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
     <meta property="og:title" content="<?php echo $final['name'] ?>">
     <meta property="og:description" content="<?php echo $final['description'] ?>">
-    <meta property="og:image" content="<?php echo $uri.$final['icon'] ?>">
+    <meta property="og:image" content="<?php echo $uri . $final['icon'] ?>">
     <meta property="og:url" content="https://magicofskills.com">
     <meta property="og:type" content="website">
 
     <meta name="twitter:title" content="<?php echo $final['name'] ?>">
     <meta name="twitter:description" content="<?php echo $final['short_description'] ?>">
-    <meta name="twitter:image" content="<?php echo $uri.$final['icon'] ?>">
+    <meta name="twitter:image" content="<?php echo $uri . $final['icon'] ?>">
     <meta name="twitter:card" content="<?php echo $final['name'] ?>">
     <meta property="og:site_name" content="Magic Of Skills">
 
@@ -80,390 +80,393 @@ use Monolog\Level;?>
     <link rel="stylesheet" href="assets/css/tg-cursor.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
-       .rating {
-    display: inline-block;
-}
+        .rating {
+            display: inline-block;
+        }
 
-.rating input {
-    display: none;
-}
+        .rating input {
+            display: none;
+        }
 
-.rating label {
-    cursor: pointer;
-    width: 35px;
-    height: 35px;
-    float: right;
-    color: #ccc; /* Grey color for unselected stars */
-}
+        .rating label {
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            float: right;
+            color: #ccc;
+            /* Grey color for unselected stars */
+        }
 
-.rating label:before {
-    content: '\2605'; /* Star symbol */
-    font-size: 30px;
-    line-height: 35px;
-}
+        .rating label:before {
+            content: '\2605';
+            /* Star symbol */
+            font-size: 30px;
+            line-height: 35px;
+        }
 
-.rating input:checked ~ label {
-    color: #ffca08; /* Golden color for selected stars */
-}
+        .rating input:checked~label {
+            color: #ffca08;
+            /* Golden color for selected stars */
+        }
 
-.rating input:checked ~ label:before {
-    content: '\2605'; /* Filled star symbol */
-}
+        .rating input:checked~label:before {
+            content: '\2605';
+            /* Filled star symbol */
+        }
 
-/* Mobile Optimization Styles */
-@media (max-width: 991.98px) {
-    .courses__details-sidebar {
-        margin-bottom: 30px;
-    }
-    
-    .courses__cost-wrap {
-        margin-bottom: 20px;
-    }
-    
-    .courses__cost-wrap span {
-        font-size: 14px;
-        display: block;
-        margin-bottom: 8px;
-    }
-    
-    .courses__cost-wrap .title {
-        font-size: 28px;
-    }
-    
-    .courses__cost-wrap .title del {
-        font-size: 20px;
-    }
-    
-    .courses__information-wrap {
-        margin-bottom: 20px;
-    }
-    
-    .courses__information-wrap .title {
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-    
-    .courses__information-wrap ul li {
-        font-size: 14px;
-        padding: 10px 0;
-    }
-    
-    .courses__details-social {
-        margin-bottom: 20px;
-    }
-    
-    .courses__details-social .title {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-    
-    .courses__details-enroll .tg-button-wrap {
-        margin-bottom: 15px;
-    }
-    
-    .courses__details-enroll .btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 20px;
-        font-size: 14px;
-    }
-    
-    .courses__details-thumb {
-        margin-bottom: 20px;
-    }
-    
-    .courses__details-thumb img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-    
-    .courses__details-content .title {
-        font-size: 24px;
-        line-height: 1.3;
-    }
-    
-    .courses__item-meta {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-    .courses__item-meta li {
-        font-size: 13px;
-    }
-    
-    .courses__details-meta ul {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-    .courses__details-meta li {
-        font-size: 13px;
-    }
-    
-    .nav-tabs {
-        flex-wrap: wrap;
-    }
-    
-    .nav-tabs .nav-link {
-        font-size: 14px;
-        padding: 10px 15px;
-    }
-    
-    .courses__overview-wrap .title {
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-    
-    .courses__overview-wrap p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-    
-    .about__info-list-item {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-    
-    .courses__instructors-wrap {
-        flex-direction: column;
-    }
-    
-    .courses__instructors-thumb {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    
-    .courses__instructors-content .title {
-        font-size: 22px;
-    }
-    
-    .course-rate {
-        margin-bottom: 30px;
-    }
-    
-    .course-review-head {
-        flex-direction: column;
-        margin-bottom: 25px;
-        padding: 15px;
-        border-radius: 8px;
-        background: #f8f9fa;
-    }
-    
-    .review-author-thumb {
-        margin-bottom: 15px;
-        text-align: center;
-    }
-    
-    .review-author-content {
-        text-align: center;
-    }
-    
-    .comment-respond {
-        padding: 20px;
-        background: #f8f9fa;
-        border-radius: 8px;
-        margin-bottom: 30px;
-    }
-    
-    .comment-form textarea {
-        width: 100%;
-        min-height: 120px;
-        font-size: 14px;
-        padding: 12px;
-    }
-}
+        /* Mobile Optimization Styles */
+        @media (max-width: 991.98px) {
+            .courses__details-sidebar {
+                margin-bottom: 30px;
+            }
 
-@media (max-width: 767.98px) {
-    .courses__cost-wrap .title {
-        font-size: 22px;
-    }
-    
-    .courses__cost-wrap .title del {
-        font-size: 16px;
-    }
-    
-    .courses__details-content .title {
-        font-size: 19px;
-    }
-    
-    .courses__item-meta li {
-        font-size: 11px;
-    }
-    
-    .courses__details-meta li {
-        font-size: 11px;
-    }
-    
-    .nav-tabs .nav-link {
-        font-size: 12px;
-        padding: 7px 12px;
-    }
-    
-    .courses__overview-wrap .title {
-        font-size: 17px;
-    }
-    
-    .courses__instructors-content .title {
-        font-size: 19px;
-    }
-    
-    .section-py-120 {
-        padding-top: 36px;
-        padding-bottom: 36px;
-    }
-    
-    .breadcrumb__area {
-        padding: 28px 0;
-    }
-    
-    .breadcrumb {
-        font-size: 11px;
-    }
-}
+            .courses__cost-wrap {
+                margin-bottom: 20px;
+            }
 
-.courses__details-area {
-    background: #f5f8ff;
-    border-radius: 24px;
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
+            .courses__cost-wrap span {
+                font-size: 14px;
+                display: block;
+                margin-bottom: 8px;
+            }
 
-.course-meta-card {
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.04);
-    border-radius: 18px;
-    padding: 16px 18px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(15, 16, 40, 0.04);
-}
+            .courses__cost-wrap .title {
+                font-size: 28px;
+            }
 
-.course-meta-top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-}
+            .courses__cost-wrap .title del {
+                font-size: 20px;
+            }
 
-.course-category-tag a {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: rgba(255, 193, 36, 0.15);
-    color: var(--tg-heading-color);
-    font-weight: 600;
-    font-size: 13px;
-}
+            .courses__information-wrap {
+                margin-bottom: 20px;
+            }
 
-.course-rating-summary {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    font-weight: 500;
-    color: var(--tg-heading-color);
-}
+            .courses__information-wrap .title {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
 
-.course-rating-summary .far.fa-star,
-.course-rating-summary .fas.fa-star {
-    color: #FFC124;
-    font-size: 13px;
-}
+            .courses__information-wrap ul li {
+                font-size: 14px;
+                padding: 10px 0;
+            }
 
-.course-rating-value {
-    font-size: 18px;
-    font-weight: 700;
-}
+            .courses__details-social {
+                margin-bottom: 20px;
+            }
 
-.course-rating-count {
-    font-weight: 500;
-    color: #6F6C90;
-    font-size: 13px;
-}
+            .courses__details-social .title {
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
 
-.course-rating-summary small {
-    font-size: 12px;
-}
+            .courses__details-enroll .tg-button-wrap {
+                margin-bottom: 15px;
+            }
 
-.course-meta-bottom {
-    margin-top: 18px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-}
+            .courses__details-enroll .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
 
-.course-meta-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 200px;
-}
+            .courses__details-thumb {
+                margin-bottom: 20px;
+            }
 
-.course-meta-item .label {
-    display: block;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #6F6C90;
-    font-weight: 600;
-}
+            .courses__details-thumb img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
 
-.course-meta-item .value {
-    display: block;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--tg-heading-color);
-}
+            .courses__details-content .title {
+                font-size: 24px;
+                line-height: 1.3;
+            }
 
-.course-meta-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid rgba(255, 193, 36, 0.45);
-}
+            .courses__item-meta {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
 
-.course-meta-item.schedule i {
-    font-size: 20px;
-    color: var(--tg-theme-primary);
-}
+            .courses__item-meta li {
+                font-size: 13px;
+            }
 
-@media (max-width: 767.98px) {
-    .course-meta-card {
-        padding: 14px 16px;
-    }
-    
-    .course-meta-top {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .course-meta-bottom {
-        flex-direction: column;
-        gap: 16px;
-    }
-    
-    .course-meta-item {
-        min-width: 100%;
-    }
-    
-    .courses__details-area {
-        padding-top: 36px;
-        padding-bottom: 36px;
-        border-radius: 16px;
-    }
-}
+            .courses__details-meta ul {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
 
+            .courses__details-meta li {
+                font-size: 13px;
+            }
+
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+
+            .nav-tabs .nav-link {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+
+            .courses__overview-wrap .title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .courses__overview-wrap p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .about__info-list-item {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            .courses__instructors-wrap {
+                flex-direction: column;
+            }
+
+            .courses__instructors-thumb {
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .courses__instructors-content .title {
+                font-size: 22px;
+            }
+
+            .course-rate {
+                margin-bottom: 30px;
+            }
+
+            .course-review-head {
+                flex-direction: column;
+                margin-bottom: 25px;
+                padding: 15px;
+                border-radius: 8px;
+                background: #f8f9fa;
+            }
+
+            .review-author-thumb {
+                margin-bottom: 15px;
+                text-align: center;
+            }
+
+            .review-author-content {
+                text-align: center;
+            }
+
+            .comment-respond {
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 8px;
+                margin-bottom: 30px;
+            }
+
+            .comment-form textarea {
+                width: 100%;
+                min-height: 120px;
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .courses__cost-wrap .title {
+                font-size: 22px;
+            }
+
+            .courses__cost-wrap .title del {
+                font-size: 16px;
+            }
+
+            .courses__details-content .title {
+                font-size: 19px;
+            }
+
+            .courses__item-meta li {
+                font-size: 11px;
+            }
+
+            .courses__details-meta li {
+                font-size: 11px;
+            }
+
+            .nav-tabs .nav-link {
+                font-size: 12px;
+                padding: 7px 12px;
+            }
+
+            .courses__overview-wrap .title {
+                font-size: 17px;
+            }
+
+            .courses__instructors-content .title {
+                font-size: 19px;
+            }
+
+            .section-py-120 {
+                padding-top: 36px;
+                padding-bottom: 36px;
+            }
+
+            .breadcrumb__area {
+                padding: 28px 0;
+            }
+
+            .breadcrumb {
+                font-size: 11px;
+            }
+        }
+
+        .courses__details-area {
+            background: #f5f8ff;
+            border-radius: 24px;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .course-meta-card {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 18px;
+            padding: 16px 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(15, 16, 40, 0.04);
+        }
+
+        .course-meta-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .course-category-tag a {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: rgba(255, 193, 36, 0.15);
+            color: var(--tg-heading-color);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .course-rating-summary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-weight: 500;
+            color: var(--tg-heading-color);
+        }
+
+        .course-rating-summary .far.fa-star,
+        .course-rating-summary .fas.fa-star {
+            color: #FFC124;
+            font-size: 13px;
+        }
+
+        .course-rating-value {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .course-rating-count {
+            font-weight: 500;
+            color: #6F6C90;
+            font-size: 13px;
+        }
+
+        .course-rating-summary small {
+            font-size: 12px;
+        }
+
+        .course-meta-bottom {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .course-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 200px;
+        }
+
+        .course-meta-item .label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #6F6C90;
+            font-weight: 600;
+        }
+
+        .course-meta-item .value {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--tg-heading-color);
+        }
+
+        .course-meta-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255, 193, 36, 0.45);
+        }
+
+        .course-meta-item.schedule i {
+            font-size: 20px;
+            color: var(--tg-theme-primary);
+        }
+
+        @media (max-width: 767.98px) {
+            .course-meta-card {
+                padding: 14px 16px;
+            }
+
+            .course-meta-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .course-meta-bottom {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .course-meta-item {
+                min-width: 100%;
+            }
+
+            .courses__details-area {
+                padding-top: 36px;
+                padding-bottom: 36px;
+                border-radius: 16px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<?php include "include/header.php" ?>
+    <?php include "include/header.php" ?>
 
 
 
@@ -471,7 +474,8 @@ use Monolog\Level;?>
     <main class="main-area fix">
 
         <!-- breadcrumb-area -->
-        <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-two" data-background="assets/img/bg/breadcrumb_bg.jpg">
+        <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-two"
+            data-background="assets/img/bg/breadcrumb_bg.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -493,9 +497,11 @@ use Monolog\Level;?>
             </div>
             <div class="breadcrumb__shape-wrap">
                 <img src="assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
-                <img src="assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right" data-aos-delay="300">
+                <img src="assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right"
+                    data-aos-delay="300">
                 <img src="assets/img/others/breadcrumb_shape03.svg" alt="img" data-aos="fade-up" data-aos-delay="400">
-                <img src="assets/img/others/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left" data-aos-delay="400">
+                <img src="assets/img/others/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left"
+                    data-aos-delay="400">
                 <img src="assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left" data-aos-delay="400">
             </div>
         </div>
@@ -515,40 +521,58 @@ use Monolog\Level;?>
                             </div> -->
                             <div class="courses__cost-wrap">
                                 <span>This Workshop Fee:</span>
-                                    <?php if($final['is_completed'] == 1) {
-                                        ?>
-                                        <h2 class="title">₹<?php echo $final['record_price']; ?> <del><?php echo $final['cut_price']; ?></del></h2>
-                                        <?php 
-                                    } else {
-                                        if($final['start_time'] > $current_time) {
-                                            ?>
-                                            <h2 class="title">₹<?php echo $final['price']; ?> <del><?php echo $final['cut_price']; ?></del></h2>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <h2 class="title">Closed</h2>
-                                            <?php
-                                        }
-                                    }
+                                <?php if ($final['is_completed'] == 1) {
                                     ?>
+                                    <h2 class="title">₹<?php echo $final['record_price']; ?>
+                                        <del><?php echo $final['cut_price']; ?></del>
+                                    </h2>
+                                    <?php
+                                } else {
+                                    if ($final['start_time'] > $current_time) {
+                                        ?>
+                                        <h2 class="title">₹<?php echo $final['price']; ?>
+                                            <del><?php echo $final['cut_price']; ?></del>
+                                        </h2>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <h2 class="title">Closed</h2>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </div>
                             <div class="courses__information-wrap">
-                                <h5 class="title">Course includes:</h5>
+                                <h5 class="title">Workshop includes:</h5>
                                 <ul class="list-wrap">
                                     <li>
                                         <img src="assets/img/icons/course_icon01.svg" alt="img" class="injectable">
                                         Level
-                                        <span><?php  if($final['level']==1){echo "Basic";}else if($final['Level']){echo "Intermediate";}else{echo "Advanced";} ?></span>
+                                        <span><?php if ($final['level'] == 1) {
+                                            echo "Basic";
+                                        } else if ($final['Level']) {
+                                            echo "Intermediate";
+                                        } else {
+                                            echo "Advanced";
+                                        } ?></span>
                                     </li>
                                     <li>
                                         <img src="assets/img/icons/course_icon02.svg" alt="img" class="injectable">
                                         Duration
                                         <span><?php echo $final['duration'] ?> Mins</span>
                                     </li>
-                                    <li>
-                                        <img src="assets/img/icons/course_icon03.svg" alt="img" class="injectable">
-                                        Category
-                                        <span><?php echo $cfinal['name'] ?></span>
+                                    <li
+                                        style="display: flex; flex-direction: column; align-items: flex-start; gap: 5px;">
+                                        <div
+                                            style="display: flex; align-items: center; width: 100%; justify-content: space-between;">
+                                            <div style="display: flex; align-items: center;">
+                                                <img src="assets/img/icons/course_icon03.svg" alt="img"
+                                                    class="injectable" style="margin-right: 10px;">
+                                                Category
+                                            </div>
+                                        </div>
+                                        <span
+                                            style="padding-left: 35px; color: var(--tg-theme-primary); font-weight: 600;"><?php echo $cfinal['name'] ?></span>
                                     </li>
                                     <!-- <li>
                                         <img src="assets/img/icons/course_icon04.svg" alt="img" class="injectable">
@@ -571,153 +595,167 @@ use Monolog\Level;?>
                                 <h5 class="title">Secure Payment:</h5>
                                 <img src="assets/img/others/payment.png" alt="img">
                             </div> -->
-                            <?php 
-// Assuming you already have the $final array from your previous database query
-$course_url = 'https://magicofskills.com/course-details.php?id=' . $final['id'];
-$course_name = $final['name'];
-?>
+                            <?php
+                            // Assuming you already have the $final array from your previous database query
+                            $course_url = 'https://magicofskills.com/course-details.php?id=' . $final['id'];
+                            $course_name = $final['name'];
+                            ?>
 
-<div class="courses__details-social">
-    <h5 class="title">Share this course:</h5>
-    <ul class="list-wrap">
-        <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($course_url); ?>" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($course_url); ?>&text=<?php echo urlencode('Check out this course: ' . $course_name); ?>" target="_blank">
-                <i class="fab fa-twitter"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Check out this course: ' . $course_url); ?>" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode($course_url); ?>" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
-        </li>
-    </ul>
-</div>
+                            <div class="courses__details-social">
+                                <h5 class="title">Share this course:</h5>
+                                <ul class="list-wrap">
+                                    <li>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($course_url); ?>"
+                                            target="_blank">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($course_url); ?>&text=<?php echo urlencode('Check out this course: ' . $course_name); ?>"
+                                            target="_blank">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Check out this course: ' . $course_url); ?>"
+                                            target="_blank">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode($course_url); ?>"
+                                            target="_blank">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
 
 
                             <div class="courses__details-enroll">
-                            <?php 
-                        if(!isset($transaction['payment_id'])){
-                                        ?>  
-                            <div class="tg-button-wrap mb-20">
-                                <?php 
-                                    if(isset($_SESSION['token'])){
-                                        ?>      
-                                   
-                                    <?php 
-                                    if($final['start_time'] > $current_time || $final['is_completed']==1 ) {
-                                        ?>
-                                        <a href="controller/cart.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn">
-                                        Add To Cart
-                                        <img style="width: 400px important;" src="assets/img/icons/cart.svg" alt="img" class="injectable">
-                                        </a>
+                                <?php
+                                if (!isset($transaction['payment_id'])) {
+                                    ?>
+                                    <div class="tg-button-wrap mb-20">
                                         <?php
-                                    } else {
-                                        ?>
-                                        <a href="#" class="btn btn-two arrow-btn no-exit-warn">
-                                    Closed!!
-                                    
-                                </a>
-                                        <?php
-                                    }
-                                ?>
-                            </div>
-                            
-                            <div class="tg-button-wrap">
-                                    
-                                    <?php if($final['is_completed'] == 1) {
-                                        ?>
-                                        <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn">
-                                        Buy Recording
-                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
-                                    </a>
-                                        <?php 
-                                    } else {
-                                        if($final['start_time'] > $current_time) {
+                                        if (isset($_SESSION['token'])) {
                                             ?>
-                                            <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn">
-                                        Enroll Now
-                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
-                                    </a>
+
                                             <?php
+                                            if ($final['start_time'] > $current_time && $final['is_completed'] == 0) {
+                                                ?>
+                                                <a href="controller/cart.php?workshop_id=<?php echo $final['id'] ?>"
+                                                    class="btn btn-two arrow-btn no-exit-warn">
+                                                    Add To Cart
+                                                    <img style="width: 400px important;" src="assets/img/icons/cart.svg" alt="img"
+                                                        class="injectable">
+                                                </a>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <a href="#" class="btn btn-two arrow-btn no-exit-warn">
+                                                    Closed!!
+
+                                                </a>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+
+                                        <div class="tg-button-wrap">
+
+                                            <?php if ($final['is_completed'] == 1) {
+                                                ?>
+                                                <a href="#" class="btn btn-two arrow-btn no-exit-warn">
+                                                    Workshop Completed
+                                                </a>
+                                                <?php
+                                            } else {
+                                                if ($final['start_time'] > $current_time) {
+                                                    ?>
+                                                    <a href="controller/buy.php?workshop_id=<?php echo $final['id'] ?>"
+                                                        class="btn btn-two arrow-btn no-exit-warn">
+                                                        Enroll Now
+                                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                                    </a>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <a href="#" class="btn btn-two arrow-btn no-exit-warn">
+                                                        Closed
+                                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                                    </a>
+                                                    <?php
+                                                }
+                                            }
                                         } else {
                                             ?>
-                                            <a href="#" class="btn btn-two arrow-btn no-exit-warn">
-                                        Closed
-                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
-                                    </a>
+                                            <a href="login.php?workshop_id=<?php echo $final['id'] ?>"
+                                                class="btn btn-two arrow-btn no-exit-warn">
+                                                Login to Enroll
+                                                <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                            </a>
                                             <?php
                                         }
-                                    }}else{
                                         ?>
-                                        <a href="login.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn">
-                                        Login to Enroll
-                                        <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable">
-                                    </a>
-                                        <?php
-                                    }
+                                    </div>
+                                    <!-- Wishlist Button -->
+                                    <div class="tg-button-wrap mt-20" style="margin-top: 20px;">
+                                        <?php if (isset($_SESSION['token'])) {
+                                            if (isset($wishlist['id'])) { ?>
+                                                <a href="controller/wishlist.php?workshop_id=<?php echo $final['id'] ?>&del=1"
+                                                    class="btn btn-two arrow-btn no-exit-warn"
+                                                    style="background: #efefef; color: #000;">
+                                                    Remove from Wishlist <i class="fas fa-heart" style="color: red;"></i>
+                                                </a>
+                                            <?php } else { ?>
+                                                <a href="controller/wishlist.php?workshop_id=<?php echo $final['id'] ?>"
+                                                    class="btn btn-two arrow-btn no-exit-warn"
+                                                    style="background: #efefef; color: #000;">
+                                                    Add to Wishlist <i class="far fa-heart"></i>
+                                                </a>
+                                            <?php }
+                                        } else { ?>
+                                            <a href="login.php?workshop_id=<?php echo $final['id'] ?>"
+                                                class="btn btn-two arrow-btn no-exit-warn"
+                                                style="background: #efefef; color: #000;">
+                                                Add to Wishlist <i class="far fa-heart"></i>
+                                            </a>
+                                        <?php } ?>
+                                    </div>
+                                <?php } else {
                                     ?>
-                            </div>
-                            <!-- Wishlist Button -->
-                            <div class="tg-button-wrap mt-20" style="margin-top: 20px;">
-                                <?php if(isset($_SESSION['token'])) { 
-                                    if(isset($wishlist['id'])) { ?>
-                                        <a href="controller/wishlist.php?workshop_id=<?php echo $final['id'] ?>&del=1" class="btn btn-two arrow-btn no-exit-warn" style="background: #efefef; color: #000;">
-                                            Remove from Wishlist <i class="fas fa-heart" style="color: red;"></i>
+                                    <div class="tg-button-wrap">
+                                        <a href="#" class="btn btn-two arrow-btn no-exit-warn">
+                                            Already Purchased
+
                                         </a>
-                                    <?php } else { ?>
-                                        <a href="controller/wishlist.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn" style="background: #efefef; color: #000;">
-                                            Add to Wishlist <i class="far fa-heart"></i>
-                                        </a>
-                                    <?php }
-                                } else { ?>
-                                    <a href="login.php?workshop_id=<?php echo $final['id'] ?>" class="btn btn-two arrow-btn no-exit-warn" style="background: #efefef; color: #000;">
-                                        Add to Wishlist <i class="far fa-heart"></i>
-                                    </a>
-                                <?php } ?>
-                            </div>
-                            <?php }else{
-                                ?>
-<div class="tg-button-wrap">
-<a href="#" class="btn btn-two arrow-btn no-exit-warn">
-                                       Already Purchased
-                                        
-                                    </a>
-</div>
-                                <?php
-                            } ?>
-                                
+                                    </div>
+                                    <?php
+                                } ?>
+
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Main Content - appears first on all devices -->
                     <div class="col-xl-9 col-lg-8 order-1 order-lg-1">
-                        
+
                         <div class="courses__details-thumb">
-                            <img src="<?php echo $uri.$final['banner_image'] ?>" alt="img">
+                            <img src="<?php echo $uri . $final['banner_image'] ?>" alt="img">
                         </div>
                         <div class="courses__details-content">
                             <?php
-                                $trainer_id = $final['trainer_id'];
-                                $feedsql = "SELECT AVG(rating) as average_rating, COUNT(*) as review_count FROM reviews WHERE trainer_id = $trainer_id";
-                                $feedback = $connect->query($feedsql);
-                                $feedback_data = $feedback->fetch_assoc();
-                                $average_rating_value = isset($feedback_data['average_rating']) ? (float)$feedback_data['average_rating'] : 0;
-                                $average_rating_display = number_format($average_rating_value, 1);
-                                $review_count = isset($feedback_data['review_count']) ? (int)$feedback_data['review_count'] : 0;
-                                $start_time = $final['start_time'];
-                                $date = new DateTime($start_time);
-                                $formatted_date = $date->format('d/m/Y h:i A');
+                            $trainer_id = $final['trainer_id'];
+                            $feedsql = "SELECT AVG(rating) as average_rating, COUNT(*) as review_count FROM reviews WHERE trainer_id = $trainer_id";
+                            $feedback = $connect->query($feedsql);
+                            $feedback_data = $feedback->fetch_assoc();
+                            $average_rating_value = isset($feedback_data['average_rating']) ? (float) $feedback_data['average_rating'] : 0;
+                            $average_rating_display = number_format($average_rating_value, 1);
+                            $review_count = isset($feedback_data['review_count']) ? (int) $feedback_data['review_count'] : 0;
+                            $start_time = $final['start_time'];
+                            $date = new DateTime($start_time);
+                            $formatted_date = $date->format('d/m/Y h:i A');
                             ?>
                             <div class="course-meta-card">
                                 <div class="course-meta-top">
@@ -727,21 +765,23 @@ $course_name = $final['name'];
                                     <div class="course-rating-summary">
                                         <div class="course-rating-stars">
                                             <?php
-                                                for ($i = 1; $i <= 5; $i++) {
-                                                    $filled = $i <= round($average_rating_value);
-                                                    echo $filled
-                                                        ? '<i class="fas fa-star"></i>'
-                                                        : '<i class="far fa-star"></i>';
-                                                }
+                                            for ($i = 1; $i <= 5; $i++) {
+                                                $filled = $i <= round($average_rating_value);
+                                                echo $filled
+                                                    ? '<i class="fas fa-star"></i>'
+                                                    : '<i class="far fa-star"></i>';
+                                            }
                                             ?>
                                         </div>
-                                        <span class="course-rating-value"><?php echo $average_rating_display; ?>/5</span>
+                                        <span
+                                            class="course-rating-value"><?php echo $average_rating_display; ?>/5</span>
                                         <span class="course-rating-count">(<?php echo $review_count; ?> reviews)</span>
                                     </div>
                                 </div>
                                 <div class="course-meta-bottom">
                                     <div class="course-meta-item instructor">
-                                        <img src="<?php echo $uri.$tfinal['image'] ?>" alt="Instructor" class="course-meta-avatar">
+                                        <img src="<?php echo $uri . $tfinal['image'] ?>" alt="Instructor"
+                                            class="course-meta-avatar">
                                         <div>
                                             <span class="label">Trainer</span>
                                             <span class="value"><?php echo $tfinal['name'] ?></span>
@@ -759,25 +799,32 @@ $course_name = $final['name'];
                             <h2 class="title"><?php echo $final['name'] ?></h2>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane" type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
+                                    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab"
+                                        data-bs-target="#overview-tab-pane" type="button" role="tab"
+                                        aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
                                 </li>
 
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="instructors-tab" data-bs-toggle="tab" data-bs-target="#instructors-tab-pane" type="button" role="tab" aria-controls="instructors-tab-pane" aria-selected="false">Trainers</button>
+                                    <button class="nav-link" id="instructors-tab" data-bs-toggle="tab"
+                                        data-bs-target="#instructors-tab-pane" type="button" role="tab"
+                                        aria-controls="instructors-tab-pane" aria-selected="false">Trainers</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
+                                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
+                                        data-bs-target="#reviews-tab-pane" type="button" role="tab"
+                                        aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
+                                <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
+                                    aria-labelledby="overview-tab" tabindex="0">
                                     <div class="courses__overview-wrap">
-                                        <h3 class="title">Course Description</h3>
+                                        <h3 class="title">Workshop Description</h3>
                                         <p><?php echo $final['description'] ?></p>
                                         <h3 class="title">What you'll learn in this course?</h3>
                                         <p><?php echo $final['short_description'] ?>.</p>
                                         <ul class="about__info-list list-wrap">
-                                            <?php 
+                                            <?php
                                             $learnings = explode('<br>', $final['learnings']);
                                             foreach ($learnings as $learning) {
                                                 // Trim to remove any extra whitespace
@@ -792,19 +839,22 @@ $course_name = $final['name'];
                                             ?>
                                         </ul>
 
-                                        </div>
+                                    </div>
                                 </div>
-                               
-                                <div class="tab-pane fade" id="instructors-tab-pane" role="tabpanel" aria-labelledby="instructors-tab" tabindex="0">
+
+                                <div class="tab-pane fade" id="instructors-tab-pane" role="tabpanel"
+                                    aria-labelledby="instructors-tab" tabindex="0">
                                     <div class="courses__instructors-wrap">
                                         <div class="courses__instructors-thumb">
-                                            <img src="<?php echo $uri.$tfinal['image'] ?>" alt="img">
+                                            <img src="<?php echo $uri . $tfinal['image'] ?>" alt="img">
                                         </div>
                                         <div class="courses__instructors-content">
                                             <h2 class="title"><?php echo $tfinal['name'] ?></h2>
                                             <span class="designation"><?php echo $tfinal['designation'] ?></span>
-                                            <?php if($review_count > 0){ ?>
-                                            <p class="avg-rating"><i class="fas fa-star"></i>(<?php echo $average_rating_display; ?> Ratings)</p>
+                                            <?php if ($review_count > 0) { ?>
+                                                <p class="avg-rating"><i
+                                                        class="fas fa-star"></i>(<?php echo $average_rating_display; ?>
+                                                    Ratings)</p>
                                             <?php } ?>
                                             <p><?php echo $tfinal['about'] ?></p>
                                             <div class="instructor__social">
@@ -819,155 +869,186 @@ $course_name = $final['name'];
                                     </div>
                                 </div>
                                 <?php
-                            $workshop_id = $_GET['id']; // Assuming workshop ID is passed as a query parameter
-                            $rsql = "
+                                $workshop_id = $_GET['id']; // Assuming workshop ID is passed as a query parameter
+                                $rsql = "
                                 SELECT reviews.id, reviews.user_id, reviews.trainer_id, reviews.workshop_id, reviews.rating, reviews.comment, reviews.updated_at, reviews.created_at,
                                     users.first_name AS user_name, users.icon,
-                                    trainers.name AS trainer_name
+                                    trainers.name AS trainer_name,
+                                    workshops.name AS workshop_name
                                 FROM reviews
                                 JOIN users ON reviews.user_id = users.id
                                 JOIN trainers ON reviews.trainer_id = trainers.id
-                                WHERE reviews.workshop_id = $workshop_id
+                                JOIN workshops ON reviews.workshop_id = workshops.id
+                                WHERE reviews.trainer_id = $tid
                             ";
-                            // echo $rsql;
-                            $rresults = $connect->query($rsql);
+                                // echo $rsql;
+                                $rresults = $connect->query($rsql);
 
-                            $reviews = [];
-                            $total_rating = 0;
-                            $rating_counts = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0];
+                                $reviews = [];
+                                $total_rating = 0;
+                                $rating_counts = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0];
 
-                            while ($review = $rresults->fetch_assoc()) {
-                                $reviews[] = $review;
-                                $total_rating += $review['rating'];
-                                $rating_counts[$review['rating']]++;
-                            }
+                                while ($review = $rresults->fetch_assoc()) {
+                                    $reviews[] = $review;
+                                    $total_rating += $review['rating'];
+                                    $rating_counts[$review['rating']]++;
+                                }
 
-                            $total_reviews = count($reviews);
+                                $total_reviews = count($reviews);
 
-                            if ($total_reviews > 0) {
-                                $average_rating = $total_rating / $total_reviews;
-                            } else {
-                                $average_rating = 0; // No reviews, so average rating is 0
-                            }
-                            ?>
+                                if ($total_reviews > 0) {
+                                    $average_rating = $total_rating / $total_reviews;
+                                } else {
+                                    $average_rating = 0; // No reviews, so average rating is 0
+                                }
+                                ?>
 
-                        <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
-                            <div class="courses__rating-wrap">
-                                <h2 class="title">Reviews</h2>
-                                <?php if(isset($_SESSION['token']) && isset($transaction['payment_id'])){?>
-                            <div id="#reviews"  class="comment-respond">
-                                <h4  class="comment-reply-title">Post a review</h4>
-                                <form  action="#" class="comment-form">
-                                    <p class="comment-notes">
-                                        <span>Post a review sharing your experience of workshop *</span>
-                                    </p>
-                                    <div class="comment-field">
-                                        <textarea required placeholder="Write Review"></textarea>
-                                        <input name="workshop_id"  value="<?php echo $workshop_id; ?>" hidden  placeholder="">
-                                        <input name="trainer_id"  value="<?php echo $tid; ?>"  hidden  placeholder="">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="comment-field">
-                                                <div class="rating">
-                                                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars"></label>
-                                                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars"></label>
-                                                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars"></label>
-                                                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars"></label>
-                                                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
+                                <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel"
+                                    aria-labelledby="reviews-tab" tabindex="0">
+                                    <div class="courses__rating-wrap">
+                                        <h2 class="title">Reviews</h2>
+                                        <?php if (isset($_SESSION['token']) && isset($transaction['payment_id'])) { ?>
+                                            <div id="#reviews" class="comment-respond">
+                                                <h4 class="comment-reply-title">Post a review</h4>
+                                                <form action="#" class="comment-form">
+                                                    <p class="comment-notes">
+                                                        <span>Post a review sharing your experience of workshop *</span>
+                                                    </p>
+                                                    <div class="comment-field">
+                                                        <textarea required placeholder="Write Review"></textarea>
+                                                        <input name="workshop_id" value="<?php echo $workshop_id; ?>" hidden
+                                                            placeholder="">
+                                                        <input name="trainer_id" value="<?php echo $tid; ?>" hidden
+                                                            placeholder="">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="comment-field">
+                                                                <div class="rating">
+                                                                    <input type="radio" id="star5" name="rating"
+                                                                        value="5" /><label for="star5"
+                                                                        title="5 stars"></label>
+                                                                    <input type="radio" id="star4" name="rating"
+                                                                        value="4" /><label for="star4"
+                                                                        title="4 stars"></label>
+                                                                    <input type="radio" id="star3" name="rating"
+                                                                        value="3" /><label for="star3"
+                                                                        title="3 stars"></label>
+                                                                    <input type="radio" id="star2" name="rating"
+                                                                        value="2" /><label for="star2"
+                                                                        title="2 stars"></label>
+                                                                    <input type="radio" id="star1" name="rating"
+                                                                        value="1" /><label for="star1"
+                                                                        title="1 star"></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p class="form-submit">
+                                                        <button type="submit"
+                                                            class="btn btn-two arrow-btn no-exit-warn">Post Review <img
+                                                                src="assets/img/icons/right_arrow.svg" alt="img"
+                                                                class="injectable"></button>
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        <?php } ?>
+                                        <div class="course-rate">
+                                            <div class="course-rate__summary">
+                                                <div class="course-rate__summary-value">
+                                                    <?php echo number_format($average_rating, 1); ?>
+                                                </div>
+                                                <div class="course-rate__summary-stars">
+                                                    <?php for ($i = 0; $i < 5; $i++) {
+                                                        echo $i < $average_rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                                                    } ?>
+                                                </div>
+                                                <div class="course-rate__summary-text">
+                                                    <?php echo $total_reviews; ?> Ratings
                                                 </div>
                                             </div>
+                                            <div class="course-rate__details">
+                                                <?php foreach ($rating_counts as $star => $count) {
+                                                    $percentage = ($total_reviews > 0) ? ($count / $total_reviews) * 100 : 0;
+                                                    ?>
+                                                    <div class="course-rate__details-row">
+                                                        <div class="course-rate__details-row-star">
+                                                            <?php echo $star; ?>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                        <div class="course-rate__details-row-value">
+                                                            <div class="rating-gray"></div>
+                                                            <div class="rating" style="width:<?php echo $percentage; ?>%;"
+                                                                title="<?php echo $percentage; ?>%"></div>
+                                                            <span class="rating-count"><?php echo $count; ?></span>
+                                                        </div>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
                                         </div>
+
+                                        <?php foreach ($reviews as $review) { ?>
+                                            <div class="course-review-head">
+                                                <div class="review-author-thumb">
+                                                    <img src="<?php if ($review['icon'] == null) {
+                                                        echo "assets/user_icon.png";
+                                                    } else {
+                                                        echo $uri . $review['icon'];
+                                                    } ?>" alt="img">
+                                                </div>
+                                                <div class="review-author-content">
+                                                    <div class="author-name">
+                                                        <h5 class="name"><?php echo $review['user_name']; ?>
+                                                            <small class="workshop-name"
+                                                                style="font-size: 12px; color: #666; font-weight: normal;">
+                                                                on <?php echo $review['workshop_name']; ?></small>
+                                                            <span><?php echo time_elapsed_string($review['created_at']); ?></span>
+                                                        </h5>
+                                                        <div class="author-rating">
+                                                            <?php for ($i = 0; $i < 5; $i++) {
+                                                                echo $i < $review['rating'] ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                                                            } ?>
+                                                        </div>
+                                                    </div>
+                                                    <p><?php echo $review['comment']; ?></p>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
                                     </div>
-                                    <p class="form-submit">
-                                        <button type="submit" class="btn btn-two arrow-btn no-exit-warn">Post Review <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
-                                    </p>
-                                </form>
-                            </div>
-                            <?php } ?>
-        <div class="course-rate">
-            <div class="course-rate__summary">
-                <div class="course-rate__summary-value"><?php echo number_format($average_rating, 1); ?></div>
-                <div class="course-rate__summary-stars">
-                    <?php for ($i = 0; $i < 5; $i++) {
-                        echo $i < $average_rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
-                    } ?>
-                </div>
-                <div class="course-rate__summary-text">
-                    <?php echo $total_reviews; ?> Ratings
-                </div>
-            </div>
-            <div class="course-rate__details">
-                <?php foreach ($rating_counts as $star => $count) { 
-                    $percentage = ($total_reviews > 0) ? ($count / $total_reviews) * 100 : 0;
-                ?>
-                    <div class="course-rate__details-row">
-                        <div class="course-rate__details-row-star">
-                            <?php echo $star; ?>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="course-rate__details-row-value">
-                            <div class="rating-gray"></div>
-                            <div class="rating" style="width:<?php echo $percentage; ?>%;" title="<?php echo $percentage; ?>%"></div>
-                            <span class="rating-count"><?php echo $count; ?></span>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
+                                </div>
 
-        <?php foreach ($reviews as $review) { ?>
-            <div class="course-review-head">
-                <div class="review-author-thumb">
-                    <img src="<?php if($review['icon']==null){echo "assets/user_icon.png";}else{echo $uri.$review['icon']; } ?>" alt="img">
-                </div>
-                <div class="review-author-content">
-                    <div class="author-name">
-                        <h5 class="name"><?php echo $review['user_name']; ?> <span><?php echo time_elapsed_string($review['created_at']); ?></span></h5>
-                        <div class="author-rating">
-                            <?php for ($i = 0; $i < 5; $i++) {
-                                echo $i < $review['rating'] ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
-                            } ?>
-                        </div>
-                    </div>
-                    <h4 class="title">Student Review</h4> <!-- Adjust as needed -->
-                    <p><?php echo $review['comment']; ?></p>
-                </div>
-            </div>
-        <?php } ?>
-    </div>
-</div>
+                                <?php
+                                function time_elapsed_string($datetime, $full = false)
+                                {
+                                    $now = new DateTime;
+                                    $ago = new DateTime($datetime);
+                                    $diff = $now->diff($ago);
 
-<?php
-function time_elapsed_string($datetime, $full = false) {
-    $now = new DateTime;
-    $ago = new DateTime($datetime);
-    $diff = $now->diff($ago);
+                                    $diff->w = floor($diff->d / 7);
+                                    $diff->d -= $diff->w * 7;
 
-    $diff->w = floor($diff->d / 7);
-    $diff->d -= $diff->w * 7;
+                                    $string = array(
+                                        'y' => 'year',
+                                        'm' => 'month',
+                                        'w' => 'week',
+                                        'd' => 'day',
+                                        'h' => 'hour',
+                                        'i' => 'minute',
+                                        's' => 'second',
+                                    );
+                                    foreach ($string as $k => &$v) {
+                                        if ($diff->$k) {
+                                            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+                                        } else {
+                                            unset($string[$k]);
+                                        }
+                                    }
 
-    $string = array(
-        'y' => 'year',
-        'm' => 'month',
-        'w' => 'week',
-        'd' => 'day',
-        'h' => 'hour',
-        'i' => 'minute',
-        's' => 'second',
-    );
-    foreach ($string as $k => &$v) {
-        if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
-        } else {
-            unset($string[$k]);
-        }
-    }
-
-    if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' ago' : 'just now';
-}
-?>
+                                    if (!$full)
+                                        $string = array_slice($string, 0, 1);
+                                    return $string ? implode(', ', $string) . ' ago' : 'just now';
+                                }
+                                ?>
 
 
                             </div>
@@ -996,67 +1077,67 @@ function time_elapsed_string($datetime, $full = false) {
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('.comment-form');
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('.comment-form');
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
 
-        const textarea = form.querySelector('textarea');
-        const workshopInput = form.querySelector('input[name="workshop_id"]');
-        const trainerInput = form.querySelector('input[name="trainer_id"]');
-        
-        const rating = form.querySelector('input[name="rating"]:checked');
+                const textarea = form.querySelector('textarea');
+                const workshopInput = form.querySelector('input[name="workshop_id"]');
+                const trainerInput = form.querySelector('input[name="trainer_id"]');
 
-        if (!rating) {
-            alert('Please select a rating.');
-            return;
-        }
+                const rating = form.querySelector('input[name="rating"]:checked');
 
-        const reviewText = textarea.value.trim();
-        const selectedRating = rating.value;
-        const workshopId = workshopInput.value;
-        const trainerId = trainerInput.value;
+                if (!rating) {
+                    alert('Please select a rating.');
+                    return;
+                }
 
-        // Ensure workshopId is not empty
-        if (!workshopId) {
-            alert('Workshop ID is missing.');
-            return;
-        }
+                const reviewText = textarea.value.trim();
+                const selectedRating = rating.value;
+                const workshopId = workshopInput.value;
+                const trainerId = trainerInput.value;
 
-        // Here you can perform AJAX request to submit the review data
-        fetch('controller/review.php', {
-            method: 'POST',
-            body: JSON.stringify({ rating: selectedRating, review: reviewText, workshop_id: workshopId, trainer_id : trainerId }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Handle response
-            console.log(data);
-            alert('Review submitted successfully.');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('There was an error submitting your review.');
+                // Ensure workshopId is not empty
+                if (!workshopId) {
+                    alert('Workshop ID is missing.');
+                    return;
+                }
+
+                // Here you can perform AJAX request to submit the review data
+                fetch('controller/review.php', {
+                    method: 'POST',
+                    body: JSON.stringify({ rating: selectedRating, review: reviewText, workshop_id: workshopId, trainer_id: trainerId }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Handle response
+                        console.log(data);
+                        alert('Review submitted successfully.');
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('There was an error submitting your review.');
+                    });
+
+                // For demonstration purposes, alert the selected values
+                alert(`Rating: ${selectedRating}, Review: ${reviewText}`);
+
+                // Clear the textarea (optional)
+                textarea.value = '';
+                // Clear the selected rating (optional)
+                form.querySelectorAll('input[name="rating"]').forEach(input => input.checked = false);
+            });
         });
-
-        // For demonstration purposes, alert the selected values
-        alert(`Rating: ${selectedRating}, Review: ${reviewText}`);
-
-        // Clear the textarea (optional)
-        textarea.value = '';
-        // Clear the selected rating (optional)
-        form.querySelectorAll('input[name="rating"]').forEach(input => input.checked = false);
-    });
-});
 
     </script>
     <script>
@@ -1096,35 +1177,45 @@ function time_elapsed_string($datetime, $full = false) {
 
     <style>
         .exit-modal {
-            display: none; 
-            position: fixed; 
-            z-index: 10000; 
+            display: none;
+            position: fixed;
+            z-index: 10000;
             left: 0;
             top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgb(0,0,0); 
-            background-color: rgba(0,0,0,0.6); 
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(5px);
         }
+
         .exit-modal-content {
             background-color: #fefefe;
-            margin: 15% auto; 
+            margin: 15% auto;
             padding: 30px;
             border: 1px solid #888;
             width: 90%;
             max-width: 500px;
             text-align: center;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             position: relative;
             animation: slideDown 0.4s ease-out;
         }
+
         @keyframes slideDown {
-            from {top: -100px; opacity: 0;}
-            to {top: 0; opacity: 1;}
+            from {
+                top: -100px;
+                opacity: 0;
+            }
+
+            to {
+                top: 0;
+                opacity: 1;
+            }
         }
+
         .exit-close {
             color: #aaa;
             float: right;
@@ -1135,12 +1226,14 @@ function time_elapsed_string($datetime, $full = false) {
             right: 15px;
             cursor: pointer;
         }
+
         .exit-close:hover,
         .exit-close:focus {
             color: black;
             text-decoration: none;
             cursor: pointer;
         }
+
         .exit-modal p {
             color: #333;
             margin-bottom: 15px;
@@ -1148,14 +1241,14 @@ function time_elapsed_string($datetime, $full = false) {
     </style>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var purchased = <?php echo (isset($transaction) && isset($transaction['payment_id'])) ? 'true' : 'false'; ?>;
             var modal = document.getElementById("exitIntentModal");
             var span = document.getElementsByClassName("exit-close")[0];
             var stayBtn = document.getElementById("stayBtn");
 
             if (!purchased) {
-                document.addEventListener('mouseleave', function(e) {
+                document.addEventListener('mouseleave', function (e) {
                     if (e.clientY < 0) {
                         if (!sessionStorage.getItem('exitModalShown')) {
                             modal.style.display = "block";
@@ -1165,18 +1258,18 @@ function time_elapsed_string($datetime, $full = false) {
                 });
             }
 
-            if(span) {
-                span.onclick = function() {
+            if (span) {
+                span.onclick = function () {
                     modal.style.display = "none";
                 }
             }
-            if(stayBtn) {
-                stayBtn.onclick = function() {
+            if (stayBtn) {
+                stayBtn.onclick = function () {
                     modal.style.display = "none";
                 }
             }
 
-            window.onclick = function(event) {
+            window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                 }
